@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import {
     Plus, Trash2, Eye, EyeOff, ChevronLeft,
-    Youtube, Sparkles, Check, X, Loader2
+    Youtube, Sparkles, Check, X, Loader2, ShieldX
 } from "lucide-react";
 import {
     createContent,
@@ -15,6 +15,7 @@ import {
     getContentChallenges,
     deleteChallenge
 } from "@/lib/actions/admin";
+import { isAdmin } from "@/lib/auth/admin";
 
 // Admin 대시보드 페이지
 export default function AdminPage() {
@@ -37,11 +38,23 @@ export default function AdminPage() {
         answer_word: string;
         order_index: number;
     }>>([]);
+    const [hasAdminAccess, setHasAdminAccess] = useState<boolean | null>(null);
 
-    // 콘텐츠 목록 로드
+    // 관리자 권한 확인 및 콘텐츠 로드
     useEffect(() => {
-        loadContents();
+        checkAdminAndLoad();
     }, []);
+
+    const checkAdminAndLoad = async () => {
+        const adminCheck = await isAdmin();
+        setHasAdminAccess(adminCheck);
+
+        if (adminCheck) {
+            loadContents();
+        } else {
+            setIsLoading(false);
+        }
+    };
 
     const loadContents = async () => {
         setIsLoading(true);
@@ -84,6 +97,36 @@ export default function AdminPage() {
             setChallenges(prev => prev.filter(c => c.id !== challengeId));
         }
     };
+
+    // 관리자 권한이 없는 경우
+    if (hasAdminAccess === false) {
+        return (
+            <main className="min-h-screen flex items-center justify-center px-4">
+                <div className="card p-8 text-center max-w-md">
+                    <ShieldX className="w-16 h-16 mx-auto mb-6 text-[#EF4444]" />
+                    <h1 className="text-2xl font-bold text-white mb-2">Access Denied</h1>
+                    <p className="text-gray-400 mb-6">
+                        You don't have admin privileges to access this page.
+                    </p>
+                    <Link
+                        href="/"
+                        className="btn-primary px-6 py-3 text-white font-medium inline-block"
+                    >
+                        Go Home
+                    </Link>
+                </div>
+            </main>
+        );
+    }
+
+    // 권한 확인 중
+    if (hasAdminAccess === null) {
+        return (
+            <main className="min-h-screen flex items-center justify-center">
+                <Loader2 className="w-8 h-8 text-[#FF007F] animate-spin" />
+            </main>
+        );
+    }
 
     return (
         <main className="min-h-screen py-6 md:py-8 px-4 md:px-6">
@@ -172,8 +215,8 @@ export default function AdminPage() {
 
                                     <div className="flex items-center gap-2">
                                         <span className={`px-2 py-1 rounded-full text-xs ${content.difficulty === "easy" ? "bg-[#22C55E]/20 text-[#22C55E]" :
-                                                content.difficulty === "normal" ? "bg-[#F59E0B]/20 text-[#F59E0B]" :
-                                                    "bg-[#EF4444]/20 text-[#EF4444]"
+                                            content.difficulty === "normal" ? "bg-[#F59E0B]/20 text-[#F59E0B]" :
+                                                "bg-[#EF4444]/20 text-[#EF4444]"
                                             }`}>
                                             {content.difficulty}
                                         </span>
@@ -181,8 +224,8 @@ export default function AdminPage() {
                                         <button
                                             onClick={() => handleTogglePublish(content.id)}
                                             className={`p-2 rounded-lg transition-colors ${content.is_published
-                                                    ? "bg-[#22C55E]/20 text-[#22C55E]"
-                                                    : "bg-gray-500/20 text-gray-400"
+                                                ? "bg-[#22C55E]/20 text-[#22C55E]"
+                                                : "bg-gray-500/20 text-gray-400"
                                                 }`}
                                             title={content.is_published ? "Unpublish" : "Publish"}
                                         >
@@ -396,10 +439,10 @@ function AddContentModal({
                                     type="button"
                                     onClick={() => setFormData(prev => ({ ...prev, difficulty: level }))}
                                     className={`flex-1 py-2 rounded-lg capitalize transition-colors ${formData.difficulty === level
-                                            ? level === "easy" ? "bg-[#22C55E] text-white" :
-                                                level === "normal" ? "bg-[#F59E0B] text-white" :
-                                                    "bg-[#EF4444] text-white"
-                                            : "bg-white/10 text-gray-400"
+                                        ? level === "easy" ? "bg-[#22C55E] text-white" :
+                                            level === "normal" ? "bg-[#F59E0B] text-white" :
+                                                "bg-[#EF4444] text-white"
+                                        : "bg-white/10 text-gray-400"
                                         }`}
                                 >
                                     {level}

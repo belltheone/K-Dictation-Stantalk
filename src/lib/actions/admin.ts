@@ -3,6 +3,7 @@
 // Admin 관련 Server Actions - 콘텐츠 등록 및 관리
 import { createClient } from "@/lib/supabase/server";
 import { generateChallengesFromTranscript } from "@/lib/ai/openai";
+import { isAdmin } from "@/lib/auth/admin";
 
 // 콘텐츠 생성 입력 타입
 interface CreateContentInput {
@@ -16,13 +17,13 @@ interface CreateContentInput {
 
 // 새 콘텐츠 등록
 export async function createContent(input: CreateContentInput) {
-    const supabase = await createClient();
-
-    // 관리자 권한 확인 (추후 구현)
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) {
-        return { success: false, error: "Unauthorized" };
+    // 관리자 권한 확인
+    const adminCheck = await isAdmin();
+    if (!adminCheck) {
+        return { success: false, error: "Admin access required" };
     }
+
+    const supabase = await createClient();
 
     // 콘텐츠 생성
     const { data: content, error } = await supabase
