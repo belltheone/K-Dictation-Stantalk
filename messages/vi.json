@@ -1,0 +1,112 @@
+{
+    "common": {
+        "loading": "Đang tải...",
+        "error": "Đã xảy ra lỗi",
+        "retry": "Thử lại",
+        "save": "Lưu",
+        "cancel": "Hủy",
+        "confirm": "Xác nhận",
+        "back": "Quay lại",
+        "next": "Tiếp theo",
+        "previous": "Trước đó",
+        "close": "Đóng"
+    },
+    "landing": {
+        "title1": "Muốn hiểu",
+        "title2": "idol yêu thích",
+        "title3": "của bạn?",
+        "subtitle": "Cách học tiếng Hàn gây nghiện nhất qua K-Pop & K-Drama!",
+        "description": "Luyện nghe chép với video idol thực tế và nâng cao kỹ năng tiếng Hàn của bạn.",
+        "startButton": "Bắt đầu ngay",
+        "demoButton": "Xem demo",
+        "joinButton": "Tham gia Fandom",
+        "features": {
+            "title": "Tại sao chọn K-Dictation?",
+            "realContent": {
+                "title": "Real Content",
+                "description": "Học từ livestream và chương trình giải trí thực tế của idol, không phải bài tập trong sách."
+            },
+            "gamification": {
+                "title": "Gamification",
+                "description": "Kiếm XP, duy trì streak, sưu tập card! Vui như chơi game, không phải học."
+            },
+            "instantAccess": {
+                "title": "Instant Access",
+                "description": "Không cần cài app. Click link là chơi được ngay."
+            }
+        },
+        "cta": {
+            "title": "Sẵn sàng trở thành K-Expert chưa?",
+            "description": "Bắt đầu miễn phí và hiểu idol của bạn hoàn hảo!",
+            "button": "Bắt đầu học ngay"
+        },
+        "footer": {
+            "copyright": "© 2024 K-Dictation : Stantalk. All rights reserved.",
+            "madeWith": "Được tạo với 💖 cho fan K-Pop trên toàn thế giới"
+        }
+    },
+    "learn": {
+        "header": "Bạn muốn nghe ai? 🎧",
+        "subtitle": "Chọn nghệ sĩ yêu thích và bắt đầu nghe chép!",
+        "contents": "nội dung",
+        "randomChallenge": {
+            "title": "Muốn bắt đầu ngay?",
+            "description": "Thử thách ngẫu nhiên hôm nay!",
+            "button": "Random Challenge"
+        },
+        "artistList": "Danh sách nghệ sĩ",
+        "totalXP": "XP có thể nhận"
+    },
+    "player": {
+        "loading": "Đang đợi Oppa... 🎤",
+        "fillBlank": "Điền vào chỗ trống!",
+        "inputPlaceholder": "Nhập câu trả lời ở đây...",
+        "checkAnswer": "Kiểm tra đáp án",
+        "hint": "Gợi ý",
+        "success": {
+            "title": "Daebak! 🎉",
+            "answer": "Đáp án",
+            "next": "Thử thách tiếp theo →"
+        },
+        "fail": {
+            "title": "Oops!",
+            "tryAgain": "Thử lại nào!",
+            "gwenchana": "Gwenchana (Không sao)"
+        },
+        "controls": {
+            "play": "Phát",
+            "pause": "Tạm dừng",
+            "replay": "Phát lại"
+        }
+    },
+    "dashboard": {
+        "title": "Bảng điều khiển của tôi",
+        "continueButton": "Tiếp tục học",
+        "stats": {
+            "totalXP": "Tổng XP",
+            "longestStreak": "Streak dài nhất",
+            "savedWords": "Từ đã lưu",
+            "completedChallenges": "Đã hoàn thành"
+        },
+        "streak": "ngày liên tiếp",
+        "level": "Cấp độ",
+        "nextLevel": "Đến cấp tiếp theo",
+        "weeklyActivity": "Hoạt động tuần này",
+        "recentActivity": "Hoạt động gần đây",
+        "seeMore": "Xem thêm"
+    },
+    "difficulty": {
+        "easy": "Dễ",
+        "normal": "Trung bình",
+        "hard": "Khó"
+    },
+    "language": {
+        "select": "Ngôn ngữ",
+        "en": "English",
+        "ko": "한국어",
+        "ja": "日本語",
+        "zh": "中文",
+        "th": "ไทย",
+        "vi": "Tiếng Việt"
+    }
+}

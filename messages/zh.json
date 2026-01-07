@@ -1,0 +1,112 @@
+{
+    "common": {
+        "loading": "加载中...",
+        "error": "发生错误",
+        "retry": "重试",
+        "save": "保存",
+        "cancel": "取消",
+        "confirm": "确认",
+        "back": "返回",
+        "next": "下一步",
+        "previous": "上一步",
+        "close": "关闭"
+    },
+    "landing": {
+        "title1": "想要听懂",
+        "title2": "你的爱豆",
+        "title3": "说的话吗？",
+        "subtitle": "通过K-Pop和K-Drama学习韩语的最上瘾方式！",
+        "description": "用真实的偶像视频练习听写，提升你的韩语水平。",
+        "startButton": "立即开始",
+        "demoButton": "观看演示",
+        "joinButton": "加入粉丝团",
+        "features": {
+            "title": "为什么选择 K-Dictation？",
+            "realContent": {
+                "title": "Real Content",
+                "description": "不是教科书例句，而是用真实的偶像直播和综艺节目来学习。"
+            },
+            "gamification": {
+                "title": "Gamification",
+                "description": "获得XP、保持连续打卡、收集卡片！像玩游戏一样享受学习。"
+            },
+            "instantAccess": {
+                "title": "Instant Access",
+                "description": "无需安装应用。点击链接即可立即开始。"
+            }
+        },
+        "cta": {
+            "title": "准备好成为K-Expert了吗？",
+            "description": "免费开始，完美理解你爱豆说的话！",
+            "button": "立即开始学习"
+        },
+        "footer": {
+            "copyright": "© 2024 K-Dictation : Stantalk. All rights reserved.",
+            "madeWith": "为全世界的K-Pop粉丝用💖制作"
+        }
+    },
+    "learn": {
+        "header": "想听谁的话？🎧",
+        "subtitle": "选择你喜欢的艺人，开始听写！",
+        "contents": "个内容",
+        "randomChallenge": {
+            "title": "想立即开始？",
+            "description": "挑战今日随机挑战！",
+            "button": "Random Challenge"
+        },
+        "artistList": "艺人列表",
+        "totalXP": "可获得的XP"
+    },
+    "player": {
+        "loading": "等待欧巴中... 🎤",
+        "fillBlank": "请填写空白处！",
+        "inputPlaceholder": "在这里输入...",
+        "checkAnswer": "检查答案",
+        "hint": "提示",
+        "success": {
+            "title": "大发！🎉",
+            "answer": "答案",
+            "next": "下一个挑战 →"
+        },
+        "fail": {
+            "title": "哎呀！",
+            "tryAgain": "再试一次！",
+            "gwenchana": "Gwenchana（没关系）"
+        },
+        "controls": {
+            "play": "播放",
+            "pause": "暂停",
+            "replay": "重新播放"
+        }
+    },
+    "dashboard": {
+        "title": "我的仪表板",
+        "continueButton": "继续学习",
+        "stats": {
+            "totalXP": "总XP",
+            "longestStreak": "最长连续",
+            "savedWords": "保存的单词",
+            "completedChallenges": "完成的挑战"
+        },
+        "streak": "天连续",
+        "level": "等级",
+        "nextLevel": "距离下一级",
+        "weeklyActivity": "本周活动",
+        "recentActivity": "最近活动",
+        "seeMore": "查看更多"
+    },
+    "difficulty": {
+        "easy": "简单",
+        "normal": "普通",
+        "hard": "困难"
+    },
+    "language": {
+        "select": "语言",
+        "en": "English",
+        "ko": "한국어",
+        "ja": "日本語",
+        "zh": "中文",
+        "th": "ไทย",
+        "vi": "Tiếng Việt"
+    }
+}

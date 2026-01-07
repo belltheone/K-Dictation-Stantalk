@@ -1,0 +1,112 @@
+{
+    "common": {
+        "loading": "로딩 중...",
+        "error": "오류가 발생했습니다",
+        "retry": "다시 시도",
+        "save": "저장",
+        "cancel": "취소",
+        "confirm": "확인",
+        "back": "뒤로",
+        "next": "다음",
+        "previous": "이전",
+        "close": "닫기"
+    },
+    "landing": {
+        "title1": "내",
+        "title2": "최애",
+        "title3": "의 말을 알아듣고 싶다면?",
+        "subtitle": "K-Pop과 K-Drama로 한국어를 배우는 가장 중독적인 방법!",
+        "description": "실제 아이돌 영상으로 받아쓰기하며 한국어 실력을 키워보세요.",
+        "startButton": "지금 시작하기",
+        "demoButton": "데모 보기",
+        "joinButton": "팬덤 가입하기",
+        "features": {
+            "title": "왜 K-Dictation인가요?",
+            "realContent": {
+                "title": "Real Content",
+                "description": "교과서 예문이 아닌 실제 아이돌의 라이브 방송, 예능 클립으로 학습해요."
+            },
+            "gamification": {
+                "title": "Gamification",
+                "description": "XP 획득, 스트릭 유지, 카드 수집! 공부가 아닌 게임처럼 즐겨요."
+            },
+            "instantAccess": {
+                "title": "Instant Access",
+                "description": "앱 설치 없이 링크 클릭 즉시! 어디서든 바로 플레이 가능해요."
+            }
+        },
+        "cta": {
+            "title": "K-Expert가 될 준비 되셨나요?",
+            "description": "무료로 시작하고, 내 최애의 말을 완벽히 알아들어 보세요!",
+            "button": "지금 학습 시작"
+        },
+        "footer": {
+            "copyright": "© 2024 K-Dictation : Stantalk. All rights reserved.",
+            "madeWith": "전 세계 K-Pop 팬들을 위해 💖로 만들었습니다"
+        }
+    },
+    "learn": {
+        "header": "누구의 말을 들어볼까요? 🎧",
+        "subtitle": "좋아하는 아티스트를 선택하고 받아쓰기를 시작하세요!",
+        "contents": "개의 콘텐츠",
+        "randomChallenge": {
+            "title": "바로 시작하고 싶다면?",
+            "description": "오늘의 랜덤 챌린지에 도전해보세요!",
+            "button": "Random Challenge"
+        },
+        "artistList": "아티스트 목록",
+        "totalXP": "XP 획득 가능"
+    },
+    "player": {
+        "loading": "오빠 기다리는 중... 🎤",
+        "fillBlank": "빈칸에 들어갈 말을 받아쓰세요!",
+        "inputPlaceholder": "여기에 입력하세요...",
+        "checkAnswer": "정답 확인",
+        "hint": "힌트",
+        "success": {
+            "title": "대박! 🎉",
+            "answer": "정답",
+            "next": "다음 챌린지 →"
+        },
+        "fail": {
+            "title": "이런!",
+            "tryAgain": "한 번 더!",
+            "gwenchana": "괜찮아요"
+        },
+        "controls": {
+            "play": "재생",
+            "pause": "일시정지",
+            "replay": "다시 듣기"
+        }
+    },
+    "dashboard": {
+        "title": "내 대시보드",
+        "continueButton": "계속 학습하기",
+        "stats": {
+            "totalXP": "총 XP",
+            "longestStreak": "최장 연속",
+            "savedWords": "저장한 단어",
+            "completedChallenges": "완료한 챌린지"
+        },
+        "streak": "일 연속",
+        "level": "레벨",
+        "nextLevel": "다음 레벨까지",
+        "weeklyActivity": "이번 주 활동",
+        "recentActivity": "최근 활동",
+        "seeMore": "더 보기"
+    },
+    "difficulty": {
+        "easy": "쉬움",
+        "normal": "보통",
+        "hard": "어려움"
+    },
+    "language": {
+        "select": "언어",
+        "en": "English",
+        "ko": "한국어",
+        "ja": "日本語",
+        "zh": "中文",
+        "th": "ไทย",
+        "vi": "Tiếng Việt"
+    }
+}

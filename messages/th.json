@@ -1,0 +1,112 @@
+{
+    "common": {
+        "loading": "กำลังโหลด...",
+        "error": "เกิดข้อผิดพลาด",
+        "retry": "ลองอีกครั้ง",
+        "save": "บันทึก",
+        "cancel": "ยกเลิก",
+        "confirm": "ยืนยัน",
+        "back": "กลับ",
+        "next": "ถัดไป",
+        "previous": "ก่อนหน้า",
+        "close": "ปิด"
+    },
+    "landing": {
+        "title1": "อยากเข้าใจ",
+        "title2": "ไอดอลที่รัก",
+        "title3": "ของคุณไหม?",
+        "subtitle": "วิธีเรียนภาษาเกาหลีที่เสพติดที่สุดผ่าน K-Pop และ K-Drama!",
+        "description": "ฝึกเขียนตามคำบอกกับวิดีโอไอดอลจริงและพัฒนาทักษะภาษาเกาหลีของคุณ",
+        "startButton": "เริ่มเรียนเลย",
+        "demoButton": "ดูตัวอย่าง",
+        "joinButton": "เข้าร่วมแฟนด้อม",
+        "features": {
+            "title": "ทำไมต้อง K-Dictation?",
+            "realContent": {
+                "title": "Real Content",
+                "description": "เรียนจากไลฟ์และรายการวาไรตี้จริงๆ ของไอดอล ไม่ใช่ตัวอย่างในตำราเรียน"
+            },
+            "gamification": {
+                "title": "Gamification",
+                "description": "รับ XP รักษาสตรีค สะสมการ์ด! สนุกเหมือนเล่นเกม ไม่ใช่เรียนหนังสือ"
+            },
+            "instantAccess": {
+                "title": "Instant Access",
+                "description": "ไม่ต้องติดตั้งแอป คลิกลิงก์ก็เล่นได้เลย"
+            }
+        },
+        "cta": {
+            "title": "พร้อมเป็น K-Expert หรือยัง?",
+            "description": "เริ่มฟรีและเข้าใจไอดอลที่รักของคุณอย่างสมบูรณ์!",
+            "button": "เริ่มเรียนเลย"
+        },
+        "footer": {
+            "copyright": "© 2024 K-Dictation : Stantalk. All rights reserved.",
+            "madeWith": "สร้างด้วย 💖 สำหรับแฟน K-Pop ทั่วโลก"
+        }
+    },
+    "learn": {
+        "header": "อยากฟังใครพูด? 🎧",
+        "subtitle": "เลือกศิลปินที่ชอบและเริ่มเขียนตามคำบอก!",
+        "contents": "เนื้อหา",
+        "randomChallenge": {
+            "title": "อยากเริ่มเลยไหม?",
+            "description": "ลองความท้าทายสุ่มวันนี้!",
+            "button": "Random Challenge"
+        },
+        "artistList": "รายชื่อศิลปิน",
+        "totalXP": "XP ที่รับได้"
+    },
+    "player": {
+        "loading": "รอโอปป้าอยู่... 🎤",
+        "fillBlank": "เติมคำในช่องว่าง!",
+        "inputPlaceholder": "พิมพ์คำตอบที่นี่...",
+        "checkAnswer": "ตรวจคำตอบ",
+        "hint": "คำใบ้",
+        "success": {
+            "title": "แดบัก! 🎉",
+            "answer": "คำตอบ",
+            "next": "ความท้าทายถัดไป →"
+        },
+        "fail": {
+            "title": "อุ๊ย!",
+            "tryAgain": "ลองอีกครั้ง!",
+            "gwenchana": "กเวนชานา (ไม่เป็นไร)"
+        },
+        "controls": {
+            "play": "เล่น",
+            "pause": "หยุดชั่วคราว",
+            "replay": "เล่นซ้ำ"
+        }
+    },
+    "dashboard": {
+        "title": "แดชบอร์ดของฉัน",
+        "continueButton": "เรียนต่อ",
+        "stats": {
+            "totalXP": "XP ทั้งหมด",
+            "longestStreak": "สตรีคยาวสุด",
+            "savedWords": "คำที่บันทึก",
+            "completedChallenges": "เสร็จแล้ว"
+        },
+        "streak": "วันติดต่อกัน",
+        "level": "เลเวล",
+        "nextLevel": "ถึงเลเวลถัดไป",
+        "weeklyActivity": "กิจกรรมสัปดาห์นี้",
+        "recentActivity": "กิจกรรมล่าสุด",
+        "seeMore": "ดูเพิ่มเติม"
+    },
+    "difficulty": {
+        "easy": "ง่าย",
+        "normal": "ปานกลาง",
+        "hard": "ยาก"
+    },
+    "language": {
+        "select": "ภาษา",
+        "en": "English",
+        "ko": "한국어",
+        "ja": "日本語",
+        "zh": "中文",
+        "th": "ไทย",
+        "vi": "Tiếng Việt"
+    }
+}
