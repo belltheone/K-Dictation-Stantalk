@@ -1,14 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Play, Flame, Trophy, Star } from "lucide-react";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
+import { LoginModal } from "@/components/auth/LoginModal";
 
 // 랜딩 페이지 - 마케팅용, 모바일 퍼스트 디자인
 export default function LandingPage() {
     const t = useTranslations();
+    const [isLoginOpen, setIsLoginOpen] = useState(false);
 
     return (
         <main className="min-h-screen relative overflow-hidden">
@@ -39,12 +42,12 @@ export default function LandingPage() {
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                         >
-                            <Link
-                                href="/learn"
+                            <button
+                                onClick={() => setIsLoginOpen(true)}
                                 className="btn-primary px-3 md:px-6 py-1.5 md:py-2 text-white font-semibold text-xs md:text-sm"
                             >
                                 {t("landing.joinButton")}
-                            </Link>
+                            </button>
                         </motion.div>
                     </div>
                 </div>
@@ -198,6 +201,9 @@ export default function LandingPage() {
                     </Link>
                 </motion.div>
             </section>
+
+            {/* 로그인 모달 */}
+            <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
 
             {/* 푸터 */}
             <footer className="py-6 md:py-8 px-4 md:px-6 border-t border-white/10">
