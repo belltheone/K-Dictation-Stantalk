@@ -8,6 +8,7 @@ import {
     ChevronRight, Play, TrendingUp
 } from "lucide-react";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
+import { AdminButton } from "@/components/admin/AdminButton";
 
 // 대시보드 (마이 페이지) - 모바일 퍼스트
 export default function DashboardPage() {
@@ -56,6 +57,7 @@ export default function DashboardPage() {
                     </Link>
 
                     <div className="flex items-center gap-2 md:gap-4">
+                        <AdminButton />
                         <LanguageSwitcher />
                         <Link
                             href="/learn"

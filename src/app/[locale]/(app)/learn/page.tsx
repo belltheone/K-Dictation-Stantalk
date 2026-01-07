@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Play, ChevronRight, Flame, Star } from "lucide-react";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
+import { AdminButton } from "@/components/admin/AdminButton";
 
 // 학습 콘텐츠 목록 페이지 - 모바일 퍼스트 디자인
 export default function LearnPage() {
@@ -32,7 +33,7 @@ export default function LearnPage() {
                     </Link>
 
                     {/* 사용자 스탯 및 언어 선택 */}
-                    <div className="flex items-center gap-3 md:gap-6">
+                    <div className="flex items-center gap-2 md:gap-4">
                         <div className="flex items-center gap-1 md:gap-2 text-[#22C55E]">
                             <Flame className="w-4 h-4 md:w-5 md:h-5" />
                             <span className="font-bold text-sm md:text-base">3</span>
@@ -41,6 +42,7 @@ export default function LearnPage() {
                             <Star className="w-4 h-4 md:w-5 md:h-5" />
                             <span className="font-bold text-sm md:text-base">150 XP</span>
                         </div>
+                        <AdminButton />
                         <LanguageSwitcher />
                     </div>
                 </div>
