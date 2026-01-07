@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+/* K-Dictation : Stantalk - K-Pop 네온 테마 스타일 */
+
+:root {
+  /* 배경색 - 딥 네이비 블루 */
+  --background: #020617;
+  --background-card: #0f172a;
+  --foreground: #ededed;
+  
+  /* 브랜드 컬러 */
+  --hot-pink: #FF007F;
+  --electric-purple: #7C3AED;
+  --neon-cyan: #00F0FF;
+  
+  /* 의미론적 컬러 */
+  --success: #22C55E;
+  --error: #EF4444;
+  --warning: #F59E0B;
+}
+
+@theme inline {
+  /* 테마 변수 설정 */
+  --color-background: var(--background);
+  --color-background-card: var(--background-card);
+  --color-foreground: var(--foreground);
+  
+  --color-hot-pink: var(--hot-pink);
+  --color-electric-purple: var(--electric-purple);
+  --color-neon-cyan: var(--neon-cyan);
+  
+  --color-success: var(--success);
+  --color-error: var(--error);
+  --color-warning: var(--warning);
+  
+  /* 폰트 설정 */
+  --font-sans: var(--font-pretendard), var(--font-inter);
+  --font-heading: var(--font-montserrat);
+}
+
+/* 글로벌 스타일 */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Pretendard Variable', 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+/* 글래스모피즘 효과 */
+.glass {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 네온 그로우 효과 */
+.neon-glow {
+  box-shadow: 0 0 20px rgba(255, 0, 127, 0.5);
+}
+
+.neon-glow-purple {
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+}
+
+.neon-glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+}
+
+/* 버튼 애니메이션 */
+.btn-primary {
+  background: linear-gradient(135deg, var(--hot-pink), var(--electric-purple));
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 0, 127, 0.6);
+}
+
+.btn-primary:active {
+  transform: scale(0.95);
+}
+
+/* 카드 스타일 */
+.card {
+  background: var(--background-card);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 입력 필드 스타일 */
+.input-field {
+  background: rgba(15, 23, 42, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: var(--hot-pink);
+  box-shadow: 0 0 0 4px rgba(255, 0, 127, 0.2);
+  outline: none;
+}
+
+/* 흔들림 애니메이션 (오답 시) */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* 파형 애니메이션 */
+@keyframes wave {
+  0%, 100% { height: 20%; }
+  50% { height: 100%; }
+}
+
+/* 스트릭 불꽃 펄스 애니메이션 */
+@keyframes pulse-fire {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.animate-pulse-fire {
+  animation: pulse-fire 1s ease-in-out infinite;
+}
+
+/* 스크롤바 스타일링 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--electric-purple);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hot-pink);
+}
