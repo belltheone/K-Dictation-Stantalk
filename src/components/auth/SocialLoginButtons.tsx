@@ -53,6 +53,7 @@ export function SocialLoginButtons({ onClose }: SocialLoginButtonsProps) {
             ),
             bgColor: "bg-white hover:bg-gray-100",
             textColor: "text-gray-700",
+            disabled: false,
         },
         {
             id: "x" as Provider,
@@ -62,8 +63,9 @@ export function SocialLoginButtons({ onClose }: SocialLoginButtonsProps) {
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
             ),
-            bgColor: "bg-black hover:bg-gray-900",
-            textColor: "text-white",
+            bgColor: "bg-black/50",
+            textColor: "text-gray-400",
+            disabled: true, // Coming Soon
         },
     ];
 
@@ -72,11 +74,11 @@ export function SocialLoginButtons({ onClose }: SocialLoginButtonsProps) {
             {providers.map((provider) => (
                 <motion.button
                     key={provider.id}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => handleLogin(provider.id)}
-                    disabled={isLoading !== null}
-                    className={`w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors ${provider.bgColor} ${provider.textColor} disabled:opacity-50 disabled:cursor-not-allowed`}
+                    whileHover={!provider.disabled ? { scale: 1.02 } : {}}
+                    whileTap={!provider.disabled ? { scale: 0.98 } : {}}
+                    onClick={() => !provider.disabled && handleLogin(provider.id)}
+                    disabled={isLoading !== null || provider.disabled}
+                    className={`w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors ${provider.bgColor} ${provider.textColor} disabled:opacity-50 disabled:cursor-not-allowed relative`}
                 >
                     {isLoading === provider.id ? (
                         <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin" />
@@ -84,8 +86,14 @@ export function SocialLoginButtons({ onClose }: SocialLoginButtonsProps) {
                         provider.icon
                     )}
                     <span>Continue with {provider.name}</span>
+                    {provider.disabled && (
+                        <span className="absolute right-3 text-xs bg-gray-700 px-2 py-0.5 rounded-full">
+                            Coming Soon
+                        </span>
+                    )}
                 </motion.button>
             ))}
         </div>
     );
 }
+

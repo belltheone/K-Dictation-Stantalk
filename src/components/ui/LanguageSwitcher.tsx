@@ -35,11 +35,11 @@ export function LanguageSwitcher() {
         <div className="relative">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-1 md:gap-2 px-2 md:px-3 py-1.5 md:py-2 rounded-full border border-white/20 hover:border-[#7C3AED] transition-colors text-sm"
+                className="flex items-center gap-1 md:gap-2 px-3 py-1.5 md:py-2 rounded-full border border-zinc-700 bg-zinc-800/50 hover:bg-zinc-800 hover:border-violet-500 transition-all text-sm group"
             >
-                <Globe className="w-4 h-4 text-gray-400" />
-                <span className="hidden sm:inline text-gray-300">{languageFlags[locale]}</span>
-                <ChevronDown className={`w-3 h-3 md:w-4 md:h-4 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                <Globe className="w-4 h-4 text-zinc-400 group-hover:text-violet-400 transition-colors" />
+                <span className="hidden sm:inline text-zinc-300 font-medium">{languageFlags[locale]}</span>
+                <ChevronDown className={`w-3 h-3 md:w-4 md:h-4 text-zinc-500 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
             </button>
 
             <AnimatePresence>
@@ -56,14 +56,14 @@ export function LanguageSwitcher() {
                             initial={{ opacity: 0, y: -10, scale: 0.95 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                            transition={{ duration: 0.15 }}
-                            className="absolute right-0 mt-2 w-40 md:w-48 py-2 rounded-xl glass border border-white/10 shadow-xl z-50"
+                            transition={{ duration: 0.2, ease: "easeOut" }}
+                            className="absolute right-0 mt-2 w-40 md:w-48 py-2 rounded-xl glass-card border border-zinc-700/50 shadow-2xl z-50 overflow-hidden"
                         >
                             {locales.map((loc) => (
                                 <button
                                     key={loc}
                                     onClick={() => handleLanguageChange(loc)}
-                                    className={`w-full px-4 py-2 text-left flex items-center gap-3 hover:bg-white/10 transition-colors ${locale === loc ? 'text-[#FF007F]' : 'text-gray-300'
+                                    className={`w-full px-4 py-2.5 text-left flex items-center gap-3 hover:bg-white/5 transition-colors ${locale === loc ? 'text-rose-500 font-medium bg-rose-500/5' : 'text-zinc-400'
                                         }`}
                                 >
                                     <span className="text-lg">{languageFlags[loc]}</span>

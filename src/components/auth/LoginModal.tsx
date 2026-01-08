@@ -101,7 +101,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={resetModal}
-                        className="fixed inset-0 bg-black/70 z-50"
+                        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50"
                     />
 
                     {/* 모달 */}
@@ -111,36 +111,36 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
                         className="fixed inset-0 z-50 flex items-center justify-center p-4"
                     >
-                        <div className="card p-6 md:p-8 w-full max-w-md relative">
+                        <div className="card glass-card p-6 md:p-8 w-full max-w-md relative border border-white/10 shadow-2xl">
                             {/* 닫기/뒤로가기 버튼 */}
                             <div className="absolute top-4 left-4 right-4 flex justify-between">
                                 {mode !== "social" ? (
                                     <button
                                         onClick={() => { setMode("social"); setMessage(null); }}
-                                        className="p-2 rounded-full hover:bg-white/10 transition-colors"
+                                        className="p-2 rounded-full hover:bg-white/10 transition-colors text-zinc-400 hover:text-white"
                                     >
-                                        <ArrowLeft className="w-5 h-5 text-gray-400" />
+                                        <ArrowLeft className="w-5 h-5" />
                                     </button>
                                 ) : (
                                     <div />
                                 )}
                                 <button
                                     onClick={resetModal}
-                                    className="p-2 rounded-full hover:bg-white/10 transition-colors"
+                                    className="p-2 rounded-full hover:bg-white/10 transition-colors text-zinc-400 hover:text-white"
                                 >
-                                    <X className="w-5 h-5 text-gray-400" />
+                                    <X className="w-5 h-5" />
                                 </button>
                             </div>
 
                             {/* 헤더 */}
-                            <div className="text-center mb-6 mt-4">
+                            <div className="text-center mb-8 mt-4">
                                 <h2 className="text-2xl font-bold text-white mb-2">
                                     {mode === "social" && "Join the Fandom 🎤"}
                                     {mode === "email" && "Magic Link ✨"}
                                     {mode === "password" && "Sign In 🔐"}
                                     {mode === "signup" && "Create Account 🚀"}
                                 </h2>
-                                <p className="text-gray-400 text-sm">
+                                <p className="text-zinc-400 text-sm">
                                     {mode === "social" && "Sign in to save your progress!"}
                                     {mode === "email" && "We'll send a login link to your email"}
                                     {mode === "password" && "Enter your email and password"}
@@ -151,8 +151,8 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                             {/* 메시지 */}
                             {message && (
                                 <div className={`mb-4 p-3 rounded-lg text-sm text-center ${message.type === "success"
-                                        ? "bg-green-500/20 text-green-400"
-                                        : "bg-red-500/20 text-red-400"
+                                    ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                                    : "bg-rose-500/10 text-rose-400 border border-rose-500/20"
                                     }`}>
                                     {message.text}
                                 </div>
@@ -168,21 +168,21 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                                             <div className="w-full border-t border-white/10" />
                                         </div>
                                         <div className="relative flex justify-center text-sm">
-                                            <span className="px-4 bg-[#0A0F1C] text-gray-400">or</span>
+                                            <span className="px-4 bg-[#18181b] text-zinc-500">or</span>
                                         </div>
                                     </div>
 
-                                    <div className="space-y-2">
+                                    <div className="space-y-3">
                                         <button
                                             onClick={() => setMode("email")}
-                                            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#FF007F]/10 border border-[#FF007F]/30 text-[#FF007F] hover:bg-[#FF007F]/20 transition-colors"
+                                            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-500 hover:bg-rose-500/20 transition-all font-medium"
                                         >
                                             <Mail className="w-5 h-5" />
                                             Continue with Email
                                         </button>
                                         <button
                                             onClick={() => setMode("password")}
-                                            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-gray-300 hover:bg-white/10 transition-colors"
+                                            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-zinc-300 hover:bg-white/10 transition-colors font-medium"
                                         >
                                             <Lock className="w-5 h-5" />
                                             Sign in with Password
@@ -199,13 +199,13 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         placeholder="your@email.com"
-                                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:outline-none focus:border-[#FF007F]/50"
+                                        className="input-field w-full px-4 py-3"
                                         required
                                     />
                                     <button
                                         type="submit"
                                         disabled={isLoading}
-                                        className="w-full py-3 rounded-xl bg-gradient-to-r from-[#FF007F] to-[#7C3AED] text-white font-semibold disabled:opacity-50 flex items-center justify-center gap-2"
+                                        className="btn-primary w-full py-3 text-white font-bold disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg shadow-rose-500/20"
                                     >
                                         {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Mail className="w-5 h-5" />}
                                         Send Magic Link
@@ -221,7 +221,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         placeholder="your@email.com"
-                                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:outline-none focus:border-[#FF007F]/50"
+                                        className="input-field w-full px-4 py-3"
                                         required
                                     />
                                     <input
@@ -229,13 +229,13 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         placeholder="Password"
-                                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:outline-none focus:border-[#FF007F]/50"
+                                        className="input-field w-full px-4 py-3"
                                         required
                                     />
                                     <button
                                         type="submit"
                                         disabled={isLoading}
-                                        className="w-full py-3 rounded-xl bg-gradient-to-r from-[#FF007F] to-[#7C3AED] text-white font-semibold disabled:opacity-50 flex items-center justify-center gap-2"
+                                        className="btn-primary w-full py-3 text-white font-bold disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg shadow-rose-500/20"
                                     >
                                         {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : null}
                                         Sign In
@@ -243,9 +243,9 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                                     <button
                                         type="button"
                                         onClick={() => setMode("signup")}
-                                        className="w-full text-center text-gray-400 text-sm hover:text-white"
+                                        className="w-full text-center text-zinc-400 text-sm hover:text-white transition-colors"
                                     >
-                                        Don't have an account? <span className="text-[#FF007F]">Sign up</span>
+                                        Don't have an account? <span className="text-rose-500 font-semibold">Sign up</span>
                                     </button>
                                 </form>
                             )}
@@ -258,7 +258,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         placeholder="your@email.com"
-                                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:outline-none focus:border-[#FF007F]/50"
+                                        className="input-field w-full px-4 py-3"
                                         required
                                     />
                                     <input
@@ -266,14 +266,14 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         placeholder="Password (min 6 characters)"
-                                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:outline-none focus:border-[#FF007F]/50"
+                                        className="input-field w-full px-4 py-3"
                                         required
                                         minLength={6}
                                     />
                                     <button
                                         type="submit"
                                         disabled={isLoading}
-                                        className="w-full py-3 rounded-xl bg-gradient-to-r from-[#FF007F] to-[#7C3AED] text-white font-semibold disabled:opacity-50 flex items-center justify-center gap-2"
+                                        className="btn-primary w-full py-3 text-white font-bold disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg shadow-rose-500/20"
                                     >
                                         {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : null}
                                         Create Account
@@ -281,19 +281,19 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                                     <button
                                         type="button"
                                         onClick={() => setMode("password")}
-                                        className="w-full text-center text-gray-400 text-sm hover:text-white"
+                                        className="w-full text-center text-zinc-400 text-sm hover:text-white transition-colors"
                                     >
-                                        Already have an account? <span className="text-[#FF007F]">Sign in</span>
+                                        Already have an account? <span className="text-rose-500 font-semibold">Sign in</span>
                                     </button>
                                 </form>
                             )}
 
                             {/* 게스트 옵션 */}
                             {mode === "social" && (
-                                <div className="mt-6 text-center">
+                                <div className="mt-8 text-center">
                                     <button
                                         onClick={resetModal}
-                                        className="text-gray-400 text-sm hover:text-white transition-colors"
+                                        className="text-zinc-500 text-sm hover:text-white transition-colors border-b border-transparent hover:border-zinc-500 pb-0.5"
                                     >
                                         Continue as Guest →
                                     </button>
@@ -301,7 +301,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                             )}
 
                             {/* 약관 */}
-                            <p className="text-gray-500 text-xs text-center mt-6">
+                            <p className="text-zinc-600 text-xs text-center mt-6">
                                 By signing in, you agree to our Terms of Service and Privacy Policy
                             </p>
                         </div>
