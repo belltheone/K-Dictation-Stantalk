@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { signInWithOAuth } from "@/lib/actions/auth";
 
 // 소셜 로그인 버튼들
-type Provider = "google" | "twitter";
+type Provider = "google" | "x";
 
 interface SocialLoginButtonsProps {
     onClose?: () => void;
@@ -55,7 +55,7 @@ export function SocialLoginButtons({ onClose }: SocialLoginButtonsProps) {
             textColor: "text-gray-700",
         },
         {
-            id: "twitter" as Provider,
+            id: "x" as Provider,
             name: "X (Twitter)",
             icon: (
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">

@@ -5,7 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 
 // 지원하는 OAuth 제공자 타입
-type OAuthProvider = "google" | "twitter" | "apple";
+type OAuthProvider = "google" | "x" | "apple";
 
 // 소셜 로그인 - OAuth 로그인 URL로 리다이렉트
 export async function signInWithOAuth(provider: OAuthProvider, locale: string = "en") {
