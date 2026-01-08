@@ -4,14 +4,21 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Play, Flame, Trophy, Star } from "lucide-react";
+import { Play, Flame, Trophy, Star, LogOut, User } from "lucide-react";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { LoginModal } from "@/components/auth/LoginModal";
+import { useAuth } from "@/hooks/useAuth";
+import { signOut } from "@/lib/actions/auth";
 
 // 랜딩 페이지 - 마케팅용, 모바일 퍼스트 디자인
 export default function LandingPage() {
     const t = useTranslations();
     const [isLoginOpen, setIsLoginOpen] = useState(false);
+    const { user, isLoading } = useAuth();
+
+    const handleSignOut = async () => {
+        await signOut();
+    };
 
     return (
         <main className="min-h-screen relative overflow-hidden">
@@ -42,12 +49,33 @@ export default function LandingPage() {
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                         >
-                            <button
-                                onClick={() => setIsLoginOpen(true)}
-                                className="btn-primary px-3 md:px-6 py-1.5 md:py-2 text-white font-semibold text-xs md:text-sm"
-                            >
-                                {t("landing.joinButton")}
-                            </button>
+                            {isLoading ? (
+                                <div className="w-20 h-8 bg-white/10 rounded-full animate-pulse" />
+                            ) : user ? (
+                                <div className="flex items-center gap-2">
+                                    <Link
+                                        href="/learn"
+                                        className="btn-primary px-3 md:px-4 py-1.5 md:py-2 text-white font-semibold text-xs md:text-sm inline-flex items-center gap-1"
+                                    >
+                                        <Play className="w-3 h-3" />
+                                        <span className="hidden sm:inline">Start</span>
+                                    </Link>
+                                    <button
+                                        onClick={handleSignOut}
+                                        className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-gray-400 hover:text-white transition-colors"
+                                        title="Sign Out"
+                                    >
+                                        <LogOut className="w-4 h-4" />
+                                    </button>
+                                </div>
+                            ) : (
+                                <button
+                                    onClick={() => setIsLoginOpen(true)}
+                                    className="btn-primary px-3 md:px-6 py-1.5 md:py-2 text-white font-semibold text-xs md:text-sm"
+                                >
+                                    {t("landing.joinButton")}
+                                </button>
+                            )}
                         </motion.div>
                     </div>
                 </div>
