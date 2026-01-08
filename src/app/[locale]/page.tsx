@@ -17,7 +17,10 @@ export default function LandingPage() {
     const { user, isLoading } = useAuth();
 
     const handleSignOut = async () => {
-        await signOut();
+        const result = await signOut();
+        if (result.success) {
+            window.location.href = "/";
+        }
     };
 
     return (

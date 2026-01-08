@@ -92,10 +92,10 @@ export async function signOut() {
 
     if (error) {
         console.error("로그아웃 에러:", error.message);
-        return { error: error.message };
+        return { success: false, error: error.message };
     }
 
-    redirect("/");
+    return { success: true };
 }
 
 // 현재 사용자 정보 가져오기
