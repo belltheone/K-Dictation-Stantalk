@@ -15,6 +15,9 @@ const languageFlags: Record<Locale, string> = {
     zh: "🇨🇳",
     th: "🇹🇭",
     vi: "🇻🇳",
+    fr: "🇫🇷",
+    de: "🇩🇪",
+    it: "🇮🇹",
 };
 
 // 언어 선택 드롭다운 컴포넌트
