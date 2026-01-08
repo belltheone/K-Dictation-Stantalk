@@ -1,0 +1,88 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, Clock } from "lucide-react";
+
+interface InterstitialAdProps {
+    isOpen: boolean;
+    onClose: () => void;
+    countdownSeconds?: number;
+}
+
+// 전면 광고 모달 컴포넌트 (무료 유저용)
+export function InterstitialAd({ isOpen, onClose, countdownSeconds = 3 }: InterstitialAdProps) {
+    const [countdown, setCountdown] = useState(countdownSeconds);
+    const [canClose, setCanClose] = useState(false);
+
+    useEffect(() => {
+        if (!isOpen) {
+            setCountdown(countdownSeconds);
+            setCanClose(false);
+            return;
+        }
+
+        if (countdown > 0) {
+            const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
+            return () => clearTimeout(timer);
+        } else {
+            setCanClose(true);
+        }
+    }, [isOpen, countdown, countdownSeconds]);
+
+    return (
+        <AnimatePresence>
+            {isOpen && (
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="fixed inset-0 z-[9999] bg-black flex items-center justify-center"
+                >
+                    {/* 닫기 버튼 (카운트다운 후 표시) */}
+                    <div className="absolute top-4 right-4">
+                        {canClose ? (
+                            <motion.button
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                onClick={onClose}
+                                className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+                            >
+                                <X className="w-6 h-6" />
+                            </motion.button>
+                        ) : (
+                            <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/10 text-white text-sm">
+                                <Clock className="w-4 h-4" />
+                                <span>{countdown}s</span>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* 광고 콘텐츠 영역 */}
+                    <div className="w-full max-w-lg mx-4">
+                        {/* AdSense 광고 자리 (심사 통과 후 교체) */}
+                        <div className="aspect-video bg-zinc-900 rounded-2xl flex items-center justify-center border border-zinc-800">
+                            <div className="text-center p-8">
+                                <div className="text-4xl mb-4">🎵</div>
+                                <h3 className="text-xl font-bold text-white mb-2">
+                                    K-Dictation Pro
+                                </h3>
+                                <p className="text-zinc-400 text-sm mb-4">
+                                    광고 없이 학습하고 더 많은 기능을 즐기세요!
+                                </p>
+                                <button className="btn-primary px-6 py-2 text-sm font-medium">
+                                    Pro로 업그레이드
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* 광고 라벨 */}
+                        <p className="text-center text-zinc-600 text-xs mt-4">
+                            Advertisement
+                        </p>
+                    </div>
+                </motion.div>
+            )}
+        </AnimatePresence>
+    );
+}
