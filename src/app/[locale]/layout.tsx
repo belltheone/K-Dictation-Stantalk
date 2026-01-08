@@ -29,10 +29,17 @@ export const metadata: Metadata = {
     description: "The most addictive way to learn Korean through K-Pop & K-Drama.",
     keywords: ["Korean learning", "K-Pop", "K-Drama", "dictation", "한국어 학습"],
     authors: [{ name: "Stantalk Team" }],
+    manifest: "/manifest.json",
+    appleWebApp: {
+        capable: true,
+        statusBarStyle: "black-translucent",
+        title: "K-Dictation",
+    },
     openGraph: {
         title: "K-Dictation : Stantalk",
         description: "Learn Korean with your favorite idols!",
         type: "website",
+        siteName: "K-Dictation",
     },
     twitter: {
         card: "summary_large_image",
@@ -47,6 +54,7 @@ export function generateViewport() {
         width: "device-width",
         initialScale: 1,
         maximumScale: 1,
+        themeColor: "#FF007F",
     };
 }
 

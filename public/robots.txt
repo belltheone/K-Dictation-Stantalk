@@ -1,0 +1,13 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://kdictation.com/sitemap.xml
+
+# Disallow admin pages
+Disallow: /admin
+Disallow: /auth
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
