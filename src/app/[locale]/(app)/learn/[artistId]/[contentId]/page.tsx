@@ -7,12 +7,11 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import YouTube, { YouTubePlayer, YouTubeEvent } from "react-youtube";
 import {
-    Play, Pause, RotateCcw, Lightbulb, Volume2, VolumeX,
-    ChevronLeft, Flame, Check
+    Play, Pause, RotateCcw, Volume2, VolumeX,
+    ChevronLeft, Flame, Check, X
 } from "lucide-react";
-import { validateAnswer } from "@/lib/utils";
 
-// 딕테이션 플레이어 페이지 - 핵심 기능, 모바일 퍼스트
+// 4지선다 퀴즈 기반 딕테이션 플레이어 - 모바일 퍼스트
 export default function DictationPlayerPage() {
     const params = useParams();
     const artistId = params.artistId as string;
@@ -24,13 +23,11 @@ export default function DictationPlayerPage() {
     const [player, setPlayer] = useState<YouTubePlayer | null>(null);
     const [isMuted, setIsMuted] = useState(false);
 
-    // 입력 및 정답 상태
-    const [userInput, setUserInput] = useState("");
-    const [showHint, setShowHint] = useState(false);
-    const [attempts, setAttempts] = useState(0);
-    const [isComposing, setIsComposing] = useState(false);
+    // 선택지 상태
+    const [selectedOption, setSelectedOption] = useState<number | null>(null);
+    const [shuffledOptions, setShuffledOptions] = useState<string[]>([]);
 
-    // 샘플 챌린지 데이터
+    // 샘플 챌린지 데이터 - 4지선다 옵션 포함
     const challenge = {
         id: "challenge-1",
         youtubeId: "dQw4w9WgXcQ",
@@ -38,13 +35,24 @@ export default function DictationPlayerPage() {
         endSec: 15,
         fullSentence: "밥 먹었어?",
         answerWord: "먹었어",
+        wrongOptions: ["먹어", "먹을까", "먹자"], // 오답 3개
         hintEn: "Did you eat?",
         grammarExplanation: "Past tense informal ending",
         xp: 10,
     };
 
-    const inputRef = useRef<HTMLInputElement>(null);
     const checkIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+    // 옵션 셔플 함수
+    const shuffleOptions = useCallback(() => {
+        const options = [challenge.answerWord, ...challenge.wrongOptions];
+        const shuffled = options.sort(() => Math.random() - 0.5);
+        setShuffledOptions(shuffled);
+    }, [challenge.answerWord, challenge.wrongOptions]);
+
+    useEffect(() => {
+        shuffleOptions();
+    }, [shuffleOptions]);
 
     // YouTube 플레이어 옵션 - 모바일 최적화
     const opts = {
@@ -57,7 +65,7 @@ export default function DictationPlayerPage() {
             modestbranding: 1,
             rel: 0,
             start: challenge.startSec,
-            playsinline: 1, // 모바일에서 인라인 재생
+            playsinline: 1,
         },
     };
 
@@ -96,7 +104,6 @@ export default function DictationPlayerPage() {
             player.seekTo(challenge.startSec, true);
             player.playVideo();
             setPlayerState('playing');
-            inputRef.current?.focus();
         }
     };
 
@@ -117,53 +124,63 @@ export default function DictationPlayerPage() {
         setIsMuted(!isMuted);
     };
 
-    const handleSubmit = () => {
-        if (!userInput.trim() || isComposing) return;
+    // 4지선다 선택 핸들러
+    const handleOptionSelect = (index: number) => {
+        if (playerState === 'success' || selectedOption !== null) return;
 
-        const result = validateAnswer(userInput, challenge.answerWord);
-        setAttempts(prev => prev + 1);
+        setSelectedOption(index);
+        const selected = shuffledOptions[index];
 
-        if (result.isCorrect) {
+        if (selected === challenge.answerWord) {
             setPlayerState('success');
             player?.pauseVideo();
         } else {
             setPlayerState('fail');
             setTimeout(() => {
                 setPlayerState('ready');
-                setUserInput("");
-            }, 1000);
+                setSelectedOption(null);
+            }, 1500);
         }
     };
 
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === 'Enter' && !e.nativeEvent.isComposing && !isComposing) {
-            e.preventDefault();
-            handleSubmit();
+    const getOptionStyle = (index: number) => {
+        if (selectedOption === null) {
+            return "bg-zinc-800/50 border-zinc-700 hover:border-rose-500/50 hover:bg-zinc-800";
         }
+
+        const isCorrect = shuffledOptions[index] === challenge.answerWord;
+        const isSelected = selectedOption === index;
+
+        if (isCorrect) {
+            return "bg-emerald-500/20 border-emerald-500 text-emerald-400";
+        }
+        if (isSelected && !isCorrect) {
+            return "bg-red-500/20 border-red-500 text-red-400";
+        }
+        return "bg-zinc-800/30 border-zinc-700/50 opacity-50";
     };
 
     const goToNext = () => {
         setPlayerState('ready');
-        setUserInput("");
-        setShowHint(false);
-        setAttempts(0);
+        setSelectedOption(null);
+        shuffleOptions();
     };
 
     return (
-        <main className="min-h-screen flex flex-col">
-            {/* 상단 네비게이션 - 모바일 최적화 */}
+        <main className="min-h-screen flex flex-col bg-[#09090b]">
+            {/* 상단 네비게이션 */}
             <header className="p-3 md:p-4 flex items-center justify-between">
                 <Link
                     href={`/learn/${artistId}`}
-                    className="flex items-center gap-1 md:gap-2 text-gray-400 hover:text-white transition-colors text-sm md:text-base"
+                    className="flex items-center gap-1 md:gap-2 text-zinc-400 hover:text-white transition-colors text-sm md:text-base"
                 >
                     <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
                     <span>{t("common.back")}</span>
                 </Link>
 
                 <div className="flex items-center gap-3 md:gap-4">
-                    <div className="flex items-center gap-1 md:gap-2 text-[#22C55E]">
-                        <Flame className="w-4 h-4 md:w-5 md:h-5 animate-pulse-fire" />
+                    <div className="flex items-center gap-1 md:gap-2 text-emerald-500">
+                        <Flame className="w-4 h-4 md:w-5 md:h-5 animate-pulse" />
                         <span className="font-bold text-sm md:text-base">3</span>
                     </div>
                 </div>
@@ -189,8 +206,8 @@ export default function DictationPlayerPage() {
                         {playerState === 'loading' && (
                             <div className="absolute inset-0 flex items-center justify-center bg-black/80">
                                 <div className="text-center">
-                                    <div className="w-10 h-10 md:w-12 md:h-12 border-4 border-[#FF007F] border-t-transparent rounded-full animate-spin mx-auto mb-3 md:mb-4" />
-                                    <p className="text-gray-400 text-sm md:text-base">{t("player.loading")}</p>
+                                    <div className="w-10 h-10 md:w-12 md:h-12 border-4 border-rose-500 border-t-transparent rounded-full animate-spin mx-auto mb-3 md:mb-4" />
+                                    <p className="text-zinc-400 text-sm md:text-base">{t("player.loading")}</p>
                                 </div>
                             </div>
                         )}
@@ -200,14 +217,14 @@ export default function DictationPlayerPage() {
                     <div className="flex items-center justify-center gap-3 md:gap-4 mb-6 md:mb-8">
                         <button
                             onClick={toggleMute}
-                            className="p-2 md:p-3 rounded-full border border-white/20 hover:border-[#7C3AED] transition-colors"
+                            className="p-2 md:p-3 rounded-full border border-zinc-700 hover:border-rose-500/50 transition-colors"
                         >
                             {isMuted ? <VolumeX className="w-4 h-4 md:w-5 md:h-5" /> : <Volume2 className="w-4 h-4 md:w-5 md:h-5" />}
                         </button>
 
                         <button
                             onClick={togglePlay}
-                            className="p-4 md:p-5 rounded-full bg-gradient-to-r from-[#FF007F] to-[#7C3AED] hover:scale-110 transition-transform"
+                            className="p-4 md:p-5 rounded-full bg-gradient-to-r from-rose-600 to-violet-600 hover:scale-110 transition-transform shadow-lg shadow-rose-500/20"
                             disabled={playerState === 'loading'}
                         >
                             {playerState === 'playing' ? (
@@ -219,7 +236,7 @@ export default function DictationPlayerPage() {
 
                         <button
                             onClick={replay}
-                            className="p-2 md:p-3 rounded-full border border-white/20 hover:border-[#7C3AED] transition-colors"
+                            className="p-2 md:p-3 rounded-full border border-zinc-700 hover:border-rose-500/50 transition-colors"
                             disabled={playerState === 'loading'}
                         >
                             <RotateCcw className="w-4 h-4 md:w-5 md:h-5" />
@@ -231,65 +248,41 @@ export default function DictationPlayerPage() {
                         <p className="text-xl md:text-2xl font-semibold text-white">
                             {challenge.fullSentence.replace(challenge.answerWord, "_____")}
                         </p>
-                        <p className="text-gray-400 mt-1 md:mt-2 text-sm md:text-base">
+                        <p className="text-zinc-400 mt-1 md:mt-2 text-sm md:text-base">
                             {t("player.fillBlank")}
                         </p>
                     </div>
 
-                    {/* 입력 영역 */}
-                    <motion.div
-                        animate={playerState === 'fail' ? { x: [-10, 10, -10, 10, 0] } : {}}
-                        transition={{ duration: 0.5 }}
-                        className="relative"
-                    >
-                        <input
-                            ref={inputRef}
-                            type="text"
-                            value={userInput}
-                            onChange={(e) => setUserInput(e.target.value)}
-                            onKeyDown={handleKeyDown}
-                            onCompositionStart={() => setIsComposing(true)}
-                            onCompositionEnd={() => setIsComposing(false)}
-                            placeholder={t("player.inputPlaceholder")}
-                            disabled={playerState === 'loading' || playerState === 'success'}
-                            className={`w-full px-4 md:px-6 py-3 md:py-4 text-base md:text-xl text-center input-field ${playerState === 'fail' ? 'border-[#EF4444]' : ''
-                                }`}
-                        />
-
-                        <button
-                            onClick={() => setShowHint(!showHint)}
-                            className={`absolute right-3 md:right-4 top-1/2 -translate-y-1/2 p-1.5 md:p-2 rounded-full transition-colors ${showHint ? 'bg-[#F59E0B] text-black' : 'bg-white/10 hover:bg-white/20'
-                                }`}
-                        >
-                            <Lightbulb className="w-4 h-4 md:w-5 md:h-5" />
-                        </button>
-                    </motion.div>
-
-                    {/* 힌트 표시 */}
-                    <AnimatePresence>
-                        {showHint && (
-                            <motion.div
-                                initial={{ opacity: 0, y: -10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -10 }}
-                                className="mt-3 md:mt-4 p-3 md:p-4 card bg-[#F59E0B]/10 text-center"
+                    {/* 4지선다 옵션 */}
+                    <div className="grid grid-cols-2 gap-3 md:gap-4">
+                        {shuffledOptions.map((option, index) => (
+                            <motion.button
+                                key={index}
+                                whileHover={selectedOption === null ? { scale: 1.02 } : {}}
+                                whileTap={selectedOption === null ? { scale: 0.98 } : {}}
+                                onClick={() => handleOptionSelect(index)}
+                                disabled={playerState === 'loading' || playerState === 'success' || selectedOption !== null}
+                                className={`
+                                    p-4 md:p-5 rounded-xl border-2 text-base md:text-lg font-medium
+                                    transition-all duration-300 flex items-center justify-center gap-2
+                                    ${getOptionStyle(index)}
+                                `}
                             >
-                                <p className="text-[#F59E0B] text-sm md:text-base">💡 {t("player.hint")}: {challenge.hintEn}</p>
-                                <p className="text-gray-400 text-xs md:text-sm mt-1">{challenge.grammarExplanation}</p>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
+                                {selectedOption !== null && option === challenge.answerWord && (
+                                    <Check className="w-5 h-5" />
+                                )}
+                                {selectedOption === index && option !== challenge.answerWord && (
+                                    <X className="w-5 h-5" />
+                                )}
+                                {option}
+                            </motion.button>
+                        ))}
+                    </div>
 
-                    {/* 제출 버튼 */}
-                    <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        onClick={handleSubmit}
-                        disabled={!userInput.trim() || playerState === 'loading' || playerState === 'success'}
-                        className="w-full mt-4 md:mt-6 py-3 md:py-4 btn-primary text-white font-bold text-base md:text-lg disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                        {t("player.checkAnswer")}
-                    </motion.button>
+                    {/* 영어 힌트 */}
+                    <div className="mt-4 md:mt-6 p-3 md:p-4 rounded-xl bg-zinc-800/30 border border-zinc-700/50 text-center">
+                        <p className="text-zinc-400 text-sm md:text-base">💡 {challenge.hintEn}</p>
+                    </div>
                 </div>
             </div>
 
@@ -300,19 +293,19 @@ export default function DictationPlayerPage() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4 md:p-6"
+                        className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4 md:p-6"
                     >
                         <motion.div
                             initial={{ scale: 0.8, y: 50 }}
                             animate={{ scale: 1, y: 0 }}
                             exit={{ scale: 0.8, y: 50 }}
-                            className="card p-6 md:p-8 text-center max-w-md w-full"
+                            className="card p-6 md:p-8 text-center max-w-md w-full bg-zinc-900 border border-zinc-800"
                         >
                             <motion.div
                                 initial={{ scale: 0 }}
                                 animate={{ scale: 1 }}
                                 transition={{ type: "spring", delay: 0.2 }}
-                                className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 md:mb-6 rounded-full bg-[#22C55E] flex items-center justify-center"
+                                className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 md:mb-6 rounded-full bg-emerald-500 flex items-center justify-center"
                             >
                                 <Check className="w-8 h-8 md:w-10 md:h-10 text-white" />
                             </motion.div>
@@ -320,10 +313,10 @@ export default function DictationPlayerPage() {
                             <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
                                 {t("player.success.title")}
                             </h2>
-                            <p className="text-gray-400 mb-2 text-sm md:text-base">
-                                {t("player.success.answer")}: <span className="text-[#22C55E] font-bold">{challenge.answerWord}</span>
+                            <p className="text-zinc-400 mb-2 text-sm md:text-base">
+                                {t("player.success.answer")}: <span className="text-emerald-400 font-bold">{challenge.answerWord}</span>
                             </p>
-                            <p className="text-[#F59E0B] font-bold text-base md:text-lg mb-4 md:mb-6">
+                            <p className="text-amber-400 font-bold text-base md:text-lg mb-4 md:mb-6">
                                 +{challenge.xp} XP
                             </p>
 

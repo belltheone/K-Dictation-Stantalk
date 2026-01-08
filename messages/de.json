@@ -1,0 +1,115 @@
+{
+    "common": {
+        "loading": "Laden...",
+        "error": "Ein Fehler ist aufgetreten",
+        "retry": "Erneut versuchen",
+        "save": "Speichern",
+        "cancel": "Abbrechen",
+        "confirm": "Bestätigen",
+        "back": "Zurück",
+        "next": "Weiter",
+        "previous": "Zurück",
+        "close": "Schließen"
+    },
+    "landing": {
+        "title1": "Willst du deinen",
+        "title2": "Bias",
+        "title3": "perfekt verstehen?",
+        "subtitle": "Der süchtig machendste Weg, Koreanisch durch K-Pop & K-Drama zu lernen!",
+        "description": "Übe Diktat mit echten Idol-Videos und verbessere dein Koreanisch.",
+        "startButton": "Jetzt starten",
+        "demoButton": "Demo ansehen",
+        "joinButton": "Fandom beitreten",
+        "features": {
+            "title": "Warum K-Dictation?",
+            "realContent": {
+                "title": "Echte Inhalte",
+                "description": "Lerne mit echten Idol-Livestreams und Varieté-Shows, nicht aus Lehrbüchern."
+            },
+            "gamification": {
+                "title": "Gamification",
+                "description": "Verdiene XP, halte Serien, sammle Karten! Es ist ein Spiel, kein Lernen."
+            },
+            "instantAccess": {
+                "title": "Sofortiger Zugang",
+                "description": "Keine App-Installation nötig. Einfach klicken und sofort spielen."
+            }
+        },
+        "cta": {
+            "title": "Bereit, ein K-Experte zu werden?",
+            "description": "Starte kostenlos und verstehe deinen Bias perfekt!",
+            "button": "Jetzt starten"
+        },
+        "footer": {
+            "copyright": "© 2024 K-Dictation : Stantalk. Alle Rechte vorbehalten.",
+            "madeWith": "Mit 💖 für K-Pop-Fans weltweit gemacht"
+        }
+    },
+    "learn": {
+        "header": "Wen möchtest du hören? 🎧",
+        "subtitle": "Wähle deinen Lieblingskünstler und starte das Diktat!",
+        "contents": "Inhalte",
+        "randomChallenge": {
+            "title": "Willst du sofort loslegen?",
+            "description": "Versuche die heutige Zufalls-Challenge!",
+            "button": "Zufalls-Challenge"
+        },
+        "artistList": "Künstlerliste",
+        "totalXP": "Gesamt-XP verfügbar"
+    },
+    "player": {
+        "loading": "Warte auf Oppa... 🎤",
+        "fillBlank": "Fülle die Lücke aus!",
+        "inputPlaceholder": "Tippe deine Antwort hier...",
+        "checkAnswer": "Antwort prüfen",
+        "hint": "Hinweis",
+        "success": {
+            "title": "Daebak! 🎉",
+            "answer": "Antwort",
+            "next": "Nächste Challenge →"
+        },
+        "fail": {
+            "title": "Oops!",
+            "tryAgain": "Noch ein Versuch!",
+            "gwenchana": "Gwenchana (Alles gut)"
+        },
+        "controls": {
+            "play": "Abspielen",
+            "pause": "Pause",
+            "replay": "Wiederholen"
+        }
+    },
+    "dashboard": {
+        "title": "Mein Dashboard",
+        "continueButton": "Weiter lernen",
+        "stats": {
+            "totalXP": "Gesamt-XP",
+            "longestStreak": "Längste Serie",
+            "savedWords": "Gespeicherte Wörter",
+            "completedChallenges": "Abgeschlossen"
+        },
+        "streak": "Tage Serie",
+        "level": "Level",
+        "nextLevel": "Nächstes Level",
+        "weeklyActivity": "Aktivität diese Woche",
+        "recentActivity": "Letzte Aktivität",
+        "seeMore": "Mehr sehen"
+    },
+    "difficulty": {
+        "easy": "Einfach",
+        "normal": "Normal",
+        "hard": "Schwer"
+    },
+    "language": {
+        "select": "Sprache",
+        "en": "English",
+        "ko": "한국어",
+        "ja": "日本語",
+        "zh": "中文",
+        "th": "ไทย",
+        "vi": "Tiếng Việt",
+        "fr": "Français",
+        "de": "Deutsch",
+        "it": "Italiano"
+    }
+}

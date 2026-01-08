@@ -107,6 +107,148 @@
         "ja": "日本語",
         "zh": "中文",
         "th": "ไทย",
-        "vi": "Tiếng Việt"
+        "vi": "Tiếng Việt",
+        "fr": "Français",
+        "de": "Deutsch",
+        "it": "Italiano"
+    },
+    "blog": {
+        "title": "K-Learning Blog",
+        "subtitle": "Tips, guides, and insights for learning Korean through K-Pop",
+        "backToList": "Back to Blog",
+        "cta": {
+            "title": "Ready to practice?",
+            "description": "Put your learning into action with K-Dictation!",
+            "button": "Start Learning"
+        },
+        "articleCta": {
+            "title": "Practice what you learned!",
+            "description": "Try out these expressions with real K-Pop content",
+            "button": "Start Practice"
+        },
+        "articles": {
+            "1": {
+                "title": "How to Learn Korean with K-Pop: A Complete Guide",
+                "description": "Discover the most effective methods to learn Korean through your favorite K-Pop songs."
+            },
+            "2": {
+                "title": "Hangul 101: A Beginner's Guide to the Korean Alphabet",
+                "description": "Master the Korean alphabet in just one day with this comprehensive guide."
+            },
+            "3": {
+                "title": "Learn Korean with BTS: 10 Essential Expressions",
+                "description": "Study common Korean phrases using BTS songs and interviews."
+            },
+            "4": {
+                "title": "Essential K-Drama Phrases Every Fan Should Know",
+                "description": "The most common expressions you'll hear in Korean dramas."
+            },
+            "5": {
+                "title": "Korean Pronunciation Tips for English Speakers",
+                "description": "Master difficult Korean sounds with these practical tips."
+            },
+            "6": {
+                "title": "BLACKPINK Vocabulary: Learn Korean with BLINK",
+                "description": "Expand your Korean vocabulary through BLACKPINK content."
+            },
+            "7": {
+                "title": "Understanding Korean Honorifics: A Complete Guide",
+                "description": "Everything you need to know about Korean formal and informal speech."
+            },
+            "8": {
+                "title": "The NewJeans Method: Fun Ways to Study Korean",
+                "description": "Creative study techniques inspired by K-Pop's freshest group."
+            },
+            "9": {
+                "title": "Korean Slang 2024: Words You Need to Know",
+                "description": "Stay updated with the latest Korean trendy words and expressions."
+            },
+            "10": {
+                "title": "Why Learn Korean? 5 Reasons to Start Today",
+                "description": "Motivation and benefits of learning the Korean language."
+            }
+        },
+        "content": {
+            "1": {
+                "section1": "Learning Korean through K-Pop is one of the most enjoyable and effective methods for language acquisition. Music engages multiple parts of our brain, making it easier to remember vocabulary and grammar structures. When you listen to your favorite K-Pop songs repeatedly, you naturally absorb pronunciation patterns and common phrases.",
+                "section2": "Start by choosing songs from artists you love. Listen carefully to the lyrics and try to identify words you recognize. Use lyric sites to read along and check the meaning. Practice singing along to improve your pronunciation and build confidence in speaking Korean.",
+                "section3": "K-Dictation takes this approach further by creating interactive exercises based on real K-Pop content. Instead of passive listening, you actively engage with the material, testing your comprehension and building stronger memory connections."
+            },
+            "2": {
+                "section1": "Hangul, the Korean alphabet, was created in 1443 by King Sejong the Great. It's considered one of the most scientific writing systems in the world, designed specifically for easy learning. Unlike Chinese characters, Hangul is phonetic - each symbol represents a sound.",
+                "section2": "The alphabet consists of 14 basic consonants and 10 basic vowels. These combine to form syllable blocks that make up Korean words. Learning Hangul first is essential before diving into vocabulary and grammar. With dedicated practice, most learners can master it in just a few hours.",
+                "section3": "Practice writing each character while saying the sound out loud. This multi-sensory approach helps cement the connection between the visual symbol and its pronunciation. Soon you'll be reading Korean signs, song lyrics, and social media posts!"
+            },
+            "3": {
+                "section1": "BTS has introduced millions of fans to Korean language and culture. Their lyrics contain beautiful poetry and everyday expressions that are perfect for language learning. Songs like 'Spring Day' and 'Dynamite' feature vocabulary suitable for all levels.",
+                "section2": "Common phrases you'll hear in BTS content include '사랑해요' (I love you), '감사합니다' (Thank you), and '화이팅' (Fighting/Good luck). These expressions are used constantly in K-Pop and K-Drama, making them essential vocabulary.",
+                "section3": "Watch BTS content with Korean subtitles to practice reading while listening. Their variety show appearances and livestreams provide natural conversation examples that textbooks often miss."
+            },
+            "4": {
+                "section1": "Korean dramas are filled with memorable phrases that fans love to quote. Understanding these expressions enhances your viewing experience and helps you pick up conversational Korean naturally.",
+                "section2": "Essential phrases include '괜찮아' (It's okay), '진짜?' (Really?), '대박!' (Awesome!), and '어떡해' (What should I do?). These expressions convey emotion and are used frequently in daily Korean conversation.",
+                "section3": "Pay attention to how characters speak differently based on their relationship. Korean has levels of formality, and dramas showcase how language changes between friends, couples, and in professional settings."
+            },
+            "5": {
+                "section1": "Korean pronunciation can be challenging for English speakers, but with practice, anyone can master it. The key is understanding that some Korean sounds don't exist in English, and vice versa.",
+                "section2": "Focus on the distinction between aspirated consonants (ㅋ, ㅌ, ㅍ) and their unaspirated counterparts (ㄱ, ㄷ, ㅂ). Practice with minimal pairs - words that differ by only one sound - to train your ear and tongue.",
+                "section3": "Recording yourself and comparing to native speakers is incredibly helpful. K-Pop songs are great for this - try to match the artist's pronunciation exactly. Shadow speaking, where you repeat immediately after hearing, is another effective technique."
+            },
+            "6": {
+                "section1": "BLACKPINK's global success has made their music a gateway to Korean language for millions. Their songs blend Korean and English, making them accessible for beginners while still teaching authentic Korean expressions.",
+                "section2": "In their music, you'll encounter words like '불장난' (playing with fire), '뚜두뚜두' (onomatopoeia), and '마지막처럼' (as if it's your last). Each song introduces new vocabulary in a memorable, musical context.",
+                "section3": "BLINK community discussions often focus on lyric meanings, providing a social aspect to learning. Discussing interpretations with other fans reinforces vocabulary and exposes you to different perspectives on the language."
+            },
+            "7": {
+                "section1": "Korean has a complex honorific system that reflects the importance of respect and social hierarchy in Korean culture. Understanding when and how to use different speech levels is crucial for proper communication.",
+                "section2": "The main levels are 반말 (informal), 존댓말 (formal), and 높임말 (honorific). Age, social status, and closeness of relationship all determine which level to use. Using the wrong level can be considered rude.",
+                "section3": "K-Pop content often shows idols switching between speech levels - casual with members vs. formal with seniors. Observing these switches helps you understand the nuances of Korean social interaction."
+            },
+            "8": {
+                "section1": "NewJeans represents the new generation of K-Pop, and their fresh approach can inspire innovative study methods. Their catchy, repetitive hooks are perfect for vocabulary drilling without feeling like work.",
+                "section2": "Create flashcards from song lyrics, use NewJeans choreography as a memorization aid (associating movements with words), and join fan study groups to practice together. Learning should be as fun as their music!",
+                "section3": "Their simple yet addictive melodies make it easy to get songs stuck in your head - use this to your advantage. Having Korean phrases playing on repeat in your mind naturally reinforces learning."
+            },
+            "9": {
+                "section1": "Korean slang evolves rapidly, especially among young people. Keeping up with trendy expressions helps you understand social media, variety shows, and casual conversations that textbooks don't cover.",
+                "section2": "Popular 2024 slang includes '갓생' (god + life = productive life), '스불재' (스스로 불러온 재앙 = self-caused disaster), and '존맛' (extremely delicious). These shortened forms are used extensively online.",
+                "section3": "Follow Korean social media accounts and watch recent content to stay current. Language is living and changing, and engaging with contemporary Korean helps you sound natural rather than textbook-perfect."
+            },
+            "10": {
+                "section1": "Learning Korean opens doors to a rich culture that's captivating the world. From K-Pop and K-Drama to Korean cuisine and traditions, understanding the language deepens your appreciation of everything Korean.",
+                "section2": "Career opportunities are expanding as Korean companies grow globally. Knowing Korean can be a valuable asset in business, entertainment, and tourism industries. It's also one of the fastest-growing languages for study.",
+                "section3": "Most importantly, learning Korean connects you with millions of fans worldwide. The K-Pop community is global, and sharing this journey with others makes the experience even more rewarding. 화이팅!"
+            }
+        }
+    },
+    "leaderboard": {
+        "title": "Leaderboard",
+        "weekly": "Weekly",
+        "allTime": "All Time",
+        "rank": "Rank",
+        "player": "Player",
+        "xp": "XP",
+        "you": "You"
+    },
+    "badges": {
+        "title": "Achievements",
+        "locked": "Locked",
+        "unlocked": "Unlocked"
+    },
+    "share": {
+        "title": "Share Your Progress",
+        "copy": "Copy Link",
+        "copied": "Copied!"
+    },
+    "bookmarks": {
+        "title": "Bookmarks",
+        "empty": "No bookmarks yet",
+        "add": "Add to Bookmarks",
+        "remove": "Remove from Bookmarks"
+    },
+    "theme": {
+        "dark": "Dark Mode",
+        "light": "Light Mode",
+        "system": "System"
     }
 }
