@@ -46,6 +46,10 @@ export const metadata: Metadata = {
         title: "K-Dictation : Stantalk",
         description: "Learn Korean with your favorite idols!",
     },
+    // Google AdSense 인증
+    other: {
+        "google-adsense-account": "ca-pub-5965391983551048",
+    },
 };
 
 // Viewport 설정 (모바일 최적화)
