@@ -51,7 +51,7 @@ export function PricingModal({ isOpen, onClose }: PricingModalProps) {
     const t = useTranslations();
 
     // Lemon Squeezy Checkout URL
-    const CHECKOUT_URL = "https://kdictation.lemonsqueezy.com/checkout/buy/4f3fa870-4bf6-4a4b-ad6e-04b9b577503c";
+    const CHECKOUT_URL = "https://kdictation.lemonsqueezy.com/checkout/buy/2fa43084-cb65-433e-9a4b-e294f97f1e80";
 
     const handleUpgrade = () => {
         // Lemon Squeezy 결제 페이지로 리다이렉트

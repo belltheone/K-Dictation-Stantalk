@@ -2,7 +2,7 @@
 
 // Checkout URL 생성 (사용자 ID 포함)
 export function createCheckoutUrl(userId: string): string {
-    const baseUrl = "https://kdictation.lemonsqueezy.com/checkout/buy/4f3fa870-4bf6-4a4b-ad6e-04b9b577503c";
+    const baseUrl = "https://kdictation.lemonsqueezy.com/checkout/buy/2fa43084-cb65-433e-9a4b-e294f97f1e80";
 
     // custom_data로 사용자 ID 전달
     const params = new URLSearchParams({
