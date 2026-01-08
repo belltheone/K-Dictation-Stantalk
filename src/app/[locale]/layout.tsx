@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
 import { routing } from "@/i18n/routing";
+import { GoogleAnalytics } from "@/lib/analytics";
 import "../globals.css";
 
 // 폰트 설정 - 영문 타이틀용 Montserrat, 본문용 Inter
@@ -88,6 +89,7 @@ export default async function LocaleLayout({
             <body
                 className={`${inter.variable} ${montserrat.variable} antialiased min-h-screen`}
             >
+                <GoogleAnalytics />
                 <NextIntlClientProvider messages={messages}>
                     <ThemeProvider
                         attribute="class"
