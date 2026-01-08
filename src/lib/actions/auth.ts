@@ -28,6 +28,62 @@ export async function signInWithOAuth(provider: OAuthProvider, locale: string = 
     }
 }
 
+// 이메일 Magic Link 로그인
+export async function signInWithEmail(email: string, locale: string = "en") {
+    const supabase = await createClient();
+
+    const { error } = await supabase.auth.signInWithOtp({
+        email,
+        options: {
+            emailRedirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback?locale=${locale}`,
+        },
+    });
+
+    if (error) {
+        console.error("이메일 로그인 에러:", error.message);
+        return { success: false, error: error.message };
+    }
+
+    return { success: true };
+}
+
+// 이메일/패스워드 회원가입
+export async function signUpWithEmail(email: string, password: string, locale: string = "en") {
+    const supabase = await createClient();
+
+    const { error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+            emailRedirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback?locale=${locale}`,
+        },
+    });
+
+    if (error) {
+        console.error("회원가입 에러:", error.message);
+        return { success: false, error: error.message };
+    }
+
+    return { success: true };
+}
+
+// 이메일/패스워드 로그인
+export async function signInWithPassword(email: string, password: string) {
+    const supabase = await createClient();
+
+    const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+    });
+
+    if (error) {
+        console.error("로그인 에러:", error.message);
+        return { success: false, error: error.message };
+    }
+
+    return { success: true };
+}
+
 // 로그아웃
 export async function signOut() {
     const supabase = await createClient();
