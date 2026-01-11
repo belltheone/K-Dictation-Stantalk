@@ -224,8 +224,26 @@ export default function DictationPlayerPage() {
     };
 
     const onPlayerReady = (event: YouTubeEvent) => {
-        setPlayer(event.target);
+        const ytPlayer = event.target;
+        setPlayer(ytPlayer);
+        // 플레이어 준비 시 시작 위치로 이동
+        if (challenge) {
+            ytPlayer.seekTo(challenge.startSec, true);
+            ytPlayer.pauseVideo();
+        }
         setPlayerState('ready');
+    };
+
+    // 플레이어 상태 변경 핸들러
+    const onStateChange = (event: YouTubeEvent) => {
+        // 1 = 재생 중
+        if (event.data === 1 && challenge && player) {
+            const currentTime = player.getCurrentTime();
+            // 시작 위치보다 앞에 있으면 시작 위치로 이동
+            if (currentTime < challenge.startSec - 1) {
+                player.seekTo(challenge.startSec, true);
+            }
+        }
     };
 
     const checkTimeAndLoop = useCallback(() => {
@@ -255,6 +273,7 @@ export default function DictationPlayerPage() {
             player.pauseVideo();
             setPlayerState('ready');
         } else {
+            // 항상 시작 위치로 이동 후 재생
             player.seekTo(challenge.startSec, true);
             player.playVideo();
             setPlayerState('playing');
@@ -263,6 +282,7 @@ export default function DictationPlayerPage() {
 
     const replay = () => {
         if (!player || !challenge) return;
+        // 시작 위치로 이동 후 재생
         player.seekTo(challenge.startSec, true);
         player.playVideo();
         setPlayerState('playing');
@@ -396,6 +416,7 @@ export default function DictationPlayerPage() {
                             videoId={challenge.youtubeId}
                             opts={opts}
                             onReady={onPlayerReady}
+                            onStateChange={onStateChange}
                             className="absolute inset-0"
                             iframeClassName="w-full h-full"
                         />
