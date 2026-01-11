@@ -128,8 +128,10 @@ export default function DictationPlayerPage() {
                     setChallenges(formattedChallenges);
                     setChallenge(formattedChallenges[0]);
                 } else {
-                    // 첫 번째 콘텐츠 사용
-                    const content = contents[0];
+                    // contentId에서 인덱스 추출 (content-1 -> 0, content-2 -> 1)
+                    const contentIndex = parseInt(contentId.replace('content-', '')) - 1;
+                    const selectedIndex = Math.min(Math.max(0, contentIndex), contents.length - 1);
+                    const content = contents[selectedIndex];
 
                     // 해당 콘텐츠의 챌린지 조회
                     const { data: challengeData, error: challengeError } = await supabase
