@@ -136,9 +136,14 @@ export default function DashboardPage() {
 
                 // 최근 활동 변환
                 if (recentProgress) {
-                    const activities: RecentActivity[] = recentProgress.map((item, index) => {
-                        const challenge = item.challenges;
-                        const content = challenge?.contents;
+                    const activities: RecentActivity[] = recentProgress.map((item) => {
+                        // Supabase 조인 결과는 배열일 수 있음
+                        const challengeData = item.challenges as unknown;
+                        const challenge = Array.isArray(challengeData) ? challengeData[0] : challengeData;
+                        const contentData = (challenge as { contents?: unknown })?.contents;
+                        const content = Array.isArray(contentData) ? contentData[0] : contentData;
+                        const contentTyped = content as { artist_name?: string; title?: string } | undefined;
+
                         const completedAt = new Date(item.completed_at);
                         const today = new Date();
                         const diffDays = Math.floor((today.getTime() - completedAt.getTime()) / (1000 * 60 * 60 * 24));
@@ -149,8 +154,8 @@ export default function DashboardPage() {
 
                         return {
                             id: item.id,
-                            artist: content?.artist_name || 'Unknown',
-                            content: content?.title || 'Challenge',
+                            artist: contentTyped?.artist_name || 'Unknown',
+                            content: contentTyped?.title || 'Challenge',
                             xp: item.xp_earned || 10,
                             date: dateStr,
                         };
