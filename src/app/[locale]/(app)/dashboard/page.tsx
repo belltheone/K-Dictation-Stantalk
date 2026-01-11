@@ -1,49 +1,230 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
     Flame, Star, Trophy, BookOpen, Calendar,
-    ChevronRight, Play, TrendingUp
+    ChevronRight, Play, TrendingUp, Loader2
 } from "lucide-react";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { AdminButton } from "@/components/admin/AdminButton";
+import { createClient } from "@supabase/supabase-js";
 
-// 대시보드 (마이 페이지) - 모바일 퍼스트
+// Supabase 클라이언트 생성
+const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
+
+interface UserData {
+    username: string;
+    avatarUrl: string | null;
+    xp: number;
+    streakCount: number;
+    level: number;
+    vocabCount: number;
+    completedChallenges: number;
+}
+
+interface RecentActivity {
+    id: string;
+    artist: string;
+    content: string;
+    xp: number;
+    date: string;
+}
+
+// 대시보드 (마이 페이지) - Supabase 연동
 export default function DashboardPage() {
     const t = useTranslations();
-
-    // 샘플 사용자 데이터
-    const userData = {
-        username: "K-Pop Learner",
+    const [isLoading, setIsLoading] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [userData, setUserData] = useState<UserData>({
+        username: "게스트",
         avatarUrl: null,
-        xp: 1250,
-        streakCount: 7,
-        level: 5,
-        vocabCount: 32,
-        completedChallenges: 48,
-    };
-
-    const recentActivity = [
-        { id: 1, artist: "BTS", content: "V-Log Daily Talk", xp: 50, date: "Today" },
-        { id: 2, artist: "NewJeans", content: "Variety Clip", xp: 80, date: "Yesterday" },
-        { id: 3, artist: "BLACKPINK", content: "Live Stream", xp: 120, date: "2 days ago" },
-    ];
-
-    const weeklyProgress = [
-        { day: "M", completed: 3 },
-        { day: "T", completed: 5 },
-        { day: "W", completed: 2 },
-        { day: "T", completed: 4 },
-        { day: "F", completed: 6 },
-        { day: "S", completed: 1 },
+        xp: 0,
+        streakCount: 0,
+        level: 1,
+        vocabCount: 0,
+        completedChallenges: 0,
+    });
+    const [recentActivity, setRecentActivity] = useState<RecentActivity[]>([]);
+    const [weeklyProgress, setWeeklyProgress] = useState([
+        { day: "M", completed: 0 },
+        { day: "T", completed: 0 },
+        { day: "W", completed: 0 },
+        { day: "T", completed: 0 },
+        { day: "F", completed: 0 },
         { day: "S", completed: 0 },
-    ];
+        { day: "S", completed: 0 },
+    ]);
 
-    const xpForCurrentLevel = 1000;
-    const xpForNextLevel = 1500;
-    const progressPercent = ((userData.xp - xpForCurrentLevel) / (xpForNextLevel - xpForCurrentLevel)) * 100;
+    // Supabase에서 사용자 데이터 가져오기
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                setIsLoading(true);
+
+                // 현재 사용자 확인
+                const { data: { user } } = await supabase.auth.getUser();
+
+                if (!user) {
+                    setIsLoggedIn(false);
+                    setIsLoading(false);
+                    return;
+                }
+
+                setIsLoggedIn(true);
+
+                // 사용자 프로필 조회
+                const { data: profile, error: profileError } = await supabase
+                    .from('users')
+                    .select('*')
+                    .eq('id', user.id)
+                    .single();
+
+                if (profileError && profileError.code !== 'PGRST116') {
+                    console.error('Profile error:', profileError);
+                }
+
+                // 저장된 단어 수 조회
+                const { count: vocabCount } = await supabase
+                    .from('vocab')
+                    .select('*', { count: 'exact', head: true })
+                    .eq('user_id', user.id);
+
+                // 완료한 챌린지 수 조회
+                const { count: progressCount } = await supabase
+                    .from('progress')
+                    .select('*', { count: 'exact', head: true })
+                    .eq('user_id', user.id);
+
+                // 최근 활동 조회
+                const { data: recentProgress } = await supabase
+                    .from('progress')
+                    .select(`
+                        id,
+                        xp_earned,
+                        completed_at,
+                        challenges (
+                            full_sentence,
+                            contents (
+                                title,
+                                artist_name
+                            )
+                        )
+                    `)
+                    .eq('user_id', user.id)
+                    .order('completed_at', { ascending: false })
+                    .limit(5);
+
+                // 레벨 계산 (100 XP당 1레벨)
+                const xp = profile?.xp || 0;
+                const level = Math.floor(xp / 100) + 1;
+
+                setUserData({
+                    username: profile?.username || user.email?.split('@')[0] || '사용자',
+                    avatarUrl: profile?.avatar_url || null,
+                    xp: xp,
+                    streakCount: profile?.streak_count || 0,
+                    level: level,
+                    vocabCount: vocabCount || 0,
+                    completedChallenges: progressCount || 0,
+                });
+
+                // 최근 활동 변환
+                if (recentProgress) {
+                    const activities: RecentActivity[] = recentProgress.map((item, index) => {
+                        const challenge = item.challenges;
+                        const content = challenge?.contents;
+                        const completedAt = new Date(item.completed_at);
+                        const today = new Date();
+                        const diffDays = Math.floor((today.getTime() - completedAt.getTime()) / (1000 * 60 * 60 * 24));
+
+                        let dateStr = '오늘';
+                        if (diffDays === 1) dateStr = '어제';
+                        else if (diffDays > 1) dateStr = `${diffDays}일 전`;
+
+                        return {
+                            id: item.id,
+                            artist: content?.artist_name || 'Unknown',
+                            content: content?.title || 'Challenge',
+                            xp: item.xp_earned || 10,
+                            date: dateStr,
+                        };
+                    });
+                    setRecentActivity(activities);
+                }
+
+                // 주간 진행 상황 계산
+                const { data: weeklyData } = await supabase
+                    .from('progress')
+                    .select('completed_at')
+                    .eq('user_id', user.id)
+                    .gte('completed_at', new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString());
+
+                if (weeklyData) {
+                    const dayCounts = [0, 0, 0, 0, 0, 0, 0];
+                    weeklyData.forEach(item => {
+                        const day = new Date(item.completed_at).getDay();
+                        const adjustedDay = day === 0 ? 6 : day - 1; // 월요일=0 기준으로 변환
+                        dayCounts[adjustedDay]++;
+                    });
+
+                    setWeeklyProgress([
+                        { day: "M", completed: dayCounts[0] },
+                        { day: "T", completed: dayCounts[1] },
+                        { day: "W", completed: dayCounts[2] },
+                        { day: "T", completed: dayCounts[3] },
+                        { day: "F", completed: dayCounts[4] },
+                        { day: "S", completed: dayCounts[5] },
+                        { day: "S", completed: dayCounts[6] },
+                    ]);
+                }
+
+            } catch (err) {
+                console.error('Error fetching user data:', err);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchUserData();
+    }, []);
+
+    const xpForCurrentLevel = (userData.level - 1) * 100;
+    const xpForNextLevel = userData.level * 100;
+    const progressPercent = Math.min(100, ((userData.xp - xpForCurrentLevel) / (xpForNextLevel - xpForCurrentLevel)) * 100);
+    const maxDayCompleted = Math.max(...weeklyProgress.map(d => d.completed), 1);
+
+    // 로딩 상태
+    if (isLoading) {
+        return (
+            <main className="min-h-screen flex items-center justify-center">
+                <Loader2 className="w-8 h-8 text-rose-500 animate-spin" />
+            </main>
+        );
+    }
+
+    // 로그인하지 않은 경우
+    if (!isLoggedIn) {
+        return (
+            <main className="min-h-screen flex items-center justify-center px-4">
+                <div className="text-center max-w-md">
+                    <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-rose-500 to-violet-500 flex items-center justify-center">
+                        🎧
+                    </div>
+                    <h1 className="text-2xl font-bold text-white mb-4">로그인이 필요합니다</h1>
+                    <p className="text-zinc-400 mb-6">대시보드를 보려면 로그인해주세요</p>
+                    <Link href="/" className="btn-primary px-8 py-3 text-white font-bold">
+                        로그인하기
+                    </Link>
+                </div>
+            </main>
+        );
+    }
 
     return (
         <main className="min-h-screen py-6 md:py-8 px-4 md:px-6">
@@ -116,7 +297,7 @@ export default function DashboardPage() {
                     </div>
                 </motion.div>
 
-                {/* 통계 카드 그리드 - 모바일 2x2 */}
+                {/* 통계 카드 그리드 */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6 md:mb-8">
                     {[
                         { icon: Star, label: t("dashboard.stats.totalXP"), value: userData.xp, color: "#F59E0B" },
@@ -159,7 +340,7 @@ export default function DashboardPage() {
                                 <div key={index} className="flex-1 flex flex-col items-center gap-1 md:gap-2">
                                     <motion.div
                                         initial={{ height: 0 }}
-                                        animate={{ height: `${(day.completed / 6) * 100}%` }}
+                                        animate={{ height: `${(day.completed / maxDayCompleted) * 100}%` }}
                                         transition={{ delay: 0.1 * index, duration: 0.5 }}
                                         className="w-full bg-gradient-to-t from-[#FF007F] to-[#7C3AED] rounded-t-lg"
                                         style={{
@@ -185,20 +366,26 @@ export default function DashboardPage() {
                             {t("dashboard.recentActivity")}
                         </h2>
 
-                        <div className="space-y-3 md:space-y-4">
-                            {recentActivity.map((activity) => (
-                                <div
-                                    key={activity.id}
-                                    className="flex items-center justify-between py-2 md:py-3 border-b border-white/10 last:border-0"
-                                >
-                                    <div>
-                                        <p className="text-white font-medium text-sm md:text-base">{activity.content}</p>
-                                        <p className="text-gray-400 text-xs md:text-sm">{activity.artist} • {activity.date}</p>
+                        {recentActivity.length === 0 ? (
+                            <div className="text-center py-8 text-zinc-500">
+                                <p>아직 활동 기록이 없습니다</p>
+                            </div>
+                        ) : (
+                            <div className="space-y-3 md:space-y-4">
+                                {recentActivity.map((activity) => (
+                                    <div
+                                        key={activity.id}
+                                        className="flex items-center justify-between py-2 md:py-3 border-b border-white/10 last:border-0"
+                                    >
+                                        <div>
+                                            <p className="text-white font-medium text-sm md:text-base">{activity.content}</p>
+                                            <p className="text-gray-400 text-xs md:text-sm">{activity.artist} • {activity.date}</p>
+                                        </div>
+                                        <span className="text-[#F59E0B] font-bold text-sm md:text-base">+{activity.xp} XP</span>
                                     </div>
-                                    <span className="text-[#F59E0B] font-bold text-sm md:text-base">+{activity.xp} XP</span>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                        )}
 
                         <Link
                             href="/learn"
