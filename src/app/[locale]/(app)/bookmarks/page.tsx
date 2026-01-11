@@ -76,17 +76,20 @@ export default function BookmarksPage() {
                 if (error) throw error;
 
                 if (data) {
-                    const bookmarkList: BookmarkItem[] = data.map((item, index) => {
-                        const challenge = item.challenges;
-                        const content = challenge?.contents;
-                        const artistName = content?.artist_name || 'Unknown';
+                    const bookmarkList: BookmarkItem[] = data.map((item) => {
+                        // Supabase 조인 결과는 배열일 수 있음
+                        const challengeData = item.challenges as unknown;
+                        const challenge = Array.isArray(challengeData) ? challengeData[0] : challengeData;
+                        const contentData = challenge?.contents as unknown;
+                        const content = Array.isArray(contentData) ? contentData[0] : contentData;
+                        const artistName = (content as { artist_name?: string })?.artist_name || 'Unknown';
 
                         return {
                             id: item.id,
                             artistName: artistName,
                             artistId: artistName.toLowerCase().replace(/\s+/g, '-'),
                             contentTitle: item.word,
-                            difficulty: content?.difficulty || 'normal',
+                            difficulty: (content as { difficulty?: string })?.difficulty || 'normal',
                             emoji: artistEmojis[artistName] || '🎵',
                         };
                     });
