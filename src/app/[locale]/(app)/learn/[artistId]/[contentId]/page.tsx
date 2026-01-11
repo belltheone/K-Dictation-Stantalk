@@ -6,16 +6,47 @@ import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import YouTube, { YouTubePlayer, YouTubeEvent } from "react-youtube";
+import { createClient } from "@supabase/supabase-js";
 import {
     Play, Pause, RotateCcw, Volume2, VolumeX,
-    ChevronLeft, Flame, Check, X
+    ChevronLeft, Flame, Check, X, Loader2
 } from "lucide-react";
 
-// 4지선다 퀴즈 기반 딕테이션 플레이어 - 모바일 퍼스트
+// Supabase 클라이언트 생성
+const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
+
+// 챌린지 타입 정의
+interface Challenge {
+    id: string;
+    youtubeId: string;
+    startSec: number;
+    endSec: number;
+    fullSentence: string;
+    answerWord: string;
+    wrongOptions: string[];
+    hintEn: string;
+    grammarExplanation: string;
+    xp: number;
+    artistName: string;
+    contentTitle: string;
+}
+
+// 4지선다 퀴즈 기반 딕테이션 플레이어 - Supabase 데이터 연동
 export default function DictationPlayerPage() {
     const params = useParams();
     const artistId = params.artistId as string;
+    const contentId = params.contentId as string;
     const t = useTranslations();
+
+    // 데이터 로딩 상태
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+    const [challenge, setChallenge] = useState<Challenge | null>(null);
+    const [currentChallengeIndex, setCurrentChallengeIndex] = useState(0);
+    const [challenges, setChallenges] = useState<Challenge[]>([]);
 
     // 플레이어 상태
     type PlayerState = 'loading' | 'ready' | 'playing' | 'success' | 'fail';
@@ -27,34 +58,157 @@ export default function DictationPlayerPage() {
     const [selectedOption, setSelectedOption] = useState<number | null>(null);
     const [shuffledOptions, setShuffledOptions] = useState<string[]>([]);
 
-    // 샘플 챌린지 데이터 - 4지선다 옵션 포함
-    const challenge = {
-        id: "challenge-1",
-        youtubeId: "dQw4w9WgXcQ",
-        startSec: 10,
-        endSec: 15,
-        fullSentence: "밥 먹었어?",
-        answerWord: "먹었어",
-        wrongOptions: ["먹어", "먹을까", "먹자"], // 오답 3개
-        hintEn: "Did you eat?",
-        grammarExplanation: "Past tense informal ending",
-        xp: 10,
-    };
-
     const checkIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+    // Supabase에서 데이터 가져오기
+    useEffect(() => {
+        const fetchChallenges = async () => {
+            try {
+                setIsLoading(true);
+                setError(null);
+
+                // 아티스트 이름으로 콘텐츠 검색
+                const artistName = decodeURIComponent(artistId).replace(/-/g, ' ');
+
+                // 콘텐츠 조회
+                const { data: contents, error: contentError } = await supabase
+                    .from('contents')
+                    .select('*')
+                    .ilike('artist_name', `%${artistName}%`)
+                    .eq('is_published', true)
+                    .limit(10);
+
+                if (contentError) throw contentError;
+
+                if (!contents || contents.length === 0) {
+                    // 모든 콘텐츠에서 랜덤 선택
+                    const { data: allContents, error: allError } = await supabase
+                        .from('contents')
+                        .select('*')
+                        .eq('is_published', true)
+                        .limit(10);
+
+                    if (allError) throw allError;
+                    if (!allContents || allContents.length === 0) {
+                        throw new Error('No content available');
+                    }
+
+                    // 랜덤 콘텐츠 선택
+                    const randomContent = allContents[Math.floor(Math.random() * allContents.length)];
+
+                    // 해당 콘텐츠의 챌린지 조회
+                    const { data: challengeData, error: challengeError } = await supabase
+                        .from('challenges')
+                        .select('*')
+                        .eq('content_id', randomContent.id)
+                        .order('order_index');
+
+                    if (challengeError) throw challengeError;
+
+                    if (!challengeData || challengeData.length === 0) {
+                        throw new Error('No challenges available');
+                    }
+
+                    // 챌린지 데이터 변환
+                    const formattedChallenges: Challenge[] = challengeData.map(ch => ({
+                        id: ch.id,
+                        youtubeId: randomContent.youtube_id,
+                        startSec: ch.start_sec,
+                        endSec: ch.end_sec,
+                        fullSentence: ch.full_sentence,
+                        answerWord: ch.answer_word,
+                        wrongOptions: generateWrongOptions(ch.answer_word, challengeData),
+                        hintEn: ch.hint_en || '',
+                        grammarExplanation: ch.grammar_explanation || '',
+                        xp: 10,
+                        artistName: randomContent.artist_name,
+                        contentTitle: randomContent.title,
+                    }));
+
+                    setChallenges(formattedChallenges);
+                    setChallenge(formattedChallenges[0]);
+                } else {
+                    // 첫 번째 콘텐츠 사용
+                    const content = contents[0];
+
+                    // 해당 콘텐츠의 챌린지 조회
+                    const { data: challengeData, error: challengeError } = await supabase
+                        .from('challenges')
+                        .select('*')
+                        .eq('content_id', content.id)
+                        .order('order_index');
+
+                    if (challengeError) throw challengeError;
+
+                    if (!challengeData || challengeData.length === 0) {
+                        throw new Error('No challenges for this content');
+                    }
+
+                    // 챌린지 데이터 변환
+                    const formattedChallenges: Challenge[] = challengeData.map(ch => ({
+                        id: ch.id,
+                        youtubeId: content.youtube_id,
+                        startSec: ch.start_sec,
+                        endSec: ch.end_sec,
+                        fullSentence: ch.full_sentence,
+                        answerWord: ch.answer_word,
+                        wrongOptions: generateWrongOptions(ch.answer_word, challengeData),
+                        hintEn: ch.hint_en || '',
+                        grammarExplanation: ch.grammar_explanation || '',
+                        xp: 10,
+                        artistName: content.artist_name,
+                        contentTitle: content.title,
+                    }));
+
+                    setChallenges(formattedChallenges);
+                    setChallenge(formattedChallenges[0]);
+                }
+
+            } catch (err) {
+                console.error('Error fetching challenges:', err);
+                setError(err instanceof Error ? err.message : 'Failed to load content');
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchChallenges();
+    }, [artistId, contentId]);
+
+    // 오답 옵션 생성 함수
+    function generateWrongOptions(answer: string, allChallenges: { answer_word: string }[]): string[] {
+        const otherAnswers = allChallenges
+            .map(ch => ch.answer_word)
+            .filter(word => word !== answer);
+
+        // 기본 오답 목록 (한국어 일반 단어들)
+        const defaultWrongs = [
+            '했어', '갔어', '왔어', '봤어', '먹었어', '마셨어',
+            '좋아', '싫어', '예뻐', '멋있어', '재미있어',
+            '해줘', '가자', '와봐', '해볼래', '할까',
+            '사랑해', '보고싶어', '고마워', '미안해'
+        ].filter(word => word !== answer);
+
+        const combined = [...new Set([...otherAnswers, ...defaultWrongs])];
+        const shuffled = combined.sort(() => Math.random() - 0.5);
+        return shuffled.slice(0, 3);
+    }
 
     // 옵션 셔플 함수
     const shuffleOptions = useCallback(() => {
+        if (!challenge) return;
         const options = [challenge.answerWord, ...challenge.wrongOptions];
         const shuffled = options.sort(() => Math.random() - 0.5);
         setShuffledOptions(shuffled);
-    }, [challenge.answerWord, challenge.wrongOptions]);
+    }, [challenge]);
 
     useEffect(() => {
-        shuffleOptions();
-    }, [shuffleOptions]);
+        if (challenge) {
+            shuffleOptions();
+        }
+    }, [challenge, shuffleOptions]);
 
-    // YouTube 플레이어 옵션 - 모바일 최적화
+    // YouTube 플레이어 옵션
     const opts = {
         height: "100%",
         width: "100%",
@@ -64,7 +218,7 @@ export default function DictationPlayerPage() {
             disablekb: 1,
             modestbranding: 1,
             rel: 0,
-            start: challenge.startSec,
+            start: challenge?.startSec || 0,
             playsinline: 1,
         },
     };
@@ -75,13 +229,13 @@ export default function DictationPlayerPage() {
     };
 
     const checkTimeAndLoop = useCallback(() => {
-        if (player && playerState === 'playing') {
+        if (player && playerState === 'playing' && challenge) {
             const currentTime = player.getCurrentTime();
             if (currentTime >= challenge.endSec) {
                 player.seekTo(challenge.startSec, true);
             }
         }
-    }, [player, playerState, challenge.startSec, challenge.endSec]);
+    }, [player, playerState, challenge]);
 
     useEffect(() => {
         if (playerState === 'playing') {
@@ -95,7 +249,7 @@ export default function DictationPlayerPage() {
     }, [playerState, checkTimeAndLoop]);
 
     const togglePlay = () => {
-        if (!player) return;
+        if (!player || !challenge) return;
 
         if (playerState === 'playing') {
             player.pauseVideo();
@@ -108,7 +262,7 @@ export default function DictationPlayerPage() {
     };
 
     const replay = () => {
-        if (!player) return;
+        if (!player || !challenge) return;
         player.seekTo(challenge.startSec, true);
         player.playVideo();
         setPlayerState('playing');
@@ -126,7 +280,7 @@ export default function DictationPlayerPage() {
 
     // 4지선다 선택 핸들러
     const handleOptionSelect = (index: number) => {
-        if (playerState === 'success' || selectedOption !== null) return;
+        if (!challenge || playerState === 'success' || selectedOption !== null) return;
 
         setSelectedOption(index);
         const selected = shuffledOptions[index];
@@ -144,7 +298,7 @@ export default function DictationPlayerPage() {
     };
 
     const getOptionStyle = (index: number) => {
-        if (selectedOption === null) {
+        if (!challenge || selectedOption === null) {
             return "bg-zinc-800/50 border-zinc-700 hover:border-rose-500/50 hover:bg-zinc-800";
         }
 
@@ -161,10 +315,50 @@ export default function DictationPlayerPage() {
     };
 
     const goToNext = () => {
-        setPlayerState('ready');
-        setSelectedOption(null);
-        shuffleOptions();
+        const nextIndex = currentChallengeIndex + 1;
+        if (nextIndex < challenges.length) {
+            setCurrentChallengeIndex(nextIndex);
+            setChallenge(challenges[nextIndex]);
+            setPlayerState('ready');
+            setSelectedOption(null);
+        } else {
+            // 모든 챌린지 완료 - 처음으로 돌아가기
+            setCurrentChallengeIndex(0);
+            setChallenge(challenges[0]);
+            setPlayerState('ready');
+            setSelectedOption(null);
+        }
     };
+
+    // 로딩 상태
+    if (isLoading) {
+        return (
+            <main className="min-h-screen flex items-center justify-center bg-[#09090b]">
+                <div className="text-center">
+                    <Loader2 className="w-12 h-12 text-rose-500 animate-spin mx-auto mb-4" />
+                    <p className="text-zinc-400">콘텐츠 로딩 중...</p>
+                </div>
+            </main>
+        );
+    }
+
+    // 에러 상태
+    if (error || !challenge) {
+        return (
+            <main className="min-h-screen flex items-center justify-center bg-[#09090b] px-4">
+                <div className="text-center max-w-md">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-500/20 flex items-center justify-center">
+                        <X className="w-8 h-8 text-red-500" />
+                    </div>
+                    <h2 className="text-xl font-bold text-white mb-2">콘텐츠를 불러올 수 없습니다</h2>
+                    <p className="text-zinc-400 mb-6">{error || '데이터가 없습니다'}</p>
+                    <Link href="/learn" className="btn-primary px-6 py-3">
+                        학습 페이지로 돌아가기
+                    </Link>
+                </div>
+            </main>
+        );
+    }
 
     return (
         <main className="min-h-screen flex flex-col bg-[#09090b]">
@@ -179,9 +373,12 @@ export default function DictationPlayerPage() {
                 </Link>
 
                 <div className="flex items-center gap-3 md:gap-4">
+                    <span className="text-zinc-500 text-sm">
+                        {challenge.artistName} - {challenge.contentTitle}
+                    </span>
                     <div className="flex items-center gap-1 md:gap-2 text-emerald-500">
                         <Flame className="w-4 h-4 md:w-5 md:h-5 animate-pulse" />
-                        <span className="font-bold text-sm md:text-base">3</span>
+                        <span className="font-bold text-sm md:text-base">{currentChallengeIndex + 1}/{challenges.length}</span>
                     </div>
                 </div>
             </header>
@@ -280,9 +477,11 @@ export default function DictationPlayerPage() {
                     </div>
 
                     {/* 영어 힌트 */}
-                    <div className="mt-4 md:mt-6 p-3 md:p-4 rounded-xl bg-zinc-800/30 border border-zinc-700/50 text-center">
-                        <p className="text-zinc-400 text-sm md:text-base">💡 {challenge.hintEn}</p>
-                    </div>
+                    {challenge.hintEn && (
+                        <div className="mt-4 md:mt-6 p-3 md:p-4 rounded-xl bg-zinc-800/30 border border-zinc-700/50 text-center">
+                            <p className="text-zinc-400 text-sm md:text-base">💡 {challenge.hintEn}</p>
+                        </div>
+                    )}
                 </div>
             </div>
 
