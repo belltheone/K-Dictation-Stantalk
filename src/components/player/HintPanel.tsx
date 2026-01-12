@@ -33,7 +33,7 @@ export function HintPanel({
 
     const { translate } = useTranslation();
 
-    // 패널이 열릴 때 번역 수행
+    // 패널이 열릴 때 번역 및 발음 가이드 수행
     useEffect(() => {
         if (!isVisible) return;
 
@@ -41,17 +41,49 @@ export function HintPanel({
             setIsTranslating(true);
 
             try {
-                // 힌트 번역
-                const hintResult = await translate(hintEn, locale, "hint", koreanSentence);
-                setTranslatedHint(hintResult.translatedText);
-                if (hintResult.romanization) {
-                    setRomanization(hintResult.romanization);
+                // 힌트 번역 (영어가 아닌 경우에만)
+                if (locale !== "en" && locale !== "ko") {
+                    const hintResult = await translate(hintEn, locale, "hint", koreanSentence);
+                    setTranslatedHint(hintResult.translatedText);
+                    // 번역 API에서 romanization도 함께 반환됨
+                    if (hintResult.romanization) {
+                        setRomanization(hintResult.romanization);
+                    }
+                } else {
+                    // 영어/한국어일 경우 원문 사용
+                    setTranslatedHint(hintEn);
                 }
 
-                // 문법 설명 번역
+                // 발음 가이드 별도 요청 (모든 언어에서)
+                if (koreanSentence && !romanization) {
+                    try {
+                        const response = await fetch("/api/translate", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                                text: hintEn,
+                                targetLocale: "en",
+                                type: "romanization",
+                                koreanText: koreanSentence,
+                            }),
+                        });
+                        const data = await response.json();
+                        if (data.romanization) {
+                            setRomanization(data.romanization);
+                        }
+                    } catch (err) {
+                        console.error("Romanization fetch error:", err);
+                    }
+                }
+
+                // 문법 설명 번역 (영어가 아닌 경우에만)
                 if (grammarExplanation) {
-                    const grammarResult = await translate(grammarExplanation, locale, "grammar");
-                    setTranslatedGrammar(grammarResult.translatedText);
+                    if (locale !== "en" && locale !== "ko") {
+                        const grammarResult = await translate(grammarExplanation, locale, "grammar");
+                        setTranslatedGrammar(grammarResult.translatedText);
+                    } else {
+                        setTranslatedGrammar(grammarExplanation);
+                    }
                 }
             } catch (error) {
                 console.error("Translation error:", error);
