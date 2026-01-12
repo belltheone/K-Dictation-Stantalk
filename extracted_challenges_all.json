@@ -1,0 +1,64 @@
+[
+  {
+    "artist": "Stray Kids",
+    "video_id": "urNLPgalt6o",
+    "title": "[SKZ-TALKER] Ep.77",
+    "challenges": [
+      {
+        "start_sec": 122,
+        "end_sec": 129,
+        "full_sentence": "주동이 진짜 맛있어요",
+        "answer_word": "맛있어요",
+        "base_form": "맛있다",
+        "hint_en": "It is/was delicious"
+      },
+      {
+        "start_sec": 142,
+        "end_sec": 151,
+        "full_sentence": "거 다 먹어. 감사합니다",
+        "answer_word": "감사합니다",
+        "base_form": "감사하다",
+        "hint_en": "Thank you"
+      },
+      {
+        "start_sec": 683,
+        "end_sec": 691,
+        "full_sentence": "서 딱 쓰기가 좋아요",
+        "answer_word": "좋아요",
+        "base_form": "좋다",
+        "hint_en": "It is/was good"
+      }
+    ]
+  },
+  {
+    "artist": "NewJeans",
+    "video_id": "OMVoxddjWmM",
+    "title": "[Jeans ZINE+] 연말 파티 ZIP",
+    "challenges": [
+      {
+        "start_sec": 19,
+        "end_sec": 22,
+        "full_sentence": "- 좋아 - 좋아요",
+        "answer_word": "좋아요",
+        "base_form": "좋다",
+        "hint_en": "It is/was good"
+      },
+      {
+        "start_sec": 465,
+        "end_sec": 470,
+        "full_sentence": "딸기가 너무 맛있어요",
+        "answer_word": "맛있어요",
+        "base_form": "맛있다",
+        "hint_en": "It is/was delicious"
+      },
+      {
+        "start_sec": 659,
+        "end_sec": 663,
+        "full_sentence": "색깔이 너무 예뻐요",
+        "answer_word": "예뻐요",
+        "base_form": "예쁘다",
+        "hint_en": "It is/was pretty"
+      }
+    ]
+  }
+]

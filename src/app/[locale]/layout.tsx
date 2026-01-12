@@ -5,6 +5,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
 import { routing } from "@/i18n/routing";
 import { GoogleAnalytics } from "@/lib/analytics";
+import Script from "next/script";
 import "../globals.css";
 
 // 폰트 설정 - 영문 타이틀용 Montserrat, 본문용 Inter
@@ -86,6 +87,15 @@ export default async function LocaleLayout({
 
     return (
         <html lang={locale} suppressHydrationWarning>
+            <head>
+                {/* Google AdSense 스크립트 */}
+                <Script
+                    async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5965391983551048"
+                    crossOrigin="anonymous"
+                    strategy="afterInteractive"
+                />
+            </head>
             <body
                 className={`${inter.variable} ${montserrat.variable} antialiased min-h-screen`}
             >
@@ -104,3 +114,4 @@ export default async function LocaleLayout({
         </html>
     );
 }
+

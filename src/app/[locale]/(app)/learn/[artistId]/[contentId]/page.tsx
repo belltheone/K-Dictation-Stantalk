@@ -12,6 +12,15 @@ import {
     ChevronLeft, Flame, Check, X, Loader2, Lightbulb
 } from "lucide-react";
 import { HintPanel } from "@/components/player/HintPanel";
+import { InterstitialAd } from "@/components/ads/InterstitialAd";
+import { SignupPromptModal } from "@/components/modals/SignupPromptModal";
+import {
+    useUserAccess,
+    getGuestSolveCount,
+    incrementGuestSolveCount,
+    canGuestSolveMore,
+    GUEST_MAX_PROBLEMS
+} from "@/hooks/useUserAccess";
 
 // Supabase 클라이언트 생성
 const supabase = createClient(
@@ -62,6 +71,19 @@ export default function DictationPlayerPage() {
 
     // 힌트 패널 표시 상태
     const [showHint, setShowHint] = useState(false);
+
+    // 사용자 접근 상태
+    const { isGuest, isFree, isPro, isLoading: userLoading } = useUserAccess();
+
+    // 광고 & 회원가입 모달 상태
+    const [showAd, setShowAd] = useState(false);
+    const [showSignupPrompt, setShowSignupPrompt] = useState(false);
+    const [guestSolveCount, setGuestSolveCount] = useState(0);
+
+    // 비회원 문제 풀이 횟수 초기화
+    useEffect(() => {
+        setGuestSolveCount(getGuestSolveCount());
+    }, []);
 
     const checkIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -315,6 +337,26 @@ export default function DictationPlayerPage() {
         if (selected === challenge.answerWord) {
             setPlayerState('success');
             player?.pauseVideo();
+
+            // 비회원: 문제 풀이 횟수 증가 및 제한 확인
+            if (isGuest) {
+                const newCount = incrementGuestSolveCount();
+                setGuestSolveCount(newCount);
+
+                // 3문제 풀면 회원가입 유도
+                if (newCount >= GUEST_MAX_PROBLEMS) {
+                    setTimeout(() => {
+                        setShowSignupPrompt(true);
+                    }, 1500);
+                }
+            }
+            // 무료 유저: 문제 정답 후 광고 표시
+            else if (isFree) {
+                setTimeout(() => {
+                    setShowAd(true);
+                }, 1500);
+            }
+            // Pro 유저: 광고 없음
         } else {
             setPlayerState('fail');
             setTimeout(() => {
@@ -575,6 +617,24 @@ export default function DictationPlayerPage() {
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            {/* 전면 광고 모달 (무료 유저) */}
+            <InterstitialAd
+                isOpen={showAd}
+                onClose={() => {
+                    setShowAd(false);
+                    // 광고 닫은 후 다음 문제로 이동
+                    goToNext();
+                }}
+            />
+
+            {/* 회원가입 유도 모달 (비회원 3문제 제한) */}
+            <SignupPromptModal
+                isOpen={showSignupPrompt}
+                onClose={() => setShowSignupPrompt(false)}
+                solvedCount={guestSolveCount}
+                maxProblems={GUEST_MAX_PROBLEMS}
+            />
         </main>
     );
 }
