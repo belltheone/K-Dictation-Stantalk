@@ -43,12 +43,14 @@ interface TranslateResponse {
 export async function POST(request: NextRequest): Promise<NextResponse<TranslateResponse>> {
     try {
         const body: TranslateRequest = await request.json();
-        const { text, targetLocale, type, koreanText } = body;
+        const { text, targetLocale, koreanText } = body;
+        // type이 없으면 기본값 'hint' 사용
+        const type = body.type || "hint";
 
-        // 유효성 검사
-        if (!text || !targetLocale || !type) {
+        // 유효성 검사 (text와 targetLocale만 필수)
+        if (!text || !targetLocale) {
             return NextResponse.json(
-                { translatedText: "", error: "Missing required fields" },
+                { translatedText: "", error: `Missing required fields: ${!text ? 'text ' : ''}${!targetLocale ? 'targetLocale' : ''}` },
                 { status: 400 }
             );
         }
