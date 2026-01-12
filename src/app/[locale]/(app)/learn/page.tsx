@@ -81,8 +81,8 @@ export default function LearnPage() {
                         contentCount: count,
                     }));
 
-                    // 콘텐츠 수 기준 정렬
-                    artistList.sort((a, b) => b.contentCount - a.contentCount);
+                    // 아티스트 이름 알파벳순 정렬
+                    artistList.sort((a, b) => a.name.localeCompare(b.name));
                     setArtists(artistList);
                 }
             } catch (err) {
