@@ -3,14 +3,15 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useParams } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import YouTube, { YouTubePlayer, YouTubeEvent } from "react-youtube";
 import { createClient } from "@supabase/supabase-js";
 import {
     Play, Pause, RotateCcw, Volume2, VolumeX,
-    ChevronLeft, Flame, Check, X, Loader2
+    ChevronLeft, Flame, Check, X, Loader2, Lightbulb
 } from "lucide-react";
+import { HintPanel } from "@/components/player/HintPanel";
 
 // Supabase 클라이언트 생성
 const supabase = createClient(
@@ -40,6 +41,7 @@ export default function DictationPlayerPage() {
     const artistId = params.artistId as string;
     const contentId = params.contentId as string;
     const t = useTranslations();
+    const locale = useLocale(); // 현재 언어 가져오기
 
     // 데이터 로딩 상태
     const [isLoading, setIsLoading] = useState(true);
@@ -57,6 +59,9 @@ export default function DictationPlayerPage() {
     // 선택지 상태
     const [selectedOption, setSelectedOption] = useState<number | null>(null);
     const [shuffledOptions, setShuffledOptions] = useState<string[]>([]);
+
+    // 힌트 패널 표시 상태
+    const [showHint, setShowHint] = useState(false);
 
     const checkIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -343,12 +348,14 @@ export default function DictationPlayerPage() {
             setChallenge(challenges[nextIndex]);
             setPlayerState('ready');
             setSelectedOption(null);
+            setShowHint(false); // 힌트 상태 초기화
         } else {
             // 모든 챌린지 완료 - 처음으로 돌아가기
             setCurrentChallengeIndex(0);
             setChallenge(challenges[0]);
             setPlayerState('ready');
             setSelectedOption(null);
+            setShowHint(false); // 힌트 상태 초기화
         }
     };
 
@@ -499,11 +506,27 @@ export default function DictationPlayerPage() {
                         ))}
                     </div>
 
-                    {/* 영어 힌트 */}
+                    {/* 힌트 버튼 */}
+                    {challenge.hintEn && !showHint && (
+                        <button
+                            onClick={() => setShowHint(true)}
+                            className="mt-4 md:mt-6 w-full p-3 md:p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-center hover:bg-amber-500/20 transition-colors flex items-center justify-center gap-2"
+                        >
+                            <Lightbulb className="w-5 h-5 text-amber-400" />
+                            <span className="text-amber-400 text-sm md:text-base font-medium">{t("player.hint")}</span>
+                        </button>
+                    )}
+
+                    {/* 다국어 힌트 패널 */}
                     {challenge.hintEn && (
-                        <div className="mt-4 md:mt-6 p-3 md:p-4 rounded-xl bg-zinc-800/30 border border-zinc-700/50 text-center">
-                            <p className="text-zinc-400 text-sm md:text-base">💡 {challenge.hintEn}</p>
-                        </div>
+                        <HintPanel
+                            isVisible={showHint}
+                            hintEn={challenge.hintEn}
+                            koreanSentence={challenge.fullSentence}
+                            grammarExplanation={challenge.grammarExplanation}
+                            locale={locale}
+                            onClose={() => setShowHint(false)}
+                        />
                     )}
                 </div>
             </div>
