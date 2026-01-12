@@ -41,50 +41,59 @@ export function HintPanel({
             setIsTranslating(true);
 
             try {
-                // 힌트 번역 (영어가 아닌 경우에만)
-                if (locale !== "en" && locale !== "ko") {
-                    const hintResult = await translate(hintEn, locale, "hint", koreanSentence);
-                    setTranslatedHint(hintResult.translatedText);
-                    // 번역 API에서 romanization도 함께 반환됨
-                    if (hintResult.romanization) {
-                        setRomanization(hintResult.romanization);
-                    }
-                } else {
-                    // 영어/한국어일 경우 원문 사용
-                    setTranslatedHint(hintEn);
-                }
+                // 발음 가이드 먼저 요청 (모든 언어에서)
+                const romanizationPromise = koreanSentence
+                    ? fetch("/api/translate", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            text: hintEn,
+                            targetLocale: "en",
+                            type: "romanization",
+                            koreanText: koreanSentence,
+                        }),
+                    })
+                        .then((res) => res.json())
+                        .then((data) => data.romanization || "")
+                        .catch(() => "")
+                    : Promise.resolve("");
 
-                // 발음 가이드 별도 요청 (모든 언어에서)
-                if (koreanSentence && !romanization) {
+                // 힌트 번역 (영어/한국어가 아닌 경우에만)
+                let translatedHintText = hintEn;
+                let translatedGrammarText = grammarExplanation || "";
+
+                if (locale !== "en" && locale !== "ko") {
                     try {
-                        const response = await fetch("/api/translate", {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({
-                                text: hintEn,
-                                targetLocale: "en",
-                                type: "romanization",
-                                koreanText: koreanSentence,
-                            }),
-                        });
-                        const data = await response.json();
-                        if (data.romanization) {
-                            setRomanization(data.romanization);
+                        const hintResult = await translate(hintEn, locale, "hint", koreanSentence);
+                        // 빈 응답이 아닐 때만 적용
+                        if (hintResult.translatedText && hintResult.translatedText.trim()) {
+                            translatedHintText = hintResult.translatedText;
                         }
                     } catch (err) {
-                        console.error("Romanization fetch error:", err);
+                        console.error("Hint translation error:", err);
+                    }
+
+                    // 문법 설명 번역
+                    if (grammarExplanation) {
+                        try {
+                            const grammarResult = await translate(grammarExplanation, locale, "grammar");
+                            if (grammarResult.translatedText && grammarResult.translatedText.trim()) {
+                                translatedGrammarText = grammarResult.translatedText;
+                            }
+                        } catch (err) {
+                            console.error("Grammar translation error:", err);
+                        }
                     }
                 }
 
-                // 문법 설명 번역 (영어가 아닌 경우에만)
-                if (grammarExplanation) {
-                    if (locale !== "en" && locale !== "ko") {
-                        const grammarResult = await translate(grammarExplanation, locale, "grammar");
-                        setTranslatedGrammar(grammarResult.translatedText);
-                    } else {
-                        setTranslatedGrammar(grammarExplanation);
-                    }
+                // 발음 가이드 결과 대기 및 적용
+                const romanizationText = await romanizationPromise;
+                if (romanizationText) {
+                    setRomanization(romanizationText);
                 }
+
+                setTranslatedHint(translatedHintText);
+                setTranslatedGrammar(translatedGrammarText);
             } catch (error) {
                 console.error("Translation error:", error);
                 // 실패 시 원본 유지
