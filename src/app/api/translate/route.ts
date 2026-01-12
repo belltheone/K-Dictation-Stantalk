@@ -92,8 +92,9 @@ export async function POST(request: NextRequest): Promise<NextResponse<Translate
         return NextResponse.json(result);
     } catch (error) {
         console.error("Translation API error:", error);
+        const errorMessage = error instanceof Error ? error.message : "Unknown error";
         return NextResponse.json(
-            { translatedText: "", error: "Translation failed" },
+            { translatedText: "", error: `Translation failed: ${errorMessage}` },
             { status: 500 }
         );
     }
@@ -106,6 +107,12 @@ async function translateWithAI(
     type: "hint" | "grammar" | "romanization"
 ): Promise<string> {
     const targetLanguage = LOCALE_NAMES[targetLocale];
+
+    // API 키 확인
+    if (!process.env.OPENAI_API_KEY) {
+        console.error("OPENAI_API_KEY is not set");
+        throw new Error("OpenAI API key not configured");
+    }
 
     // 번역 타입에 따른 프롬프트 조정
     const contextPrompts = {
@@ -131,10 +138,14 @@ async function translateWithAI(
             max_tokens: 300,
         });
 
-        return completion.choices[0].message.content?.trim() || text;
+        const translatedText = completion.choices[0].message.content?.trim();
+        if (!translatedText) {
+            throw new Error("Empty response from OpenAI");
+        }
+        return translatedText;
     } catch (error) {
         console.error("OpenAI translation error:", error);
-        return text; // 실패 시 원문 반환
+        throw error; // 상위에서 처리하도록 에러 전파
     }
 }
 
