@@ -111,5 +111,62 @@
         "fr": "Français",
         "de": "Deutsch",
         "it": "Italiano"
+    },
+    "blog": {
+        "title": "Blog di apprendimento coreano",
+        "subtitle": "Consigli, guide e approfondimenti per imparare il coreano tramite K-Pop",
+        "backToList": "Torna alla lista degli articoli",
+        "cta": {
+            "title": "Pronto a praticare?",
+            "description": "Metti in pratica quello che hai imparato con K-Dictation!",
+            "button": "Inizia"
+        },
+        "articleCta": {
+            "title": "Pratica quello che hai imparato!",
+            "description": "Prova queste espressioni con contenuti K-Pop reali",
+            "button": "Inizia la pratica"
+        },
+        "articles": {
+            "1": {
+                "title": "Come imparare il coreano con K-Pop: Guida completa",
+                "description": "Scopri i metodi più efficaci per imparare il coreano attraverso le tue canzoni K-Pop preferite."
+            },
+            "2": {
+                "title": "Hangul 101: Guida all'alfabeto coreano per principianti",
+                "description": "Padroneggia l'alfabeto coreano in un solo giorno con questa guida completa."
+            },
+            "3": {
+                "title": "Imparare il coreano con BTS: 10 espressioni essenziali",
+                "description": "Studia le frasi coreane comuni attraverso canzoni e interviste dei BTS."
+            },
+            "4": {
+                "title": "Frasi K-Drama che ogni fan dovrebbe conoscere",
+                "description": "Le espressioni più comuni che sentirai nei drama coreani."
+            },
+            "5": {
+                "title": "Consigli per la pronuncia coreana",
+                "description": "Padroneggia i suoni coreani difficili con questi consigli pratici."
+            },
+            "6": {
+                "title": "Vocabolario BLACKPINK: Impara il coreano con BLINK",
+                "description": "Espandi il tuo vocabolario coreano attraverso i contenuti BLACKPINK."
+            },
+            "7": {
+                "title": "Capire gli onorificoni coreani: Guida completa",
+                "description": "Tutto quello che devi sapere sul linguaggio formale e informale in coreano."
+            },
+            "8": {
+                "title": "Il metodo NewJeans: Imparare il coreano divertendosi",
+                "description": "Tecniche di studio creative ispirate al gruppo K-Pop più recente."
+            },
+            "9": {
+                "title": "Slang coreano 2024: Parole che devi conoscere",
+                "description": "Resta aggiornato con le ultime parole ed espressioni di tendenza in coreano."
+            },
+            "10": {
+                "title": "Perché imparare il coreano? 5 motivi per iniziare oggi",
+                "description": "Motivazione e benefici dell'apprendimento del coreano."
+            }
+        }
     }
 }

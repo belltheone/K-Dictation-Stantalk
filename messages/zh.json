@@ -108,5 +108,62 @@
         "zh": "中文",
         "th": "ไทย",
         "vi": "Tiếng Việt"
+    },
+    "blog": {
+        "title": "K学习博客",
+        "subtitle": "通过K-Pop学习韩语的技巧、指南和见解",
+        "backToList": "返回博客列表",
+        "cta": {
+            "title": "准备好练习了吗？",
+            "description": "用K-Dictation把学到的知识付诸实践！",
+            "button": "开始学习"
+        },
+        "articleCta": {
+            "title": "练习你学到的！",
+            "description": "用真实的K-Pop内容尝试这些表达",
+            "button": "开始练习"
+        },
+        "articles": {
+            "1": {
+                "title": "如何用K-Pop学习韩语：完整指南",
+                "description": "发现通过你最喜欢的K-Pop歌曲学习韩语的最有效方法。"
+            },
+            "2": {
+                "title": "韩文入门：韩语字母完整指南",
+                "description": "通过这份全面的指南，一天就能掌握韩语字母。"
+            },
+            "3": {
+                "title": "跟BTS学韩语：10个必备表达",
+                "description": "用BTS的歌曲和采访学习常见的韩语短语。"
+            },
+            "4": {
+                "title": "韩剧迷必知：必备短语",
+                "description": "韩剧中最常听到的表达方式。"
+            },
+            "5": {
+                "title": "英语母语者的韩语发音技巧",
+                "description": "用这些实用技巧掌握困难的韩语发音。"
+            },
+            "6": {
+                "title": "BLACKPINK词汇：和BLINK一起学韩语",
+                "description": "通过BLACKPINK内容扩展你的韩语词汇。"
+            },
+            "7": {
+                "title": "理解韩语敬语：完整指南",
+                "description": "关于韩语正式和非正式说话方式的完整知识。"
+            },
+            "8": {
+                "title": "NewJeans方法：有趣的韩语学习方式",
+                "description": "受K-Pop最新团体启发的创意学习技巧。"
+            },
+            "9": {
+                "title": "2024韩国俚语：你需要知道的词",
+                "description": "了解最新的韩语流行词和表达。"
+            },
+            "10": {
+                "title": "为什么学韩语？今天开始的5个理由",
+                "description": "学习韩语的动力和好处。"
+            }
+        }
     }
 }

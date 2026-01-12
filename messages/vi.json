@@ -108,5 +108,62 @@
         "zh": "中文",
         "th": "ไทย",
         "vi": "Tiếng Việt"
+    },
+    "blog": {
+        "title": "Blog học tiếng Hàn",
+        "subtitle": "Mẹo, hướng dẫn và thông tin về học tiếng Hàn qua K-Pop",
+        "backToList": "Quay lại danh sách blog",
+        "cta": {
+            "title": "Sẵn sàng luyện tập chưa?",
+            "description": "Áp dụng những gì đã học với K-Dictation!",
+            "button": "Bắt đầu học"
+        },
+        "articleCta": {
+            "title": "Luyện tập những gì đã học!",
+            "description": "Thử các biểu đạt này với nội dung K-Pop thực tế",
+            "button": "Bắt đầu luyện tập"
+        },
+        "articles": {
+            "1": {
+                "title": "Cách học tiếng Hàn với K-Pop: Hướng dẫn đầy đủ",
+                "description": "Khám phá phương pháp hiệu quả nhất để học tiếng Hàn qua bài hát K-Pop yêu thích."
+            },
+            "2": {
+                "title": "Hangul 101: Hướng dẫn bảng chữ cái tiếng Hàn cho người mới",
+                "description": "Làm chủ bảng chữ cái tiếng Hàn chỉ trong một ngày với hướng dẫn toàn diện này."
+            },
+            "3": {
+                "title": "Học tiếng Hàn với BTS: 10 biểu đạt thiết yếu",
+                "description": "Học các cụm từ tiếng Hàn phổ biến từ bài hát và phỏng vấn của BTS."
+            },
+            "4": {
+                "title": "Các cụm từ K-Drama mà fan nên biết",
+                "description": "Những biểu đạt phổ biến nhất bạn sẽ nghe trong phim Hàn."
+            },
+            "5": {
+                "title": "Mẹo phát âm tiếng Hàn",
+                "description": "Làm chủ các âm tiếng Hàn khó với những mẹo thực tế này."
+            },
+            "6": {
+                "title": "Từ vựng BLACKPINK: Học tiếng Hàn cùng BLINK",
+                "description": "Mở rộng vốn từ tiếng Hàn qua nội dung BLACKPINK."
+            },
+            "7": {
+                "title": "Hiểu về kính ngữ tiếng Hàn: Hướng dẫn đầy đủ",
+                "description": "Tất cả những gì bạn cần biết về cách nói trang trọng và thân mật."
+            },
+            "8": {
+                "title": "Phương pháp NewJeans: Cách học tiếng Hàn vui vẻ",
+                "description": "Kỹ thuật học sáng tạo lấy cảm hứng từ nhóm K-Pop mới nhất."
+            },
+            "9": {
+                "title": "Tiếng lóng Hàn 2024: Những từ bạn cần biết",
+                "description": "Cập nhật những từ và biểu đạt xu hướng tiếng Hàn mới nhất."
+            },
+            "10": {
+                "title": "Tại sao học tiếng Hàn? 5 lý do để bắt đầu hôm nay",
+                "description": "Động lực và lợi ích của việc học tiếng Hàn."
+            }
+        }
     }
 }

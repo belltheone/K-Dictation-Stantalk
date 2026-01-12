@@ -111,5 +111,62 @@
         "fr": "Français",
         "de": "Deutsch",
         "it": "Italiano"
+    },
+    "blog": {
+        "title": "Koreanisch-Lernblog",
+        "subtitle": "Tipps, Anleitungen und Einblicke zum Koreanischlernen durch K-Pop",
+        "backToList": "Zurück zur Artikelliste",
+        "cta": {
+            "title": "Bereit zum Üben?",
+            "description": "Setze das Gelernte mit K-Dictation in die Praxis um!",
+            "button": "Los geht's"
+        },
+        "articleCta": {
+            "title": "Übe das Gelernte!",
+            "description": "Probiere diese Ausdrücke mit echtem K-Pop-Inhalt aus",
+            "button": "Übung starten"
+        },
+        "articles": {
+            "1": {
+                "title": "Wie man mit K-Pop Koreanisch lernt: Vollständiger Leitfaden",
+                "description": "Entdecke die effektivsten Methoden, um durch deine Lieblings-K-Pop-Songs Koreanisch zu lernen."
+            },
+            "2": {
+                "title": "Hangul 101: Anfängerleitfaden zum koreanischen Alphabet",
+                "description": "Meistere das koreanische Alphabet an nur einem Tag mit diesem umfassenden Leitfaden."
+            },
+            "3": {
+                "title": "Koreanisch lernen mit BTS: 10 wesentliche Ausdrücke",
+                "description": "Lerne häufige koreanische Phrasen durch BTS-Songs und Interviews."
+            },
+            "4": {
+                "title": "K-Drama-Phrasen, die jeder Fan kennen sollte",
+                "description": "Die häufigsten Ausdrücke, die du in koreanischen Dramen hörst."
+            },
+            "5": {
+                "title": "Tipps zur koreanischen Aussprache",
+                "description": "Meistere schwierige koreanische Laute mit diesen praktischen Tipps."
+            },
+            "6": {
+                "title": "BLACKPINK-Vokabular: Koreanisch lernen mit BLINK",
+                "description": "Erweitere deinen koreanischen Wortschatz durch BLACKPINK-Inhalte."
+            },
+            "7": {
+                "title": "Koreanische Höflichkeitsformen verstehen: Vollständiger Leitfaden",
+                "description": "Alles, was du über formelle und informelle Sprache im Koreanischen wissen musst."
+            },
+            "8": {
+                "title": "Die NewJeans-Methode: Koreanisch lernen mit Spaß",
+                "description": "Kreative Lerntechniken, inspiriert von der neuesten K-Pop-Gruppe."
+            },
+            "9": {
+                "title": "Koreanischer Slang 2024: Wörter, die du kennen musst",
+                "description": "Bleibe mit den neuesten koreanischen Trendwörtern und Ausdrücken auf dem Laufenden."
+            },
+            "10": {
+                "title": "Warum Koreanisch lernen? 5 Gründe, heute anzufangen",
+                "description": "Motivation und Vorteile des Koreanischlernens."
+            }
+        }
     }
 }

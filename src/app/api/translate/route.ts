@@ -1,11 +1,18 @@
-// 다국어 번역 API 라우트 - AI 기반 실시간 번역
+// 다국어 번역 API 라우트 - AI 기반 실시간 번역 + DB 캐싱
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
+import { createClient } from "@supabase/supabase-js";
 
 // OpenAI 클라이언트 생성
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
+
+// Supabase 클라이언트 생성 (서버 측 - service role key 사용)
+const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
 
 // 지원하는 언어 목록
 const SUPPORTED_LOCALES = ["en", "ko", "ja", "zh", "th", "vi", "fr", "de", "it"] as const;
@@ -63,13 +70,13 @@ export async function POST(request: NextRequest): Promise<NextResponse<Translate
             );
         }
 
-        // 영어인 경우 번역 불필요
+        // 영어인 경우 번역 불필요 (로마자만 처리)
         if (targetLocale === "en") {
             const result: TranslateResponse = { translatedText: text };
 
             // 로마자 발음 추가 요청 시
             if (type === "romanization" && koreanText) {
-                result.romanization = await getRomanization(koreanText);
+                result.romanization = await getCachedRomanization(koreanText);
             }
 
             return NextResponse.json(result);
@@ -80,13 +87,53 @@ export async function POST(request: NextRequest): Promise<NextResponse<Translate
             return NextResponse.json({ translatedText: text });
         }
 
-        // AI 번역 실행
-        const translatedText = await translateWithAI(text, targetLocale, type);
-        const result: TranslateResponse = { translatedText };
+        // 1. DB 캐시에서 번역 결과 조회
+        const { data: cached } = await supabase
+            .from("translation_cache")
+            .select("translated_text, romanization")
+            .eq("source_text", text)
+            .eq("target_locale", targetLocale)
+            .eq("translation_type", type)
+            .single();
 
-        // 로마자 발음 추가
+        // 캐시 히트 - DB에서 결과 반환
+        if (cached) {
+            const result: TranslateResponse = { translatedText: cached.translated_text };
+            if (cached.romanization) {
+                result.romanization = cached.romanization;
+            }
+            return NextResponse.json(result);
+        }
+
+        // 2. 캐시 미스 - AI 번역 실행
+        const translatedText = await translateWithAI(text, targetLocale, type);
+
+        // 로마자 발음 생성
+        let romanization: string | undefined;
         if (koreanText) {
-            result.romanization = await getRomanization(koreanText);
+            romanization = await getRomanization(koreanText);
+        }
+
+        // 3. 번역 결과 DB에 저장 (비동기, 실패해도 응답에 영향 없음)
+        supabase
+            .from("translation_cache")
+            .insert({
+                source_text: text,
+                source_locale: "en", // 원본은 영어 힌트
+                target_locale: targetLocale,
+                translation_type: type,
+                translated_text: translatedText,
+                romanization: romanization || null,
+            })
+            .then(({ error }) => {
+                if (error) {
+                    console.error("Failed to cache translation:", error);
+                }
+            });
+
+        const result: TranslateResponse = { translatedText };
+        if (romanization) {
+            result.romanization = romanization;
         }
 
         return NextResponse.json(result);
@@ -98,6 +145,43 @@ export async function POST(request: NextRequest): Promise<NextResponse<Translate
             { status: 500 }
         );
     }
+}
+
+// 로마자 발음 캐시 조회 함수
+async function getCachedRomanization(koreanText: string): Promise<string> {
+    // DB에서 로마자 캐시 조회
+    const { data: cached } = await supabase
+        .from("translation_cache")
+        .select("translated_text")
+        .eq("source_text", koreanText)
+        .eq("target_locale", "en")
+        .eq("translation_type", "romanization")
+        .single();
+
+    if (cached) {
+        return cached.translated_text;
+    }
+
+    // 캐시 미스 - AI로 생성
+    const romanization = await getRomanization(koreanText);
+
+    // DB에 저장
+    supabase
+        .from("translation_cache")
+        .insert({
+            source_text: koreanText,
+            source_locale: "ko",
+            target_locale: "en",
+            translation_type: "romanization",
+            translated_text: romanization,
+        })
+        .then(({ error }) => {
+            if (error) {
+                console.error("Failed to cache romanization:", error);
+            }
+        });
+
+    return romanization;
 }
 
 // AI 기반 번역 함수
