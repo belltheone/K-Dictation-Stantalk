@@ -1,0 +1,856 @@
+{
+  "top_endings": [
+    [
+      "그래",
+      13
+    ],
+    [
+      "노래",
+      13
+    ],
+    [
+      "같아요",
+      10
+    ],
+    [
+      "그렇지",
+      9
+    ],
+    [
+      "거예요",
+      8
+    ],
+    [
+      "감사합니다",
+      7
+    ],
+    [
+      "좋아요",
+      5
+    ],
+    [
+      "아니야",
+      5
+    ],
+    [
+      "안녕하세요",
+      5
+    ],
+    [
+      "돼요",
+      4
+    ],
+    [
+      "나야",
+      4
+    ],
+    [
+      "대박이야",
+      4
+    ],
+    [
+      "마지",
+      3
+    ],
+    [
+      "됐어요",
+      3
+    ],
+    [
+      "왔어요",
+      3
+    ],
+    [
+      "뭐야",
+      3
+    ],
+    [
+      "그러니까",
+      3
+    ],
+    [
+      "가지",
+      3
+    ],
+    [
+      "합니다",
+      3
+    ],
+    [
+      "깔아야",
+      3
+    ],
+    [
+      "아니요",
+      3
+    ],
+    [
+      "거야",
+      3
+    ],
+    [
+      "틀리지",
+      3
+    ],
+    [
+      "찢자",
+      3
+    ],
+    [
+      "생각보다",
+      2
+    ],
+    [
+      "닫을게요",
+      2
+    ],
+    [
+      "좋아해요",
+      2
+    ],
+    [
+      "좋았다",
+      2
+    ],
+    [
+      "했어요",
+      2
+    ],
+    [
+      "있는데",
+      2
+    ],
+    [
+      "맞아요",
+      2
+    ],
+    [
+      "않아요",
+      2
+    ],
+    [
+      "흘려주세요",
+      2
+    ],
+    [
+      "그렇죠",
+      2
+    ],
+    [
+      "되겠다",
+      2
+    ],
+    [
+      "쓰지",
+      2
+    ],
+    [
+      "보다",
+      2
+    ],
+    [
+      "해야",
+      2
+    ],
+    [
+      "않았어요",
+      2
+    ],
+    [
+      "죄송합니다",
+      2
+    ],
+    [
+      "있어요",
+      2
+    ],
+    [
+      "싶다",
+      2
+    ],
+    [
+      "있거든요",
+      2
+    ],
+    [
+      "비자",
+      2
+    ],
+    [
+      "입니다",
+      2
+    ],
+    [
+      "하겠습니다",
+      2
+    ],
+    [
+      "갑니다",
+      2
+    ],
+    [
+      "멋있지",
+      2
+    ],
+    [
+      "먹겠습니다",
+      2
+    ],
+    [
+      "대박이다",
+      2
+    ],
+    [
+      "과자",
+      2
+    ],
+    [
+      "했는데",
+      2
+    ],
+    [
+      "되죠",
+      2
+    ],
+    [
+      "않을까",
+      2
+    ],
+    [
+      "왔습니다",
+      2
+    ],
+    [
+      "아쉽네",
+      2
+    ],
+    [
+      "되는데",
+      2
+    ],
+    [
+      "하는데",
+      2
+    ],
+    [
+      "찍는다",
+      2
+    ],
+    [
+      "많더라고요",
+      2
+    ],
+    [
+      "남자",
+      2
+    ],
+    [
+      "있잖아",
+      2
+    ],
+    [
+      "떨려요",
+      2
+    ],
+    [
+      "갑자",
+      2
+    ],
+    [
+      "됐습니다",
+      2
+    ],
+    [
+      "각각자",
+      2
+    ],
+    [
+      "타는데",
+      2
+    ],
+    [
+      "어때요",
+      2
+    ],
+    [
+      "사지",
+      2
+    ],
+    [
+      "먹어요",
+      2
+    ],
+    [
+      "가야",
+      2
+    ],
+    [
+      "볼래",
+      2
+    ],
+    [
+      "이다",
+      1
+    ],
+    [
+      "하면서",
+      1
+    ],
+    [
+      "올려야",
+      1
+    ],
+    [
+      "가야됩니다",
+      1
+    ],
+    [
+      "줘야",
+      1
+    ],
+    [
+      "좋잖아",
+      1
+    ],
+    [
+      "뭐냐",
+      1
+    ],
+    [
+      "치고거든요",
+      1
+    ],
+    [
+      "없었어요",
+      1
+    ],
+    [
+      "좋았잖아",
+      1
+    ],
+    [
+      "떨어지",
+      1
+    ],
+    [
+      "수민이었어요",
+      1
+    ],
+    [
+      "하잖아요",
+      1
+    ],
+    [
+      "다르면서",
+      1
+    ],
+    [
+      "좋아하네",
+      1
+    ],
+    [
+      "수고하셨습니다",
+      1
+    ],
+    [
+      "씹니다",
+      1
+    ],
+    [
+      "졸려가지",
+      1
+    ],
+    [
+      "보여드릴게요",
+      1
+    ],
+    [
+      "찍어봤어요",
+      1
+    ],
+    [
+      "어땠어요",
+      1
+    ],
+    [
+      "뭐다",
+      1
+    ],
+    [
+      "나이키다",
+      1
+    ],
+    [
+      "최고예요",
+      1
+    ],
+    [
+      "편하지",
+      1
+    ],
+    [
+      "믿어요",
+      1
+    ],
+    [
+      "많다",
+      1
+    ],
+    [
+      "올라오면서",
+      1
+    ]
+  ],
+  "sample_sentences": [
+    {
+      "video_id": "-kB9Zj47kd8",
+      "text": " Love! Lycqvenu",
+      "start": 0.0
+    },
+    {
+      "video_id": "-kB9Zj47kd8",
+      "text": " Lycqvenu",
+      "start": 4.1
+    },
+    {
+      "video_id": "-kB9Zj47kd8",
+      "text": " 1, 2, 3, 5 1",
+      "start": 14.24
+    },
+    {
+      "video_id": "-kR4TsG0cOs",
+      "text": " 이 다리를 닫을게요 여러분. 다리를 닫으러. 다리를 닫을게요.",
+      "start": 0.0
+    },
+    {
+      "video_id": "-kR4TsG0cOs",
+      "text": " 초노메 이 이 다리를 좋아해요. 이 다리를 이렇게 좋아해요.",
+      "start": 7.0
+    },
+    {
+      "video_id": "-kR4TsG0cOs",
+      "text": " 들고 이렇게 하는 걸.",
+      "start": 12.0
+    },
+    {
+      "video_id": "0e5V5TvaZXY",
+      "text": " Es Like a Polaroid Love",
+      "start": 0.24
+    },
+    {
+      "video_id": "0e5V5TvaZXY",
+      "text": " 아답",
+      "start": 3.72
+    },
+    {
+      "video_id": "0e5V5TvaZXY",
+      "text": " 아 나иш",
+      "start": 4.54
+    },
+    {
+      "video_id": "1BiBjVCHzEI",
+      "text": " Hey, Will, Never 너도 like I feel",
+      "start": 0.0
+    },
+    {
+      "video_id": "1BiBjVCHzEI",
+      "text": " 매번",
+      "start": 30.0
+    },
+    {
+      "video_id": "1BiBjVCHzEI",
+      "text": "ma",
+      "start": 42.92
+    },
+    {
+      "video_id": "27KfbRFgB4s",
+      "text": " 녹화",
+      "start": 0.0
+    },
+    {
+      "video_id": "27KfbRFgB4s",
+      "text": " 녹화 중",
+      "start": 2.0
+    },
+    {
+      "video_id": "27KfbRFgB4s",
+      "text": " 녹화 중",
+      "start": 4.0
+    },
+    {
+      "video_id": "3zQraeuNbK8",
+      "text": " 속상하현은",
+      "start": 0.0
+    },
+    {
+      "video_id": "3zQraeuNbK8",
+      "text": " 너무 감사한 거 같네요.",
+      "start": 21.64
+    },
+    {
+      "video_id": "3zQraeuNbK8",
+      "text": " 처음으로 나다 그런 무대였기 때문에 되게 신기해할 거 같아요.",
+      "start": 24.32
+    },
+    {
+      "video_id": "4OifDVqeZ0s",
+      "text": " 이번엔 5곡 정도를 볼 준비해",
+      "start": 0.0
+    },
+    {
+      "video_id": "4OifDVqeZ0s",
+      "text": " 경의도 앞둑 쇠",
+      "start": 3.9
+    },
+    {
+      "video_id": "4OifDVqeZ0s",
+      "text": " 네, 나가게 돼서",
+      "start": 5.7
+    },
+    {
+      "video_id": "4kmnXpI9faY",
+      "text": " 우리 7 9주년 힐링하우스의 오신 여러분 진심으로 환영합니다.",
+      "start": 0.0
+    },
+    {
+      "video_id": "4kmnXpI9faY",
+      "text": " 안녕하십니까.",
+      "start": 18.0
+    },
+    {
+      "video_id": "4kmnXpI9faY",
+      "text": " 우리 7 여러분 먼저 대비 9주년을 진심으로 축하드립니다.",
+      "start": 20.8
+    },
+    {
+      "video_id": "4muCVVMHQ0M",
+      "text": " 명사연핀 Couple Yi-Hoyam",
+      "start": 30.0
+    },
+    {
+      "video_id": "4muCVVMHQ0M",
+      "text": " STOP IT",
+      "start": 41.5
+    },
+    {
+      "video_id": "4muCVVMHQ0M",
+      "text": " karaie, See YOUR. unusually post stamp",
+      "start": 44.74
+    },
+    {
+      "video_id": "4rQzMFCwq78",
+      "text": " 자 끝-",
+      "start": 0.0
+    },
+    {
+      "video_id": "4rQzMFCwq78",
+      "text": " 어�",
+      "start": 27.34
+    },
+    {
+      "video_id": "4rQzMFCwq78",
+      "text": " 잠깐만",
+      "start": 50.260000000000005
+    },
+    {
+      "video_id": "6xCLXDtLMcQ",
+      "text": " 현지에",
+      "start": 0.72
+    },
+    {
+      "video_id": "6xCLXDtLMcQ",
+      "text": " 우리가 방부한",
+      "start": 22.32
+    },
+    {
+      "video_id": "6xCLXDtLMcQ",
+      "text": " 사이도",
+      "start": 24.240000000000002
+    },
+    {
+      "video_id": "8jjGCmkMs68",
+      "text": " 안녕하세요 여기는 제 방이고요.",
+      "start": 0.0
+    },
+    {
+      "video_id": "8jjGCmkMs68",
+      "text": " 내일이 이제 오픈 날 이어서 시헌이랑 하영 언니랑 재밌게 좀 휴일을 알차게 보내 보려고 네이 놀러 갈 건데 그래서",
+      "start": 5.5
+    },
+    {
+      "video_id": "8jjGCmkMs68",
+      "text": " 지금 잠들기 전에 저의 스킨케어를 한번 보여드리도록 하겠습니다.",
+      "start": 13.76
+    },
+    {
+      "video_id": "8kLoNwV0u9U",
+      "text": " 자, 이만만은 사랑이랑 정은이.",
+      "start": 0.0
+    },
+    {
+      "video_id": "8kLoNwV0u9U",
+      "text": " 만내주입니다.",
+      "start": 10.0
+    },
+    {
+      "video_id": "8kLoNwV0u9U",
+      "text": " 만내주.",
+      "start": 13.0
+    },
+    {
+      "video_id": "8vw__rb_Sd4",
+      "text": " absol",
+      "start": 0.0
+    },
+    {
+      "video_id": "8vw__rb_Sd4",
+      "text": " Hampshire",
+      "start": 7.44
+    },
+    {
+      "video_id": "8vw__rb_Sd4",
+      "text": " mies",
+      "start": 14.52
+    },
+    {
+      "video_id": "99DMI3qRYOg",
+      "text": " 아, 나의 스페일 영어.",
+      "start": 0.0
+    },
+    {
+      "video_id": "99DMI3qRYOg",
+      "text": " 형, 우리 앉아서러서 서서해.",
+      "start": 2.0
+    },
+    {
+      "video_id": "99DMI3qRYOg",
+      "text": " 이거 너무 정해야면서.",
+      "start": 4.0
+    },
+    {
+      "video_id": "9hzk4cnBVS4",
+      "text": " 오늘의",
+      "start": 0.0
+    },
+    {
+      "video_id": "9hzk4cnBVS4",
+      "text": " 안녕하세요",
+      "start": 14.0
+    },
+    {
+      "video_id": "9hzk4cnBVS4",
+      "text": " 오늘 이게 인주를 만들겠다",
+      "start": 15.0
+    },
+    {
+      "video_id": "B2dYN_UKVNk",
+      "text": " 안녕!",
+      "start": 0.0
+    },
+    {
+      "video_id": "B2dYN_UKVNk",
+      "text": " 나의 브이로그 시작!",
+      "start": 2.82
+    },
+    {
+      "video_id": "B2dYN_UKVNk",
+      "text": " 1번 가는 건 플러버한테 비밀로 했어요",
+      "start": 17.76
+    },
+    {
+      "video_id": "BMeK_rcQfrU",
+      "text": " 이 노래는",
+      "start": 0.0
+    },
+    {
+      "video_id": "BMeK_rcQfrU",
+      "text": " 어떨 때 제일 꼴복이시예요?",
+      "start": 14.0
+    },
+    {
+      "video_id": "BMeK_rcQfrU",
+      "text": " 독의합니당?",
+      "start": 16.0
+    },
+    {
+      "video_id": "Cr9NHLoQjm8",
+      "text": " 저는",
+      "start": 0.34
+    },
+    {
+      "video_id": "Cr9NHLoQjm8",
+      "text": " 김정 nerve",
+      "start": 14.32
+    },
+    {
+      "video_id": "Cr9NHLoQjm8",
+      "text": "聰",
+      "start": 15.92
+    },
+    {
+      "video_id": "DNFLk1bKios",
+      "text": " 아이고",
+      "start": 0.0
+    },
+    {
+      "video_id": "DNFLk1bKios",
+      "text": " 아이고",
+      "start": 2.0
+    },
+    {
+      "video_id": "DNFLk1bKios",
+      "text": " 아이고",
+      "start": 3.0
+    },
+    {
+      "video_id": "DzdYTAjlwjU",
+      "text": " To love.",
+      "start": 0.0
+    },
+    {
+      "video_id": "DzdYTAjlwjU",
+      "text": " now",
+      "start": 9.08
+    },
+    {
+      "video_id": "DzdYTAjlwjU",
+      "text": " 너무 감지하면서",
+      "start": 25.66
+    },
+    {
+      "video_id": "E4eggaqtjr8",
+      "text": " 하추들 오늘은 1, 0, 3, 6, 7, 7, 8분",
+      "start": 0.0
+    },
+    {
+      "video_id": "E4eggaqtjr8",
+      "text": " 오늘은 저는 빨리 해갈 거예요",
+      "start": 5.5
+    },
+    {
+      "video_id": "E4eggaqtjr8",
+      "text": " 아구 잠깐만",
+      "start": 9.42
+    },
+    {
+      "video_id": "EDubEpUpBYA",
+      "text": " 이 even",
+      "start": 0.0
+    },
+    {
+      "video_id": "EDubEpUpBYA",
+      "text": " 아",
+      "start": 16.02
+    },
+    {
+      "video_id": "EDubEpUpBYA",
+      "text": " [(씨",
+      "start": 20.560000000000002
+    },
+    {
+      "video_id": "FCXd9nXSWTM",
+      "text": " 이 노래는",
+      "start": 0.0
+    },
+    {
+      "video_id": "FCXd9nXSWTM",
+      "text": " 그 노래는",
+      "start": 14.0
+    },
+    {
+      "video_id": "FCXd9nXSWTM",
+      "text": " 이 노래는 중간에서 하고",
+      "start": 16.0
+    },
+    {
+      "video_id": "FQcTFJ0y2xA",
+      "text": " 가슴입니다.",
+      "start": 0.0
+    },
+    {
+      "video_id": "FQcTFJ0y2xA",
+      "text": " 아쉬워.",
+      "start": 3.0
+    },
+    {
+      "video_id": "FQcTFJ0y2xA",
+      "text": " 어? 고개 됐습니다.",
+      "start": 12.0
+    },
+    {
+      "video_id": "FTjFNBP0AMs",
+      "text": " im",
+      "start": 0.0
+    },
+    {
+      "video_id": "FTjFNBP0AMs",
+      "text": " 3",
+      "start": 2.7800000000000002
+    },
+    {
+      "video_id": "FTjFNBP0AMs",
+      "text": " um",
+      "start": 9.42
+    },
+    {
+      "video_id": "G9a5yYpiqZM",
+      "text": " 뭐야? 왜 이렇게 쓰기 한 번만 챙겨줘야 돼?",
+      "start": 0.0
+    },
+    {
+      "video_id": "G9a5yYpiqZM",
+      "text": " 역시 8년째",
+      "start": 5.12
+    },
+    {
+      "video_id": "G9a5yYpiqZM",
+      "text": " 제일 아지도",
+      "start": 7.68
+    },
+    {
+      "video_id": "GsW4_awsoOQ",
+      "text": " 5, 6, 7, 8",
+      "start": 0.0
+    },
+    {
+      "video_id": "GsW4_awsoOQ",
+      "text": " 1, 2, 3",
+      "start": 2.6
+    },
+    {
+      "video_id": "GsW4_awsoOQ",
+      "text": " 닿!",
+      "start": 4.7
+    },
+    {
+      "video_id": "HYqAuqVCGBY",
+      "text": " 무슨 노래에요?",
+      "start": 0.0
+    },
+    {
+      "video_id": "HYqAuqVCGBY",
+      "text": "atus",
+      "start": 21.14
+    },
+    {
+      "video_id": "HYqAuqVCGBY",
+      "text": " 마요는 치료부터 가지고 있어요",
+      "start": 27.2
+    },
+    {
+      "video_id": "ITRXsRT6P6A",
+      "text": " 해찬팠들 끝라면 바로 내려갈 거예요.",
+      "start": 0.0
+    },
+    {
+      "video_id": "ITRXsRT6P6A",
+      "text": " 해찬팠들 끝라면 바로 천천히 내려가는 걸로.",
+      "start": 6.72
+    },
+    {
+      "video_id": "ITRXsRT6P6A",
+      "text": " 해찬팠들 끝라면 바로 천천히 내려가는 걸로.",
+      "start": 30.0
+    }
+  ]
+}

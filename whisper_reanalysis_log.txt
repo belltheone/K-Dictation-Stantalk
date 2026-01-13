@@ -1,0 +1,3 @@
+nohup: 입력 무시
+/home/qwer/Workspace/kdictation/scripts/patterns_expanded.py:2: SyntaxWarning: invalid escape sequence '\?'
+  """
