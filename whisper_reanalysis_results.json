@@ -1,0 +1,1465 @@
+{
+  "new_results": [
+    {
+      "video_id": "-T9JlvYZcnI",
+      "challenges": [
+        {
+          "start_sec": 66,
+          "end_sec": 70,
+          "full_sentence": "혹시 몰라서 가자요",
+          "answer_word": "자요",
+          "base_form": "자다",
+          "hint_en": "I sleep",
+          "original_text": "혹시 몰라서 가자요."
+        }
+      ]
+    },
+    {
+      "video_id": "-kR4TsG0cOs",
+      "challenges": [
+        {
+          "start_sec": 51,
+          "end_sec": 55,
+          "full_sentence": "당속구를 잡을 수가 없었어요",
+          "answer_word": "없었어요",
+          "base_form": "없다",
+          "hint_en": "There was not",
+          "original_text": "당속구를 잡을 수가 없었어요"
+        },
+        {
+          "start_sec": 68,
+          "end_sec": 72,
+          "full_sentence": "바타장 바로 스트레이크를 했어",
+          "answer_word": "했어",
+          "base_form": "하다",
+          "hint_en": "I did",
+          "original_text": "저거 바타장 바로 스트레이크를 했어"
+        }
+      ]
+    },
+    {
+      "video_id": "1BiBjVCHzEI",
+      "challenges": [
+        {
+          "start_sec": 58,
+          "end_sec": 64,
+          "full_sentence": "너무 할게요",
+          "answer_word": "할게요",
+          "base_form": "하다",
+          "hint_en": "I will do",
+          "original_text": "너무 할게요"
+        },
+        {
+          "start_sec": 78,
+          "end_sec": 82,
+          "full_sentence": "근데 실제로 진짜",
+          "answer_word": "진짜",
+          "base_form": null,
+          "hint_en": "Really!",
+          "original_text": "근데 실제로 진짜 졸려가지고"
+        },
+        {
+          "start_sec": 97,
+          "end_sec": 101,
+          "full_sentence": "이런 연기랑 천연 찍어봤어요",
+          "answer_word": "봤어요",
+          "base_form": "보다",
+          "hint_en": "I saw/watched",
+          "original_text": "이런 연기랑 천연 찍어봤어요"
+        }
+      ]
+    },
+    {
+      "video_id": "27KfbRFgB4s",
+      "challenges": [
+        {
+          "start_sec": 22,
+          "end_sec": 26,
+          "full_sentence": "항상 나이키가 최고",
+          "answer_word": "최고",
+          "base_form": null,
+          "hint_en": "The best!",
+          "original_text": "항상 나이키가 최고예요"
+        },
+        {
+          "start_sec": 114,
+          "end_sec": 117,
+          "full_sentence": "한번 다시 해볼게요",
+          "answer_word": "볼게요",
+          "base_form": "보다",
+          "hint_en": "I will see",
+          "original_text": "한번 다시 해볼게요"
+        }
+      ]
+    },
+    {
+      "video_id": "3zQraeuNbK8",
+      "challenges": [
+        {
+          "start_sec": 29,
+          "end_sec": 34,
+          "full_sentence": "신기해할 것 같아요. 설레요",
+          "answer_word": "설레요",
+          "base_form": "설레다",
+          "hint_en": "I am thrilled",
+          "original_text": "신기해할 것 같아요. 설레요."
+        },
+        {
+          "start_sec": 42,
+          "end_sec": 46,
+          "full_sentence": "따뜻하게 입고 왔어요",
+          "answer_word": "왔어요",
+          "base_form": "오다",
+          "hint_en": "I came",
+          "original_text": "따뜻하게 입고 왔어요."
+        },
+        {
+          "start_sec": 74,
+          "end_sec": 78,
+          "full_sentence": "근데 이 색감에 너무 예뻐",
+          "answer_word": "예뻐",
+          "base_form": "예쁘다",
+          "hint_en": "It is pretty",
+          "original_text": "근데 이 색감에 너무 예뻐."
+        }
+      ]
+    },
+    {
+      "video_id": "4OifDVqeZ0s",
+      "challenges": [
+        {
+          "start_sec": 11,
+          "end_sec": 19,
+          "full_sentence": "아빠가 경의도에서 연애를 시작해",
+          "answer_word": "시작해",
+          "base_form": "시작하다",
+          "hint_en": "Let's start",
+          "original_text": "저희 엄마 아빠가 경의도에서 연애를 시작해서 결혼하는"
+        },
+        {
+          "start_sec": 62,
+          "end_sec": 66,
+          "full_sentence": "그 모델, 뭐야?",
+          "answer_word": "뭐야?",
+          "base_form": null,
+          "hint_en": "What is it?",
+          "original_text": "그 모델, 뭐야? 어떻게 보인지 알아?"
+        }
+      ]
+    },
+    {
+      "video_id": "4kmnXpI9faY",
+      "challenges": [
+        {
+          "start_sec": 26,
+          "end_sec": 30,
+          "full_sentence": "비 9주년인데 소감이 어떠신가요",
+          "answer_word": "가요",
+          "base_form": "가다",
+          "hint_en": "I go",
+          "original_text": "대비 9주년인데 소감이 어떠신가요?"
+        },
+        {
+          "start_sec": 31,
+          "end_sec": 35,
+          "full_sentence": "맞아 완전 완전",
+          "answer_word": "완전",
+          "base_form": null,
+          "hint_en": "Totally!",
+          "original_text": "맞아 완전 완전."
+        },
+        {
+          "start_sec": 63,
+          "end_sec": 66,
+          "full_sentence": "다들 축하해주고 있어요",
+          "answer_word": "있어요",
+          "base_form": "있다",
+          "hint_en": "There is / I have",
+          "original_text": "다들 축하해주고 있어요."
+        }
+      ]
+    },
+    {
+      "video_id": "4rQzMFCwq78",
+      "challenges": [
+        {
+          "start_sec": 18,
+          "end_sec": 22,
+          "full_sentence": "아�eron을 먹고 잤어요",
+          "answer_word": "잤어요",
+          "base_form": "자다",
+          "hint_en": "I slept",
+          "original_text": "아�eron을 먹고 잤어요"
+        },
+        {
+          "start_sec": 77,
+          "end_sec": 81,
+          "full_sentence": "저거 먹었어",
+          "answer_word": "먹었어",
+          "base_form": "먹다",
+          "hint_en": "I ate",
+          "original_text": "저거 먹었어."
+        }
+      ]
+    },
+    {
+      "video_id": "6xCLXDtLMcQ",
+      "challenges": [
+        {
+          "start_sec": 30,
+          "end_sec": 42,
+          "full_sentence": "희랑 핸드폰이랑 쇼타로 도착하자",
+          "answer_word": "하자",
+          "base_form": "하다",
+          "hint_en": "Let's do",
+          "original_text": "소희랑 핸드폰이랑 쇼타로 도착하자마자 타임스케어에 가려고 합니다."
+        }
+      ]
+    },
+    {
+      "video_id": "8jjGCmkMs68",
+      "challenges": [
+        {
+          "start_sec": 46,
+          "end_sec": 54,
+          "full_sentence": "엄마도 더 좋아요",
+          "answer_word": "좋아요",
+          "base_form": "좋다",
+          "hint_en": "It is good",
+          "original_text": "엄마도 더 좋아요 이번엔"
+        },
+        {
+          "start_sec": 105,
+          "end_sec": 112,
+          "full_sentence": "제가 또 끈적거리는 걸 안 좋아",
+          "answer_word": "좋아",
+          "base_form": "좋다",
+          "hint_en": "It is good",
+          "original_text": "나 왜 이렇게 까다롭진 제가 또 끈적거리는 걸 안 좋아하고"
+        }
+      ]
+    },
+    {
+      "video_id": "8kLoNwV0u9U",
+      "challenges": [
+        {
+          "start_sec": 64,
+          "end_sec": 68,
+          "full_sentence": "편의점, 편의점 가자",
+          "answer_word": "가자",
+          "base_form": "가다",
+          "hint_en": "Let's go",
+          "original_text": "편의점, 편의점 가자."
+        },
+        {
+          "start_sec": 74,
+          "end_sec": 79,
+          "full_sentence": "이거는 제가 좋아",
+          "answer_word": "좋아",
+          "base_form": "좋다",
+          "hint_en": "It is good",
+          "original_text": "이거는 제가 좋아하는 캐릭터 시림 사봤는데요."
+        },
+        {
+          "start_sec": 77,
+          "end_sec": 81,
+          "full_sentence": "저는 꼭 얘가 넣었을 수 있었어요",
+          "answer_word": "있었어요",
+          "base_form": "있다",
+          "hint_en": "There was / I had",
+          "original_text": "저는 꼭 얘가 넣었을 수 있었어요."
+        }
+      ]
+    },
+    {
+      "video_id": "99DMI3qRYOg",
+      "challenges": [
+        {
+          "start_sec": 42,
+          "end_sec": 46,
+          "full_sentence": "아, 나 진짜",
+          "answer_word": "진짜",
+          "base_form": null,
+          "hint_en": "Really!",
+          "original_text": "아, 나 진짜 본다고."
+        }
+      ]
+    },
+    {
+      "video_id": "9hzk4cnBVS4",
+      "challenges": [
+        {
+          "start_sec": 76,
+          "end_sec": 80,
+          "full_sentence": "안녕하세요 고고해요",
+          "answer_word": "해요",
+          "base_form": "하다",
+          "hint_en": "I do",
+          "original_text": "안녕하세요 고고해요"
+        },
+        {
+          "start_sec": 86,
+          "end_sec": 90,
+          "full_sentence": "오늘 기대가 되고 제가 좋아",
+          "answer_word": "좋아",
+          "base_form": "좋다",
+          "hint_en": "It is good",
+          "original_text": "오늘 기대가 되고 제가 좋아하는"
+        },
+        {
+          "start_sec": 110,
+          "end_sec": 114,
+          "full_sentence": "이거 잘했어",
+          "answer_word": "했어",
+          "base_form": "하다",
+          "hint_en": "I did",
+          "original_text": "이거 잘했어"
+        }
+      ]
+    },
+    {
+      "video_id": "B2dYN_UKVNk",
+      "challenges": [
+        {
+          "start_sec": 17,
+          "end_sec": 23,
+          "full_sentence": "가는 건 플러버한테 비밀로 했어요",
+          "answer_word": "했어요",
+          "base_form": "하다",
+          "hint_en": "I did",
+          "original_text": "1번 가는 건 플러버한테 비밀로 했어요"
+        },
+        {
+          "start_sec": 21,
+          "end_sec": 26,
+          "full_sentence": "이거 보면 플러버가 되게 좋아",
+          "answer_word": "좋아",
+          "base_form": "좋다",
+          "hint_en": "It is good",
+          "original_text": "이거 보면 플러버가 되게 좋아하겠지?"
+        }
+      ]
+    },
+    {
+      "video_id": "BMeK_rcQfrU",
+      "challenges": [
+        {
+          "start_sec": 30,
+          "end_sec": 33,
+          "full_sentence": "그 먼저 알지",
+          "answer_word": "알지",
+          "base_form": "알다",
+          "hint_en": "You know, right?",
+          "original_text": "그 먼저 알지?"
+        },
+        {
+          "start_sec": 36,
+          "end_sec": 39,
+          "full_sentence": "내가 도비할게",
+          "answer_word": "할게",
+          "base_form": "하다",
+          "hint_en": "I will do",
+          "original_text": "내가 도비할게"
+        },
+        {
+          "start_sec": 38,
+          "end_sec": 42,
+          "full_sentence": "재밌는데 퍽퍽했어",
+          "answer_word": "했어",
+          "base_form": "하다",
+          "hint_en": "I did",
+          "original_text": "재밌는데 퍽퍽했어"
+        }
+      ]
+    },
+    {
+      "video_id": "Cr9NHLoQjm8",
+      "challenges": [
+        {
+          "start_sec": 7,
+          "end_sec": 11,
+          "full_sentence": "그러면 대결 다시 시작해",
+          "answer_word": "시작해",
+          "base_form": "시작하다",
+          "hint_en": "Let's start",
+          "original_text": "그러면 대결 다시 시작해주세요."
+        },
+        {
+          "start_sec": 9,
+          "end_sec": 13,
+          "full_sentence": "잠깐만, 2개 산 사람 누구야?",
+          "answer_word": "누구야?",
+          "base_form": null,
+          "hint_en": "Who is it?",
+          "original_text": "잠깐만, 2개 산 사람 누구야?"
+        },
+        {
+          "start_sec": 54,
+          "end_sec": 58,
+          "full_sentence": "50만 원 자요",
+          "answer_word": "자요",
+          "base_form": "자다",
+          "hint_en": "I sleep",
+          "original_text": "50만 원 자요, 이거, 이거, 이거."
+        }
+      ]
+    },
+    {
+      "video_id": "DNFLk1bKios",
+      "challenges": [
+        {
+          "start_sec": 46,
+          "end_sec": 50,
+          "full_sentence": "되게 보고 싶어요",
+          "answer_word": "보고 싶어요",
+          "base_form": null,
+          "hint_en": "I want to see / I miss",
+          "original_text": "되게 보고 싶어요"
+        },
+        {
+          "start_sec": 48,
+          "end_sec": 54,
+          "full_sentence": "약간 떨려요",
+          "answer_word": "떨려요",
+          "base_form": "떨리다",
+          "hint_en": "I am nervous",
+          "original_text": "약간 떨려요"
+        }
+      ]
+    },
+    {
+      "video_id": "DzdYTAjlwjU",
+      "challenges": [
+        {
+          "start_sec": 7,
+          "end_sec": 15,
+          "full_sentence": "이분이랑 진짜",
+          "answer_word": "진짜",
+          "base_form": null,
+          "hint_en": "Really!",
+          "original_text": "이분이랑 진짜"
+        },
+        {
+          "start_sec": 35,
+          "end_sec": 39,
+          "full_sentence": "다들 많이 보고 웃었으면 됐어",
+          "answer_word": "됐어",
+          "base_form": "되다",
+          "hint_en": "It is done",
+          "original_text": "다들 많이 보고 웃었으면 됐어요"
+        }
+      ]
+    },
+    {
+      "video_id": "E4eggaqtjr8",
+      "challenges": [
+        {
+          "start_sec": 9,
+          "end_sec": 14,
+          "full_sentence": "아구 잠깐만",
+          "answer_word": "잠깐만",
+          "base_form": null,
+          "hint_en": "Wait a moment",
+          "original_text": "아구 잠깐만"
+        },
+        {
+          "start_sec": 14,
+          "end_sec": 18,
+          "full_sentence": "이거 팔러벨라 아니에요? 진짜",
+          "answer_word": "진짜",
+          "base_form": null,
+          "hint_en": "Really!",
+          "original_text": "근데 이거 팔러벨라 아니에요? 진짜 팔러벨라"
+        },
+        {
+          "start_sec": 53,
+          "end_sec": 57,
+          "full_sentence": "설레서 잠이 하나 더 안 와요",
+          "answer_word": "와요",
+          "base_form": "오다",
+          "hint_en": "I come",
+          "original_text": "너무 설레서 잠이 하나 더 안 와요"
+        }
+      ]
+    },
+    {
+      "video_id": "FQcTFJ0y2xA",
+      "challenges": [
+        {
+          "start_sec": 13,
+          "end_sec": 16,
+          "full_sentence": "이거 할게요",
+          "answer_word": "할게요",
+          "base_form": "하다",
+          "hint_en": "I will do",
+          "original_text": "이거 할게요."
+        },
+        {
+          "start_sec": 25,
+          "end_sec": 28,
+          "full_sentence": "한 번 해보자",
+          "answer_word": "보자",
+          "base_form": "보다",
+          "hint_en": "Let's see",
+          "original_text": "한 번 해보자."
+        },
+        {
+          "start_sec": 64,
+          "end_sec": 67,
+          "full_sentence": "아, 제가요",
+          "answer_word": "가요",
+          "base_form": "가다",
+          "hint_en": "I go",
+          "original_text": "아, 제가요."
+        }
+      ]
+    },
+    {
+      "video_id": "FTjFNBP0AMs",
+      "challenges": [
+        {
+          "start_sec": 77,
+          "end_sec": 83,
+          "full_sentence": "무 긴장해서 목이 너무 말라해요",
+          "answer_word": "해요",
+          "base_form": "하다",
+          "hint_en": "I do",
+          "original_text": "너무 긴장해서 목이 너무 말라해요"
+        },
+        {
+          "start_sec": 87,
+          "end_sec": 98,
+          "full_sentence": "패션셔 잘 멋지게 완성되어 있어요",
+          "answer_word": "있어요",
+          "base_form": "있다",
+          "hint_en": "There is / I have",
+          "original_text": "오늘 패션셔 잘 멋지게 완성되어 있어요"
+        },
+        {
+          "start_sec": 117,
+          "end_sec": 121,
+          "full_sentence": "이렇게 말했어요",
+          "answer_word": "했어요",
+          "base_form": "하다",
+          "hint_en": "I did",
+          "original_text": "이렇게 말했어요"
+        }
+      ]
+    },
+    {
+      "video_id": "G9a5yYpiqZM",
+      "challenges": [
+        {
+          "start_sec": 15,
+          "end_sec": 20,
+          "full_sentence": "마사지를 해주면 좋아",
+          "answer_word": "좋아",
+          "base_form": "좋다",
+          "hint_en": "It is good",
+          "original_text": "마사지를 해주면 좋아하셔야 될까?"
+        },
+        {
+          "start_sec": 31,
+          "end_sec": 37,
+          "full_sentence": "우리 다 본 사람 없어요",
+          "answer_word": "없어요",
+          "base_form": "없다",
+          "hint_en": "There is not / I don't have",
+          "original_text": "우리 다 본 사람 없어요?"
+        },
+        {
+          "start_sec": 35,
+          "end_sec": 39,
+          "full_sentence": "태가 먹어요",
+          "answer_word": "먹어요",
+          "base_form": "먹다",
+          "hint_en": "I eat",
+          "original_text": "태가 먹어요"
+        }
+      ]
+    },
+    {
+      "video_id": "HYqAuqVCGBY",
+      "challenges": [
+        {
+          "start_sec": 49,
+          "end_sec": 54,
+          "full_sentence": "거의 어떻게 됐어",
+          "answer_word": "됐어",
+          "base_form": "되다",
+          "hint_en": "It is done",
+          "original_text": "거의 어떻게 됐어"
+        },
+        {
+          "start_sec": 107,
+          "end_sec": 111,
+          "full_sentence": "많이 사랑해",
+          "answer_word": "사랑해",
+          "base_form": "사랑하다",
+          "hint_en": "I love you",
+          "original_text": "많이 사랑해 주세요"
+        }
+      ]
+    },
+    {
+      "video_id": "I_m7mRah69k",
+      "challenges": [
+        {
+          "start_sec": 83,
+          "end_sec": 88,
+          "full_sentence": "아니 근데 나 진짜",
+          "answer_word": "진짜",
+          "base_form": null,
+          "hint_en": "Really!",
+          "original_text": "아니 근데 나 진짜 열심히 했는데"
+        },
+        {
+          "start_sec": 113,
+          "end_sec": 117,
+          "full_sentence": "뭘 먹을지 모르겠어요",
+          "answer_word": "모르겠어요",
+          "base_form": "모르다",
+          "hint_en": "I don't know",
+          "original_text": "뭘 먹을지 모르겠어요"
+        }
+      ]
+    },
+    {
+      "video_id": "KagW84RWrR8",
+      "challenges": [
+        {
+          "start_sec": 2,
+          "end_sec": 9,
+          "full_sentence": "리 M adjac� 다시 해봤어요",
+          "answer_word": "봤어요",
+          "base_form": "보다",
+          "hint_en": "I saw/watched",
+          "original_text": "우리 M adjac� 다시 해봤어요"
+        },
+        {
+          "start_sec": 99,
+          "end_sec": 103,
+          "full_sentence": "같이고 있어 알지",
+          "answer_word": "알지",
+          "base_form": "알다",
+          "hint_en": "You know, right?",
+          "original_text": "같이고 있어 알지?"
+        },
+        {
+          "start_sec": 104,
+          "end_sec": 108,
+          "full_sentence": "상자가 원하는 게 다 좋지",
+          "answer_word": "좋지",
+          "base_form": "좋다",
+          "hint_en": "It is good, right?",
+          "original_text": "상자가 원하는 게 다 좋지 않다"
+        }
+      ]
+    },
+    {
+      "video_id": "KklkJGkvTmc",
+      "challenges": [
+        {
+          "start_sec": 37,
+          "end_sec": 40,
+          "full_sentence": "마시려볼게요",
+          "answer_word": "볼게요",
+          "base_form": "보다",
+          "hint_en": "I will see",
+          "original_text": "마시려볼게요"
+        },
+        {
+          "start_sec": 65,
+          "end_sec": 70,
+          "full_sentence": "당에서 완전",
+          "answer_word": "완전",
+          "base_form": null,
+          "hint_en": "Totally!",
+          "original_text": "당에서 완전히 더 배터리어주지"
+        },
+        {
+          "start_sec": 115,
+          "end_sec": 119,
+          "full_sentence": "너무 좋아요",
+          "answer_word": "좋아요",
+          "base_form": "좋다",
+          "hint_en": "It is good",
+          "original_text": "너무 좋아요"
+        }
+      ]
+    },
+    {
+      "video_id": "Lsy68wAQdWQ",
+      "challenges": [
+        {
+          "start_sec": 108,
+          "end_sec": 113,
+          "full_sentence": "너무 아 진짜",
+          "answer_word": "진짜",
+          "base_form": null,
+          "hint_en": "Really!",
+          "original_text": "너무 아 진짜 그만."
+        }
+      ]
+    },
+    {
+      "video_id": "M8MoJWmTYZs",
+      "challenges": [
+        {
+          "start_sec": 36,
+          "end_sec": 40,
+          "full_sentence": "체력은 진짜",
+          "answer_word": "진짜",
+          "base_form": null,
+          "hint_en": "Really!",
+          "original_text": "체력은 진짜 생각해보여요."
+        },
+        {
+          "start_sec": 114,
+          "end_sec": 118,
+          "full_sentence": "잠깐만 기다려",
+          "answer_word": "기다려",
+          "base_form": "기다리다",
+          "hint_en": "Wait",
+          "original_text": "잠깐만 기다려봐."
+        }
+      ]
+    },
+    {
+      "video_id": "O_ibCeLnhPQ",
+      "challenges": [
+        {
+          "start_sec": 54,
+          "end_sec": 58,
+          "full_sentence": "늦게 일어나서 미안해",
+          "answer_word": "미안해",
+          "base_form": "미안하다",
+          "hint_en": "Sorry",
+          "original_text": "늦게 일어나서 미안해"
+        },
+        {
+          "start_sec": 82,
+          "end_sec": 87,
+          "full_sentence": "너네 지금 배고파",
+          "answer_word": "배고파",
+          "base_form": "배고프다",
+          "hint_en": "I am hungry",
+          "original_text": "너네 지금 배고파서 화났나?"
+        },
+        {
+          "start_sec": 88,
+          "end_sec": 92,
+          "full_sentence": "공주님, 공주님 왔어요",
+          "answer_word": "왔어요",
+          "base_form": "오다",
+          "hint_en": "I came",
+          "original_text": "공주님, 공주님 왔어요?"
+        }
+      ]
+    },
+    {
+      "video_id": "PDmc1Q2jQY0",
+      "challenges": [
+        {
+          "start_sec": 4,
+          "end_sec": 7,
+          "full_sentence": "담백질 좋지",
+          "answer_word": "좋지",
+          "base_form": "좋다",
+          "hint_en": "It is good, right?",
+          "original_text": "담백질 좋지"
+        }
+      ]
+    },
+    {
+      "video_id": "QCLmz6lD-iA",
+      "challenges": [
+        {
+          "start_sec": 83,
+          "end_sec": 87,
+          "full_sentence": "왼찬 머리 컨셉으로 하고 있어요",
+          "answer_word": "있어요",
+          "base_form": "있다",
+          "hint_en": "There is / I have",
+          "original_text": "왼찬 머리 컨셉으로 하고 있어요"
+        },
+        {
+          "start_sec": 89,
+          "end_sec": 95,
+          "full_sentence": "엄청 화려하고 편해요",
+          "answer_word": "해요",
+          "base_form": "하다",
+          "hint_en": "I do",
+          "original_text": "엄청 화려하고 편해요"
+        },
+        {
+          "start_sec": 97,
+          "end_sec": 101,
+          "full_sentence": "춤춰서 너무 행복해요",
+          "answer_word": "행복해요",
+          "base_form": "행복하다",
+          "hint_en": "I am happy",
+          "original_text": "춤춰서 너무 행복해요"
+        }
+      ]
+    },
+    {
+      "video_id": "QlWPZhCP3PA",
+      "challenges": [
+        {
+          "start_sec": 41,
+          "end_sec": 45,
+          "full_sentence": "ㅋㅋ 사이즈가 완전",
+          "answer_word": "완전",
+          "base_form": null,
+          "hint_en": "Totally!",
+          "original_text": "ㅋㅋ 사이즈가 완전 일업을する"
+        },
+        {
+          "start_sec": 99,
+          "end_sec": 102,
+          "full_sentence": "7시간 잤어",
+          "answer_word": "잤어",
+          "base_form": "자다",
+          "hint_en": "I slept",
+          "original_text": "7시간 잤어."
+        }
+      ]
+    },
+    {
+      "video_id": "RKW5Txp4_o4",
+      "challenges": [
+        {
+          "start_sec": 40,
+          "end_sec": 44,
+          "full_sentence": "우리가 진짜",
+          "answer_word": "진짜",
+          "base_form": null,
+          "hint_en": "Really!",
+          "original_text": "우리가 진짜"
+        },
+        {
+          "start_sec": 78,
+          "end_sec": 81,
+          "full_sentence": "많이 들어요",
+          "answer_word": "들어요",
+          "base_form": "듣다",
+          "hint_en": "I listen",
+          "original_text": "많이 들어요."
+        },
+        {
+          "start_sec": 90,
+          "end_sec": 96,
+          "full_sentence": "지금 움직이면 못하라고 생각할게",
+          "answer_word": "할게",
+          "base_form": "하다",
+          "hint_en": "I will do",
+          "original_text": "지금 움직이면 못하라고 생각할게."
+        }
+      ]
+    },
+    {
+      "video_id": "RU_5XWAfED4",
+      "challenges": [
+        {
+          "start_sec": 51,
+          "end_sec": 56,
+          "full_sentence": "유나의 일상도 많이 많이 좋아",
+          "answer_word": "좋아",
+          "base_form": "좋다",
+          "hint_en": "It is good",
+          "original_text": "유나의 일상도 많이 많이 좋아해주시니까"
+        }
+      ]
+    },
+    {
+      "video_id": "S-t06OCkQYg",
+      "challenges": [
+        {
+          "start_sec": 36,
+          "end_sec": 42,
+          "full_sentence": "아직도 볼을 왜",
+          "answer_word": "왜",
+          "base_form": null,
+          "hint_en": "Why?",
+          "original_text": "아직도 볼을 왜 you eh"
+        }
+      ]
+    },
+    {
+      "video_id": "SmFKf7DXYkc",
+      "challenges": [
+        {
+          "start_sec": 43,
+          "end_sec": 47,
+          "full_sentence": "이거 너무 좋은데",
+          "answer_word": "좋은데",
+          "base_form": null,
+          "hint_en": "It is good though",
+          "original_text": "이거 너무 좋은데요? 어떠세요?"
+        },
+        {
+          "start_sec": 47,
+          "end_sec": 51,
+          "full_sentence": "뒤에서도 반응이 좋아요",
+          "answer_word": "좋아요",
+          "base_form": "좋다",
+          "hint_en": "It is good",
+          "original_text": "뒤에서도 반응이 좋아요"
+        },
+        {
+          "start_sec": 59,
+          "end_sec": 63,
+          "full_sentence": "너무 좋아해요",
+          "answer_word": "해요",
+          "base_form": "하다",
+          "hint_en": "I do",
+          "original_text": "너무 좋아해요"
+        }
+      ]
+    },
+    {
+      "video_id": "TQQ9sr_r52w",
+      "challenges": [
+        {
+          "start_sec": 84,
+          "end_sec": 88,
+          "full_sentence": "근데 다음 특별했던 갈게요",
+          "answer_word": "갈게요",
+          "base_form": "가다",
+          "hint_en": "I will go",
+          "original_text": "근데 다음 특별했던 갈게요"
+        },
+        {
+          "start_sec": 88,
+          "end_sec": 92,
+          "full_sentence": "아, 좋아요, 좋아요",
+          "answer_word": "좋아요",
+          "base_form": "좋다",
+          "hint_en": "It is good",
+          "original_text": "아, 좋아요, 좋아요"
+        }
+      ]
+    },
+    {
+      "video_id": "TVmawu479vY",
+      "challenges": [
+        {
+          "start_sec": 14,
+          "end_sec": 19,
+          "full_sentence": "대충 찍었던 걸 좋아",
+          "answer_word": "좋아",
+          "base_form": "좋다",
+          "hint_en": "It is good",
+          "original_text": "대충 찍었던 걸 좋아해주시는 분들이 있어서"
+        },
+        {
+          "start_sec": 41,
+          "end_sec": 45,
+          "full_sentence": "진짜 미쳐버렸는데 진짜",
+          "answer_word": "진짜",
+          "base_form": null,
+          "hint_en": "Really!",
+          "original_text": "진짜 미쳐버렸는데 진짜로."
+        },
+        {
+          "start_sec": 112,
+          "end_sec": 116,
+          "full_sentence": "아 힘들어서 쉬고 있어요",
+          "answer_word": "있어요",
+          "base_form": "있다",
+          "hint_en": "There is / I have",
+          "original_text": "아 힘들어서 쉬고 있어요."
+        }
+      ]
+    },
+    {
+      "video_id": "Tdz9axRGD30",
+      "challenges": [
+        {
+          "start_sec": 40,
+          "end_sec": 44,
+          "full_sentence": "제가 오늘 첫 하자",
+          "answer_word": "하자",
+          "base_form": "하다",
+          "hint_en": "Let's do",
+          "original_text": "제가 오늘 첫 하자잖아요"
+        },
+        {
+          "start_sec": 50,
+          "end_sec": 54,
+          "full_sentence": "여기 탄생했어요",
+          "answer_word": "했어요",
+          "base_form": "하다",
+          "hint_en": "I did",
+          "original_text": "여기 탄생했어요"
+        },
+        {
+          "start_sec": 58,
+          "end_sec": 62,
+          "full_sentence": "이번에 새로 입덕한 사람 진짜",
+          "answer_word": "진짜",
+          "base_form": null,
+          "hint_en": "Really!",
+          "original_text": "이번에 새로 입덕한 사람 진짜 많을 거예요"
+        }
+      ]
+    },
+    {
+      "video_id": "U9-7JBGRyMc",
+      "challenges": [
+        {
+          "start_sec": 39,
+          "end_sec": 43,
+          "full_sentence": "아 배우기 진짜",
+          "answer_word": "진짜",
+          "base_form": null,
+          "hint_en": "Really!",
+          "original_text": "아 배우기 진짜 나 어제 너무 저럴"
+        },
+        {
+          "start_sec": 43,
+          "end_sec": 46,
+          "full_sentence": "한드시쯤에 너무 배우고 봤어",
+          "answer_word": "봤어",
+          "base_form": "보다",
+          "hint_en": "I saw",
+          "original_text": "한드시쯤에 너무 배우고 봤어"
+        },
+        {
+          "start_sec": 45,
+          "end_sec": 49,
+          "full_sentence": "별로 안 먹었어",
+          "answer_word": "먹었어",
+          "base_form": "먹다",
+          "hint_en": "I ate",
+          "original_text": "별로 안 먹었어"
+        }
+      ]
+    },
+    {
+      "video_id": "V77feEklVzA",
+      "challenges": [
+        {
+          "start_sec": 82,
+          "end_sec": 86,
+          "full_sentence": "샌드위치 부터 한번 먹어볼게요",
+          "answer_word": "볼게요",
+          "base_form": "보다",
+          "hint_en": "I will see",
+          "original_text": "샌드위치 부터 한번 먹어볼게요"
+        },
+        {
+          "start_sec": 91,
+          "end_sec": 96,
+          "full_sentence": "생각보다 다 클린 처리했어요",
+          "answer_word": "했어요",
+          "base_form": "하다",
+          "hint_en": "I did",
+          "original_text": "생각보다 다 클린 처리했어요"
+        },
+        {
+          "start_sec": 114,
+          "end_sec": 118,
+          "full_sentence": "맛있게 다 먹었어",
+          "answer_word": "먹었어",
+          "base_form": "먹다",
+          "hint_en": "I ate",
+          "original_text": "맛있게 다 먹었어"
+        }
+      ]
+    },
+    {
+      "video_id": "VtJmWxzjmbY",
+      "challenges": [
+        {
+          "start_sec": 80,
+          "end_sec": 85,
+          "full_sentence": "제 제문 사진 마음에 드셨나봐요",
+          "answer_word": "봐요",
+          "base_form": "보다",
+          "hint_en": "I see/watch",
+          "original_text": "어제 제문 사진 마음에 드셨나봐요."
+        },
+        {
+          "start_sec": 96,
+          "end_sec": 100,
+          "full_sentence": "그럴 체력은도 안 됐어",
+          "answer_word": "됐어",
+          "base_form": "되다",
+          "hint_en": "It is done",
+          "original_text": "그럴 체력은도 안 됐어."
+        }
+      ]
+    },
+    {
+      "video_id": "W3aTeAMsLG8",
+      "challenges": [
+        {
+          "start_sec": 55,
+          "end_sec": 63,
+          "full_sentence": "차에서 찍고 그리고 엄청 완전",
+          "answer_word": "완전",
+          "base_form": null,
+          "hint_en": "Totally!",
+          "original_text": "이 차에서 찍고 그리고 엄청 완전 겨울을 할 수 있는데"
+        },
+        {
+          "start_sec": 61,
+          "end_sec": 64,
+          "full_sentence": "여러분이 좋아",
+          "answer_word": "좋아",
+          "base_form": "좋다",
+          "hint_en": "It is good",
+          "original_text": "여러분이 좋아할 것 같아요"
+        }
+      ]
+    },
+    {
+      "video_id": "Wvd4GTugNtE",
+      "challenges": [
+        {
+          "start_sec": 16,
+          "end_sec": 22,
+          "full_sentence": "또 하게 되었어도 은혜호 좋아요",
+          "answer_word": "좋아요",
+          "base_form": "좋다",
+          "hint_en": "It is good",
+          "original_text": "데뷔하고 나서 또 하게 되었어도 은혜호 좋아요."
+        }
+      ]
+    },
+    {
+      "video_id": "WwCU6xujDcY",
+      "challenges": [
+        {
+          "start_sec": 26,
+          "end_sec": 31,
+          "full_sentence": "찍는 장면 저희가 다 못 봐요",
+          "answer_word": "봐요",
+          "base_form": "보다",
+          "hint_en": "I see/watch",
+          "original_text": "뮤비를 찍는 장면 저희가 다 못 봐요"
+        },
+        {
+          "start_sec": 32,
+          "end_sec": 36,
+          "full_sentence": "비하인드로 더이도 확인할게요",
+          "answer_word": "할게요",
+          "base_form": "하다",
+          "hint_en": "I will do",
+          "original_text": "비하인드로 더이도 확인할게요"
+        }
+      ]
+    },
+    {
+      "video_id": "ZH2Rh7JXBJ8",
+      "challenges": [
+        {
+          "start_sec": 84,
+          "end_sec": 88,
+          "full_sentence": "마음에 들어요",
+          "answer_word": "들어요",
+          "base_form": "듣다",
+          "hint_en": "I listen",
+          "original_text": "마음에 들어요."
+        }
+      ]
+    },
+    {
+      "video_id": "ZiGjX-G2t0Y",
+      "challenges": [
+        {
+          "start_sec": 53,
+          "end_sec": 59,
+          "full_sentence": "헤어 스타일이 너무 마음에 들어요",
+          "answer_word": "들어요",
+          "base_form": "듣다",
+          "hint_en": "I listen",
+          "original_text": "그래서 오늘 메이크업 너무 마음에 들고 오늘 헤어 스타일이 너무 마음에 들어요."
+        },
+        {
+          "start_sec": 68,
+          "end_sec": 79,
+          "full_sentence": "이로 도쭤문이 내일 아침에 왔어요",
+          "answer_word": "왔어요",
+          "base_form": "오다",
+          "hint_en": "I came",
+          "original_text": "내일 아침에 제가 혼자서 바툼코 왔는데 땡땡이로 도쭤문이 내일 아침에 왔어요."
+        }
+      ]
+    },
+    {
+      "video_id": "_tebQjSLKWY",
+      "challenges": [
+        {
+          "start_sec": 6,
+          "end_sec": 11,
+          "full_sentence": "예, 제가 왜",
+          "answer_word": "왜",
+          "base_form": null,
+          "hint_en": "Why?",
+          "original_text": "예, 제가 왜 이 카메라를 켜냐면,"
+        },
+        {
+          "start_sec": 20,
+          "end_sec": 25,
+          "full_sentence": "이거 멤버들도 그렇고 진짜",
+          "answer_word": "진짜",
+          "base_form": null,
+          "hint_en": "Really!",
+          "original_text": "이거 멤버들도 그렇고 진짜 많이 응원해주고,"
+        },
+        {
+          "start_sec": 60,
+          "end_sec": 66,
+          "full_sentence": "근데 이렇게 많이 좋아",
+          "answer_word": "좋아",
+          "base_form": "좋다",
+          "hint_en": "It is good",
+          "original_text": "근데 이렇게 많이 좋아해주시는 피어나톱은,"
+        }
+      ]
+    },
+    {
+      "video_id": "bZLL7pc5rr4",
+      "challenges": [
+        {
+          "start_sec": 40,
+          "end_sec": 46,
+          "full_sentence": "이거는 무엇인가요",
+          "answer_word": "가요",
+          "base_form": "가다",
+          "hint_en": "I go",
+          "original_text": "이거는 무엇인가요"
+        },
+        {
+          "start_sec": 117,
+          "end_sec": 121,
+          "full_sentence": "6일 때 한번 시작해볼게요",
+          "answer_word": "볼게요",
+          "base_form": "보다",
+          "hint_en": "I will see",
+          "original_text": "6일 때 한번 시작해볼게요"
+        }
+      ]
+    },
+    {
+      "video_id": "bynhu5nuLtI",
+      "challenges": [
+        {
+          "start_sec": 81,
+          "end_sec": 85,
+          "full_sentence": "슬카타가 다크셋을 썼어요",
+          "answer_word": "썼어요",
+          "base_form": "쓰다",
+          "hint_en": "I wrote",
+          "original_text": "슬카타가 다크셋을 썼어요 이렇게"
+        }
+      ]
+    },
+    {
+      "video_id": "cky57UKimIo",
+      "challenges": [
+        {
+          "start_sec": 73,
+          "end_sec": 77,
+          "full_sentence": "근데 제이형이 찜지방 진짜",
+          "answer_word": "진짜",
+          "base_form": null,
+          "hint_en": "Really!",
+          "original_text": "근데 제이형이 찜지방 진짜 많이 나한테"
+        }
+      ]
+    },
+    {
+      "video_id": "diqPSNczuDo",
+      "challenges": [
+        {
+          "start_sec": 76,
+          "end_sec": 80,
+          "full_sentence": "진짜 뭐야?",
+          "answer_word": "뭐야?",
+          "base_form": null,
+          "hint_en": "What is it?",
+          "original_text": "진짜 뭐야?"
+        }
+      ]
+    },
+    {
+      "video_id": "dskOC5z7Myg",
+      "challenges": [
+        {
+          "start_sec": 102,
+          "end_sec": 109,
+          "full_sentence": "구겨대 보다 많은 분들이 좋아",
+          "answer_word": "좋아",
+          "base_form": "좋다",
+          "hint_en": "It is good",
+          "original_text": "다음 스트로어브에서 구겨대 보다 많은 분들이 좋아해주시는 것 같아서"
+        }
+      ]
+    },
+    {
+      "video_id": "fENU25KrwGo",
+      "challenges": [
+        {
+          "start_sec": 63,
+          "end_sec": 70,
+          "full_sentence": "센터 유지하다가 와줄 수 있어요",
+          "answer_word": "있어요",
+          "base_form": "있다",
+          "hint_en": "There is / I have",
+          "original_text": "그리고 규진이 파트 끝날 때까지 센터 유지하다가 와줄 수 있어요"
+        }
+      ]
+    },
+    {
+      "video_id": "fRc91exe5fs",
+      "challenges": [
+        {
+          "start_sec": 51,
+          "end_sec": 55,
+          "full_sentence": "한 thankful. 이게 맛있어요",
+          "answer_word": "맛있어요",
+          "base_form": "맛있다",
+          "hint_en": "It is delicious",
+          "original_text": "초콩 한 thankful. 이게 맛있어요"
+        },
+        {
+          "start_sec": 58,
+          "end_sec": 61,
+          "full_sentence": "이게 지금 맛있어",
+          "answer_word": "맛있어",
+          "base_form": "맛있다",
+          "hint_en": "It is delicious",
+          "original_text": "이게 지금 맛있어."
+        },
+        {
+          "start_sec": 77,
+          "end_sec": 80,
+          "full_sentence": "그럼 너무 좋아",
+          "answer_word": "좋아",
+          "base_form": "좋다",
+          "hint_en": "It is good",
+          "original_text": "그럼 너무 좋아."
+        }
+      ]
+    },
+    {
+      "video_id": "hTbWPRHoVTY",
+      "challenges": [
+        {
+          "start_sec": 35,
+          "end_sec": 38,
+          "full_sentence": "너무 너무 좋아요",
+          "answer_word": "좋아요",
+          "base_form": "좋다",
+          "hint_en": "It is good",
+          "original_text": "너무 너무 좋아요"
+        },
+        {
+          "start_sec": 43,
+          "end_sec": 46,
+          "full_sentence": "와 너무 좋아",
+          "answer_word": "좋아",
+          "base_form": "좋다",
+          "hint_en": "It is good",
+          "original_text": "와 너무 좋아"
+        },
+        {
+          "start_sec": 62,
+          "end_sec": 66,
+          "full_sentence": "그렇게 한 번 해볼게요",
+          "answer_word": "볼게요",
+          "base_form": "보다",
+          "hint_en": "I will see",
+          "original_text": "그렇게 한 번 해볼게요"
+        }
+      ]
+    },
+    {
+      "video_id": "jtZnBCpjlSc",
+      "challenges": [
+        {
+          "start_sec": 88,
+          "end_sec": 94,
+          "full_sentence": "하고 지금 불구 시코 바로 잤어요",
+          "answer_word": "잤어요",
+          "base_form": "자다",
+          "hint_en": "I slept",
+          "original_text": "이제 하텔의 무사히 도착하고 지금 불구 시코 바로 잤어요."
+        }
+      ]
+    },
+    {
+      "video_id": "kKVrzt2ELPs",
+      "challenges": [
+        {
+          "start_sec": 60,
+          "end_sec": 65,
+          "full_sentence": "여기 뒤에 진짜 뭐야?",
+          "answer_word": "뭐야?",
+          "base_form": null,
+          "hint_en": "What is it?",
+          "original_text": "여기 뒤에 진짜 뭐야?"
+        },
+        {
+          "start_sec": 66,
+          "end_sec": 71,
+          "full_sentence": "여기 뒤에 진짜",
+          "answer_word": "진짜",
+          "base_form": null,
+          "hint_en": "Really!",
+          "original_text": "여기 뒤에 진짜 색상이 있습니다."
+        },
+        {
+          "start_sec": 84,
+          "end_sec": 88,
+          "full_sentence": "저 이제 했어",
+          "answer_word": "했어",
+          "base_form": "하다",
+          "hint_en": "I did",
+          "original_text": "저 이제 했어."
+        }
+      ]
+    },
+    {
+      "video_id": "kpwCc66_EXM",
+      "challenges": [
+        {
+          "start_sec": 25,
+          "end_sec": 31,
+          "full_sentence": "보면 또는 잘하면 은데도 알지",
+          "answer_word": "알지",
+          "base_form": "알다",
+          "hint_en": "You know, right?",
+          "original_text": "위에서 보면 또는 잘하면 은데도 알지 말았고."
+        }
+      ]
+    }
+  ],
+  "still_failed": [
+    "-kB9Zj47kd8",
+    "0e5V5TvaZXY",
+    "4muCVVMHQ0M",
+    "8vw__rb_Sd4",
+    "EDubEpUpBYA",
+    "FCXd9nXSWTM",
+    "GsW4_awsoOQ",
+    "ITRXsRT6P6A",
+    "JNszVwRgpuc",
+    "K7LflQ9jTCI",
+    "NAsMg8vkww8",
+    "OBACOd3v-ZU",
+    "SsRqNRRZoZg",
+    "XVdM_RZGnok",
+    "ZiPr3q6MU4o",
+    "__Pia1OWMGI",
+    "fOexzUH7EqQ"
+  ],
+  "no_audio": [
+    "-8brw2wqj-s",
+    "KaetebnV9rc"
+  ]
+}

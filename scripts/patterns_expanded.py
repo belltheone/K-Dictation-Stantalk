@@ -350,7 +350,7 @@ def find_learning_sentences(segments: list, max_results: int = 3) -> list:
                 answer_word = match.group(2)
                 
                 # 최소 길이 체크
-                if len(full_sentence) >= 6:
+                if len(full_sentence) >= 2:
                     results.append({
                         'start_sec': int(start),
                         'end_sec': int(end) + 2,
