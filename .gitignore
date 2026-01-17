@@ -42,3 +42,29 @@ next-env.d.ts
 
 # PRD 파일 (기밀 문서)
 kdictation_PRD.md
+
+# Python 가상환경
+.venv/
+__pycache__/
+*.pyc
+
+# 임시 오디오 파일 (스크립트 작업용)
+temp_audio/
+temp_slice.mp3
+
+# 로그 파일
+*.log
+dredge_log*.txt
+verify_log.txt
+whisper_*.txt
+git_push.log
+
+# 실행 결과 JSON (재생성 가능)
+whisper_*.json
+extracted_*.json
+pattern_analysis.json
+
+# Google 인증 정보 (보안 필수)
+google-credentials.json
+*-*.json
+*.json:Zone.Identifier
