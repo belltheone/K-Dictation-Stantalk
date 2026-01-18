@@ -50,7 +50,6 @@ __pycache__/
 
 # 임시 오디오 파일 (스크립트 작업용)
 temp_audio/
-temp_subtitles/
 temp_slice.mp3
 
 # 로그 파일
@@ -69,3 +68,5 @@ pattern_analysis.json
 google-credentials.json
 *-*.json
 *.json:Zone.Identifier
+temp_subtitles/
+*_log*.txt

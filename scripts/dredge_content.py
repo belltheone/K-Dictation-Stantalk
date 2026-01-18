@@ -27,7 +27,7 @@ from yt_dlp import YoutubeDL
 TARGET_STAGE_COUNT = 30
 SEARCH_LIMIT = 50
 AUDIO_DIR = "/home/qwer/Workspace/kdictation/temp_audio"
-OUTPUT_SQL = "/home/qwer/Workspace/kdictation/supabase/migrations/032_stage_data_batch.sql"
+OUTPUT_SQL = "supabase/migrations/034_part1_recovery.sql"
 
 if not os.path.exists(AUDIO_DIR):
     os.makedirs(AUDIO_DIR)
@@ -76,7 +76,7 @@ def download_audio(video_id):
     cmd = [
         "yt-dlp", "-x", "--audio-format", "mp3", "--audio-quality", "5",
         "-o", path + ".%(ext)s",
-        "--download-sections", "*0:00-3:00", # First 3 mins mainly
+        "--download-sections", "*0:00-2:00", # Optimize: Scan first 2 mins only
         url
     ]
     
@@ -139,6 +139,10 @@ def process_artist(artist_name, model):
             
             if challenges:
                 best = challenges[0]
+                if len(best['full_sentence']) < 10:
+                    print(f"  - Skipped: Too short ({best['full_sentence']})")
+                    continue
+
                 diff = calculate_difficulty(best['full_sentence'], best['end_sec'] - best['start_sec'])
                 
                 candidates.append({
@@ -149,7 +153,7 @@ def process_artist(artist_name, model):
                 })
                 print(f"  + Added! Score: {diff:.1f} (Exp: {best['full_sentence']})")
                 
-                if len(candidates) >= 40: # Gather strict buffer
+                if len(candidates) >= 30: # Optimized buffer for recovery
                     break
         except Exception as e:
             print(f"  - Error: {e}")
@@ -168,6 +172,12 @@ def process_artist(artist_name, model):
         is_locked = 'false' if stage == 1 else 'true'
         vid = item['video_id']
         ch = item['challenge']
+        
+        # Safe string escaping for SQL
+        safe_full_sentence = ch['full_sentence'].replace("'", "''")
+        safe_answer = ch['answer_word'].replace("'", "''")
+        safe_base = (ch.get('base_form') or '').replace("'", "''")
+        safe_hint = (ch.get('hint_en') or '').replace("'", "''")
         
         # INSERT or UPDATE content
         # We assume UPSERT on youtube_id if possible, but standard is INSERT ON CONFLICT
@@ -192,30 +202,53 @@ BEGIN
 
   -- Insert new challenge
   INSERT INTO challenges (content_id, start_sec, end_sec, full_sentence, answer_word, base_form, hint_en)
-  VALUES (v_content_id, {ch['start_sec']}, {ch['end_sec']}, '{ch['full_sentence']}', '{ch['answer_word']}', '{ch.get('base_form','')}', '{ch.get('hint_en','').replace("'", "''")}');
+  VALUES (v_content_id, {ch['start_sec']}, {ch['end_sec']}, '{safe_full_sentence}', '{safe_answer}', '{safe_base}', '{safe_hint}');
 END $$;
 """
         sql_statements.append(sql)
         
     return sql_statements
 
+# Full Artist List (32 Groups)
+ALL_ARTISTS = [
+    "BTS", "NewJeans", "BLACKPINK", "IVE", "aespa",
+    "SEVENTEEN", "Stray Kids", "NCT 127", "NCT DREAM", "TXT",
+    "ENHYPEN", "LE SSERAFIM", "ITZY", "TWICE", "G-IDLE",
+    "NMIXX", "BABYMONSTER", "BOYNEXTDOOR", "TWS", "fromis_9",
+    "ATEEZ", "Red Velvet", "RIIZE", "ZEROBASEONE", "xikers",
+    "KISS OF LIFE", "Kep1er", "MEOVV", "WayV", "ILLIT",
+    "IZNA", "Hearts2Hearts"
+]
+
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python3 dredge_content.py <Artist_Name> [Artist_Name2 ...]")
+        print("Usage: python3 dredge_content.py <Artist_Name> [Artist_Name2 ...] OR 'ALL'")
         sys.exit(1)
         
-    artists = sys.argv[1:]
+    if sys.argv[1] == "ALL":
+        print(f"🌊 Dredging Content for ALL {len(ALL_ARTISTS)} Artists...")
+        artists = ALL_ARTISTS
+    else:
+        artists = sys.argv[1:]
     
-    print("Loading Whisper Model...")
-    model = whisper.load_model("base")
+    print("Loading Whisper Model (medium)... This may take a while and use ~5GB VRAM.")
+    model = whisper.load_model("medium")
     
-    all_sql = []
-    
+    # Append mode is safer for recovery
+    # with open(OUTPUT_SQL, "w") as f:
+    #     f.write("-- Dredge Content Batch\n")
+
+    total_count = 0
     for artist in artists:
-        sqls = process_artist(artist, model)
-        all_sql.extend(sqls)
+        try:
+            sqls = process_artist(artist, model)
+            if sqls:
+                count = len(sqls)
+                with open(OUTPUT_SQL, "a") as f:
+                    f.write("\n".join(sqls) + "\n")
+                print(f"saved {count} items for {artist}")
+                total_count += count
+        except Exception as e:
+            print(f"CRITICAL ERROR processing {artist}: {e}")
         
-    with open(OUTPUT_SQL, "a") as f: # Append mode
-        f.write("\n".join(all_sql))
-        
-    print(f"\nSaved {len(all_sql)} statements to {OUTPUT_SQL}")
+    print(f"\nSaved {total_count} statements to {OUTPUT_SQL}")
