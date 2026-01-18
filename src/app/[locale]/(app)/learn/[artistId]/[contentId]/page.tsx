@@ -9,7 +9,8 @@ import YouTube, { YouTubePlayer, YouTubeEvent } from "react-youtube";
 import { createClient } from "@supabase/supabase-js";
 import {
     Play, Pause, RotateCcw, Volume2, VolumeX,
-    ChevronLeft, Flame, Check, X, Loader2, Lightbulb
+    ChevronLeft, Flame, Check, X, Loader2, Lightbulb,
+    Eye, EyeOff
 } from "lucide-react";
 import { HintPanel } from "@/components/player/HintPanel";
 import { InterstitialAd } from "@/components/ads/InterstitialAd";
@@ -71,6 +72,9 @@ export default function DictationPlayerPage() {
 
     // 힌트 패널 표시 상태
     const [showHint, setShowHint] = useState(false);
+
+    // 자막 블러 상태 (기본값 true)
+    const [isSubtitleBlurred, setIsSubtitleBlurred] = useState(true);
 
     // 사용자 접근 상태
     const { isGuest, isFree, isPro, isLoading: userLoading } = useUserAccess();
@@ -337,6 +341,7 @@ export default function DictationPlayerPage() {
         if (selected === challenge.answerWord) {
             setPlayerState('success');
             player?.pauseVideo();
+            setIsSubtitleBlurred(false); // 정답 시 블러 해제
 
             // 비회원: 문제 풀이 횟수 증가 및 제한 확인
             if (isGuest) {
@@ -391,6 +396,7 @@ export default function DictationPlayerPage() {
             setPlayerState('ready');
             setSelectedOption(null);
             setShowHint(false); // 힌트 상태 초기화
+            setIsSubtitleBlurred(true); // 다음 문제로 가면 다시 블러
         } else {
             // 모든 챌린지 완료 - 처음으로 돌아가기
             setCurrentChallengeIndex(0);
@@ -398,6 +404,7 @@ export default function DictationPlayerPage() {
             setPlayerState('ready');
             setSelectedOption(null);
             setShowHint(false); // 힌트 상태 초기화
+            setIsSubtitleBlurred(true); // 처음으로 돌아가면 다시 블러
         }
     };
 
@@ -472,6 +479,19 @@ export default function DictationPlayerPage() {
                             iframeClassName="w-full h-full"
                         />
 
+                        {/* 자막 블러 오버레이 */}
+                        <AnimatePresence>
+                            {isSubtitleBlurred && (
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="absolute bottom-0 w-full h-[25%] bg-black/60 backdrop-blur-md pointer-events-none z-10"
+                                />
+                            )}
+                        </AnimatePresence>
+
                         {playerState === 'loading' && (
                             <div className="absolute inset-0 flex items-center justify-center bg-black/80">
                                 <div className="text-center">
@@ -484,6 +504,18 @@ export default function DictationPlayerPage() {
 
                     {/* 컨트롤 버튼들 */}
                     <div className="flex items-center justify-center gap-3 md:gap-4 mb-6 md:mb-8">
+                        {/* 자막 블러 토글 버튼 */}
+                        <button
+                            onClick={() => setIsSubtitleBlurred(!isSubtitleBlurred)}
+                            className={`p-2 md:p-3 rounded-full border transition-colors ${isSubtitleBlurred
+                                    ? "border-emerald-500/50 text-emerald-500 bg-emerald-500/10"
+                                    : "border-zinc-700 text-zinc-400 hover:border-zinc-500"
+                                }`}
+                            title={isSubtitleBlurred ? "자막 가림 켜짐" : "자막 가림 꺼짐"}
+                        >
+                            {isSubtitleBlurred ? <EyeOff className="w-4 h-4 md:w-5 md:h-5" /> : <Eye className="w-4 h-4 md:w-5 md:h-5" />}
+                        </button>
+
                         <button
                             onClick={toggleMute}
                             className="p-2 md:p-3 rounded-full border border-zinc-700 hover:border-rose-500/50 transition-colors"
