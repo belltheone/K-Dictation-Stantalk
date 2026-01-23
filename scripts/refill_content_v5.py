@@ -21,10 +21,10 @@ from patterns_expanded import find_learning_sentences
 
 # Configuration
 TARGET_STAGE_COUNT = 30
-VIDEOS_PER_CHANNEL = 50
+VIDEOS_PER_CHANNEL = 200  # Deep Scan: 50 -> 200
 AUDIO_DIR = "/home/qwer/Workspace/kdictation/temp_audio"
 SUBTITLE_DIR = "/home/qwer/Workspace/kdictation/temp_subtitles"
-OUTPUT_SQL = "supabase/migrations/038_stage_data_v4.sql"
+OUTPUT_SQL = "supabase/migrations/040_stage_data_refill.sql"
 
 for d in [AUDIO_DIR, SUBTITLE_DIR]:
     if not os.path.exists(d):
@@ -43,7 +43,7 @@ OFFICIAL_CHANNELS = {
     "NCT DREAM": "@NCTDREAM",
     "TXT": "@TXT_bighit",
     "ENHYPEN": "@ENHYPENOFFICIAL",
-    "LE SSERAFIM": "@LESSERAFIM_official",
+    "LE SSERAFIM": "@LE_SSERAFIM",
     "ITZY": "@ITZY",
     "TWICE": "@TWICE",
     "G-IDLE": "@official_i_dle",
