@@ -55,10 +55,11 @@
             "button": "Random Challenge"
         },
         "artistList": "Danh sách nghệ sĩ",
-        "totalXP": "XP có thể nhận"
+        "totalXP": "XP có thể nhận",
+        "searchPlaceholder": "Tìm kiếm nghệ sĩ..."
     },
     "player": {
-        "loading": "Đang đợi Oppa... 🎤",
+        "loading": "Đang tải video... 🎤",
         "fillBlank": "Điền vào chỗ trống!",
         "inputPlaceholder": "Nhập câu trả lời ở đây...",
         "checkAnswer": "Kiểm tra đáp án",
@@ -77,7 +78,8 @@
             "play": "Phát",
             "pause": "Tạm dừng",
             "replay": "Phát lại"
-        }
+        },
+        "playInstruction": "Nhấn để phát video"
     },
     "dashboard": {
         "title": "Bảng điều khiển của tôi",

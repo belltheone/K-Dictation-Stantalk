@@ -55,10 +55,11 @@
             "button": "Défi aléatoire"
         },
         "artistList": "Liste des artistes",
-        "totalXP": "XP total disponible"
+        "totalXP": "XP total disponible",
+        "searchPlaceholder": "Rechercher un artiste..."
     },
     "player": {
-        "loading": "En attente d'Oppa... 🎤",
+        "loading": "Chargement de la vidéo... 🎤",
         "fillBlank": "Remplis le blanc !",
         "inputPlaceholder": "Tape ta réponse ici...",
         "checkAnswer": "Vérifier la réponse",
@@ -77,7 +78,8 @@
             "play": "Lecture",
             "pause": "Pause",
             "replay": "Rejouer"
-        }
+        },
+        "playInstruction": "Cliquez pour lire la vidéo"
     },
     "dashboard": {
         "title": "Mon tableau de bord",

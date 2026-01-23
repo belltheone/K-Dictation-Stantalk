@@ -55,10 +55,11 @@
             "button": "Zufalls-Challenge"
         },
         "artistList": "Künstlerliste",
-        "totalXP": "Gesamt-XP verfügbar"
+        "totalXP": "Gesamt-XP verfügbar",
+        "searchPlaceholder": "Künstler suchen..."
     },
     "player": {
-        "loading": "Warte auf Oppa... 🎤",
+        "loading": "Video wird geladen... 🎤",
         "fillBlank": "Fülle die Lücke aus!",
         "inputPlaceholder": "Tippe deine Antwort hier...",
         "checkAnswer": "Antwort prüfen",
@@ -77,7 +78,8 @@
             "play": "Abspielen",
             "pause": "Pause",
             "replay": "Wiederholen"
-        }
+        },
+        "playInstruction": "Klicken Sie zum Abspielen"
     },
     "dashboard": {
         "title": "Mein Dashboard",

@@ -55,10 +55,11 @@
             "button": "Random Challenge"
         },
         "artistList": "艺人列表",
-        "totalXP": "可获得的XP"
+        "totalXP": "可获得的XP",
+        "searchPlaceholder": "搜索艺人..."
     },
     "player": {
-        "loading": "等待欧巴中... 🎤",
+        "loading": "加载视频中... 🎤",
         "fillBlank": "请填写空白处！",
         "inputPlaceholder": "在这里输入...",
         "checkAnswer": "检查答案",
@@ -77,7 +78,8 @@
             "play": "播放",
             "pause": "暂停",
             "replay": "重新播放"
-        }
+        },
+        "playInstruction": "点击播放视频"
     },
     "dashboard": {
         "title": "我的仪表板",

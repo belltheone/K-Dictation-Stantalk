@@ -55,10 +55,11 @@
             "button": "Random Challenge"
         },
         "artistList": "รายชื่อศิลปิน",
-        "totalXP": "XP ที่รับได้"
+        "totalXP": "XP ที่รับได้",
+        "searchPlaceholder": "ค้นหาศิลปิน..."
     },
     "player": {
-        "loading": "รอโอปป้าอยู่... 🎤",
+        "loading": "กำลังโหลดวิดีโอ... 🎤",
         "fillBlank": "เติมคำในช่องว่าง!",
         "inputPlaceholder": "พิมพ์คำตอบที่นี่...",
         "checkAnswer": "ตรวจคำตอบ",
@@ -77,7 +78,8 @@
             "play": "เล่น",
             "pause": "หยุดชั่วคราว",
             "replay": "เล่นซ้ำ"
-        }
+        },
+        "playInstruction": "คลิกเพื่อเล่นวิดีโอ"
     },
     "dashboard": {
         "title": "แดชบอร์ดของฉัน",

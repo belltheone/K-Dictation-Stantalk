@@ -55,10 +55,11 @@
             "button": "Random Challenge"
         },
         "artistList": "Artist List",
-        "totalXP": "Total XP available"
+        "totalXP": "Total XP available",
+        "searchPlaceholder": "Search artist..."
     },
     "player": {
-        "loading": "Waiting for Oppa... 🎤",
+        "loading": "Loading video... 🎤",
         "fillBlank": "Fill in the blank!",
         "inputPlaceholder": "Type your answer here...",
         "checkAnswer": "Check Answer",
@@ -77,7 +78,8 @@
             "play": "Play",
             "pause": "Pause",
             "replay": "Replay"
-        }
+        },
+        "playInstruction": "Click to play the video"
     },
     "dashboard": {
         "title": "My Dashboard",

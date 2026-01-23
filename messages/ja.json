@@ -55,10 +55,11 @@
             "button": "Random Challenge"
         },
         "artistList": "アーティスト一覧",
-        "totalXP": "獲得可能なXP"
+        "totalXP": "獲得可能なXP",
+        "searchPlaceholder": "アーティスト検索..."
     },
     "player": {
-        "loading": "オッパを待っています... 🎤",
+        "loading": "動画を読み込み中... 🎤",
         "fillBlank": "空欄を埋めてください！",
         "inputPlaceholder": "ここに入力してください...",
         "checkAnswer": "答えを確認",
@@ -77,7 +78,8 @@
             "play": "再生",
             "pause": "一時停止",
             "replay": "もう一度聴く"
-        }
+        },
+        "playInstruction": "動画を再生するにはクリックしてください"
     },
     "dashboard": {
         "title": "マイダッシュボード",

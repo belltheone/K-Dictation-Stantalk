@@ -55,10 +55,11 @@
             "button": "Random Challenge"
         },
         "artistList": "아티스트 목록",
-        "totalXP": "XP 획득 가능"
+        "totalXP": "XP 획득 가능",
+        "searchPlaceholder": "아티스트 검색..."
     },
     "player": {
-        "loading": "오빠 기다리는 중... 🎤",
+        "loading": "영상 로딩 중... 🎤",
         "fillBlank": "빈칸에 들어갈 말을 받아쓰세요!",
         "inputPlaceholder": "여기에 입력하세요...",
         "checkAnswer": "정답 확인",
@@ -77,7 +78,8 @@
             "play": "재생",
             "pause": "일시정지",
             "replay": "다시 듣기"
-        }
+        },
+        "playInstruction": "비디오를 재생하려면 클릭하세요"
     },
     "dashboard": {
         "title": "내 대시보드",

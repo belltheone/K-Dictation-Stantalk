@@ -113,9 +113,15 @@ export default function ArtistPage() {
                         thumbnail_url: item.thumbnail_url
                     }));
 
-                    // Force unlock first stage if all are locked (safety) - 관리자가 아니더라도 첫 스테이지는 열림
-                    if (!isAdminUser && contentList.length > 0 && contentList.every(c => c.is_locked)) {
-                        contentList[0].is_locked = false;
+                    // Force unlock stage 1 (not just index 0) - 관리자가 아니더라도 1번 스테이지는 열림
+                    if (!isAdminUser && contentList.length > 0) {
+                        const stage1 = contentList.find(c => c.stage_number === 1);
+                        if (stage1) {
+                            stage1.is_locked = false;
+                        } else if (contentList.every(c => c.is_locked)) {
+                            // stage_number가 없으면 첫 번째 요소 열기 (fallback)
+                            contentList[0].is_locked = false;
+                        }
                     }
 
                     // @ts-ignore

@@ -500,6 +500,18 @@ export default function DictationPlayerPage() {
                                 </div>
                             </div>
                         )}
+
+                        {/* 재생 안내 - ready 상태일 때 표시 */}
+                        {playerState === 'ready' && (
+                            <div className="absolute inset-0 flex items-center justify-center bg-black/60 cursor-pointer" onClick={togglePlay}>
+                                <div className="text-center">
+                                    <Play className="w-12 h-12 md:w-16 md:h-16 text-white mx-auto mb-2" />
+                                    <p className="text-white text-sm md:text-base font-medium">
+                                        {t("player.playInstruction") || "Click to play the video"}
+                                    </p>
+                                </div>
+                            </div>
+                        )}
                     </motion.div>
 
                     {/* 컨트롤 버튼들 */}
