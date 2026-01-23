@@ -1,6 +1,7 @@
 // 앱 레이아웃 (Protected Routes) - 로그인 필요 영역
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { GuestProvider } from "@/contexts/GuestContext";
 
 export const metadata: Metadata = {
     title: "Learn",
@@ -20,7 +21,9 @@ export default async function AppLayout({
 
     return (
         <div className="min-h-screen">
-            <main>{children}</main>
+            <GuestProvider>
+                <main>{children}</main>
+            </GuestProvider>
         </div>
     );
 }

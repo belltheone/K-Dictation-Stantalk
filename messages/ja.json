@@ -165,5 +165,30 @@
                 "description": "韓国語学習のモチベーションとメリット。"
             }
         }
+    },
+    "leaderboard": {
+        "title": "リーダーボード",
+        "weekly": "週間",
+        "allTime": "全期間"
+    },
+    "badges": {
+        "title": "実績",
+        "unlocked": "獲得済み"
+    },
+    "bookmarks": {
+        "title": "ブックマーク"
+    },
+    "settings": {
+        "title": "設定",
+        "subtitle": "アカウントと設定を管理",
+        "profile": "プロフィール",
+        "guestMode": "ゲストモード",
+        "preferences": "設定",
+        "language": "言語",
+        "dangerZone": "危険ゾーン",
+        "resetData": "すべてのデータをリセット",
+        "resetDesc": "ゲストの進行状況を永久に削除します",
+        "resetConfirm": "すべての進行状況をリセットしますか？元に戻せません。",
+        "logoutDesc": "アカウントからログアウト"
     }
 }

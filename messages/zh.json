@@ -165,5 +165,30 @@
                 "description": "学习韩语的动力和好处。"
             }
         }
+    },
+    "leaderboard": {
+        "title": "Leaderboard",
+        "weekly": "Weekly",
+        "allTime": "All Time"
+    },
+    "badges": {
+        "title": "Achievements",
+        "unlocked": "Unlocked"
+    },
+    "bookmarks": {
+        "title": "Bookmarks"
+    },
+    "settings": {
+        "title": "Settings",
+        "subtitle": "Manage your account and preferences",
+        "profile": "Profile",
+        "guestMode": "Guest Mode",
+        "preferences": "Preferences",
+        "language": "Language",
+        "dangerZone": "Danger Zone",
+        "resetData": "Reset All Data",
+        "resetDesc": "Permanently delete your guest progress",
+        "resetConfirm": "Are you sure you want to reset all progress?",
+        "logoutDesc": "Sign out of your account"
     }
 }

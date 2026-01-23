@@ -250,5 +250,18 @@
         "dark": "다크 모드",
         "light": "라이트 모드",
         "system": "시스템"
+    },
+    "settings": {
+        "title": "설정",
+        "subtitle": "계정 및 환경설정 관리",
+        "profile": "프로필",
+        "guestMode": "게스트 모드",
+        "preferences": "환경설정",
+        "language": "언어",
+        "dangerZone": "위험 구역",
+        "resetData": "모든 데이터 초기화",
+        "resetDesc": "게스트 진행 상황을 영구적으로 삭제합니다",
+        "resetConfirm": "모든 진행 상황을 초기화하시겠습니까? 이 작업은 되돌릴 수 없습니다.",
+        "logoutDesc": "계정에서 로그아웃합니다"
     }
 }
