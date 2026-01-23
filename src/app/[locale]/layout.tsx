@@ -7,6 +7,8 @@ import { routing } from "@/i18n/routing";
 import { GoogleAnalytics } from "@/lib/analytics";
 import Script from "next/script";
 import "../globals.css";
+import { Footer } from "@/components/layout/Footer";
+import { InstallPrompt } from "@/components/pwa/InstallPrompt";
 
 // 폰트 설정 - 영문 타이틀용 Montserrat, 본문용 Inter
 const inter = Inter({
@@ -107,7 +109,13 @@ export default async function LocaleLayout({
                         enableSystem={false}
                         disableTransitionOnChange
                     >
-                        {children}
+                        <div className="flex flex-col min-h-screen">
+                            <div className="flex-1">
+                                {children}
+                            </div>
+                            <Footer />
+                            <InstallPrompt />
+                        </div>
                     </ThemeProvider>
                 </NextIntlClientProvider>
             </body>

@@ -40,6 +40,7 @@ const createDefaultGuestData = (): GuestData => ({
 export function GuestProvider({ children }: { children: ReactNode }) {
     const [guestData, setGuestData] = useState<GuestData | null>(null);
     const [isGuest, setIsGuest] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false); // 로드 상태 추가
 
     // 로컬 스토리지에서 게스트 데이터 로드
     useEffect(() => {
@@ -57,6 +58,7 @@ export function GuestProvider({ children }: { children: ReactNode }) {
                 localStorage.setItem(GUEST_STORAGE_KEY, JSON.stringify(newData));
             }
         }
+        setIsLoaded(true); // 로드 완료 표시
     }, []);
 
     // 게스트 데이터 저장
@@ -115,15 +117,15 @@ export function GuestProvider({ children }: { children: ReactNode }) {
         setIsGuest(false);
     };
 
-    // 게스트 모드 시작 (첫 방문 시)
+    // 게스트 모드 시작 (로드 완료 후 데이터가 없을 때만 실행)
     useEffect(() => {
-        if (!guestData && typeof window !== "undefined") {
+        if (isLoaded && !guestData && typeof window !== "undefined") {
             const newData = createDefaultGuestData();
             setGuestData(newData);
             setIsGuest(true);
             localStorage.setItem(GUEST_STORAGE_KEY, JSON.stringify(newData));
         }
-    }, [guestData]);
+    }, [isLoaded, guestData]);
 
     return (
         <GuestContext.Provider
@@ -137,7 +139,7 @@ export function GuestProvider({ children }: { children: ReactNode }) {
                 clearGuestData,
             }}
         >
-            {children}
+            {isLoaded ? children : null}
         </GuestContext.Provider>
     );
 }

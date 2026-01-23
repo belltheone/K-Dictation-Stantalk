@@ -151,7 +151,7 @@ export default function DictationPlayerPage() {
                         wrongOptions: generateWrongOptions(ch.answer_word, challengeData),
                         hintEn: ch.hint_en || '',
                         grammarExplanation: ch.grammar_explanation || '',
-                        xp: 10,
+                        xp: randomContent.difficulty === 'easy' ? 50 : randomContent.difficulty === 'hard' ? 120 : 80,
                         artistName: randomContent.artist_name,
                         contentTitle: randomContent.title,
                     }));
@@ -188,7 +188,7 @@ export default function DictationPlayerPage() {
                         wrongOptions: generateWrongOptions(ch.answer_word, challengeData),
                         hintEn: ch.hint_en || '',
                         grammarExplanation: ch.grammar_explanation || '',
-                        xp: 10,
+                        xp: content.difficulty === 'easy' ? 50 : content.difficulty === 'hard' ? 120 : 80,
                         artistName: content.artist_name,
                         contentTitle: content.title,
                     }));
@@ -508,8 +508,8 @@ export default function DictationPlayerPage() {
                         <button
                             onClick={() => setIsSubtitleBlurred(!isSubtitleBlurred)}
                             className={`p-2 md:p-3 rounded-full border transition-colors ${isSubtitleBlurred
-                                    ? "border-emerald-500/50 text-emerald-500 bg-emerald-500/10"
-                                    : "border-zinc-700 text-zinc-400 hover:border-zinc-500"
+                                ? "border-emerald-500/50 text-emerald-500 bg-emerald-500/10"
+                                : "border-zinc-700 text-zinc-400 hover:border-zinc-500"
                                 }`}
                             title={isSubtitleBlurred ? "자막 가림 켜짐" : "자막 가림 꺼짐"}
                         >

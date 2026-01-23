@@ -67,6 +67,17 @@ export default function ArtistPage() {
             try {
                 setIsLoading(true);
 
+                // 1. 관리자 여부 확인
+                let isAdminUser = false;
+                const { data: { user } } = await supabase.auth.getUser();
+                if (user && user.email) {
+                    const adminEmails = (process.env.NEXT_PUBLIC_ADMIN_EMAILS || "").split(",").map(e => e.trim());
+                    // console.log("Current User:", user.email, "Is Admin:", adminEmails.includes(user.email));
+                    if (adminEmails.includes(user.email)) {
+                        isAdminUser = true;
+                    }
+                }
+
                 // URL에서 아티스트 이름 복원
                 const decodedArtistId = decodeURIComponent(artistId);
                 const searchName = decodedArtistId.replace(/-/g, ' ');
@@ -91,25 +102,23 @@ export default function ArtistPage() {
                     // 콘텐츠 데이터 변환
                     const contentList: ContentData[] = data.map((item, index) => ({
                         id: item.id, // Use real ID for key
-                        displayId: `content-${index + 1}`, // Assuming slug routing relies on this index logic or we need to fix routing too.
-                        // Wait, previous routing was `content-${index+1}`. If we want to keep that working without changing dynamic route structure, we keep it.
-                        // But StageMap links to displayId.
+                        displayId: `content-${index + 1}`,
                         title: item.title,
                         difficulty: item.difficulty || 'normal',
                         youtubeId: item.youtube_id,
                         xp: item.difficulty === 'easy' ? 50 : item.difficulty === 'hard' ? 120 : 80,
                         stage_number: item.stage_number || (index + 1), // Fallback if null
                         difficulty_score: item.difficulty_score || 0,
-                        is_locked: item.is_locked,
+                        is_locked: isAdminUser ? false : item.is_locked, // 관리자는 잠금 해제
                         thumbnail_url: item.thumbnail_url
                     }));
 
-                    // Force unlock first stage if all are locked (safety)
-                    if (contentList.length > 0 && contentList.every(c => c.is_locked)) {
+                    // Force unlock first stage if all are locked (safety) - 관리자가 아니더라도 첫 스테이지는 열림
+                    if (!isAdminUser && contentList.length > 0 && contentList.every(c => c.is_locked)) {
                         contentList[0].is_locked = false;
                     }
 
-                    // @ts-ignore - ContentData type in this file needs update or we cast
+                    // @ts-ignore
                     setContents(contentList as any);
                 } else {
                     // 아티스트를 찾지 못한 경우
