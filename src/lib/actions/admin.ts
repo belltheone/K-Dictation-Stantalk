@@ -196,7 +196,8 @@ export async function getAllContents() {
       *,
       challenges (count)
     `)
-        .order("created_at", { ascending: false });
+        .order("created_at", { ascending: false })
+        .limit(10000); // 전체 데이터 로드 (기본 1000개 제한 해제)
 
     if (error) {
         console.error("콘텐츠 조회 에러:", error.message);

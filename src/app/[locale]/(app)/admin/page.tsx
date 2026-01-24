@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import {
     Plus, Trash2, Eye, EyeOff, ChevronLeft,
-    Youtube, Sparkles, Check, X, Loader2, ShieldX
+    Youtube, Sparkles, Check, X, Loader2, ShieldX, Search
 } from "lucide-react";
 import {
     createContent,
@@ -19,6 +19,7 @@ import { isAdmin } from "@/lib/auth/admin";
 
 // Admin 대시보드 페이지
 export default function AdminPage() {
+    const [searchTerm, setSearchTerm] = useState("");
     const [contents, setContents] = useState<Array<{
         id: string;
         youtube_id: string;
@@ -62,6 +63,12 @@ export default function AdminPage() {
         setContents(data as typeof contents);
         setIsLoading(false);
     };
+
+    // 검색 필터링
+    const filteredContents = contents.filter(content =>
+        content.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        content.artist_name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     // 콘텐츠 공개/비공개 토글
     const handleTogglePublish = async (contentId: string) => {
@@ -179,20 +186,43 @@ export default function AdminPage() {
 
                 {/* 콘텐츠 목록 */}
                 <div className="card p-4 md:p-6">
-                    <h2 className="text-lg font-bold text-white mb-4">Content Library</h2>
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                        <h2 className="text-lg font-bold text-white">Content Library</h2>
+
+                        {/* 검색창 */}
+                        <div className="relative w-full md:w-64">
+                            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                            <input
+                                type="text"
+                                placeholder="Search by title or artist..."
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                className="w-full bg-[#09090b] border border-white/10 rounded-lg py-2 pl-9 pr-4 text-sm text-white focus:outline-none focus:border-[#FF007F]"
+                            />
+                        </div>
+                    </div>
 
                     {isLoading ? (
                         <div className="text-center py-12">
                             <Loader2 className="w-8 h-8 text-[#FF007F] animate-spin mx-auto" />
                         </div>
-                    ) : contents.length === 0 ? (
+                    ) : filteredContents.length === 0 ? (
                         <div className="text-center py-12 text-gray-400">
-                            <Youtube className="w-12 h-12 mx-auto mb-4 opacity-50" />
-                            <p>No content yet. Add your first video!</p>
+                            {searchTerm ? (
+                                <>
+                                    <Search className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                                    <p>No results found for "{searchTerm}"</p>
+                                </>
+                            ) : (
+                                <>
+                                    <Youtube className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                                    <p>No content yet. Add your first video!</p>
+                                </>
+                            )}
                         </div>
                     ) : (
                         <div className="space-y-3">
-                            {contents.map((content) => (
+                            {filteredContents.map((content) => (
                                 <motion.div
                                     key={content.id}
                                     initial={{ opacity: 0, y: 10 }}
